@@ -1,0 +1,26 @@
+gcc src/algoritmos.c src/capture.c src/clique.c src/Main.c src/profile.c src/util.c src/ZoomCanvas.c src/ZoomWindow.c `pkg-config --cflags --libs gtk+-2.0` -mfloat-abi=softfp -lv4l2 -g -O3 -march=armv7-a -mtune=cortex-a8 -ftree-vectorizer-verbose=1  -o xLupaEmbedded
+cc1: error: unrecognized command line option ‘-mfloat-abi=softfp’
+src/algoritmos.c:1:0: error: bad value (armv7-a) for -march= switch
+src/algoritmos.c:1:0: error: bad value (cortex-a8) for -mtune= switch
+cc1: error: unrecognized command line option ‘-mfloat-abi=softfp’
+src/capture.c:1:0: error: bad value (armv7-a) for -march= switch
+src/capture.c:1:0: error: bad value (cortex-a8) for -mtune= switch
+cc1: error: unrecognized command line option ‘-mfloat-abi=softfp’
+src/clique.c:1:0: error: bad value (armv7-a) for -march= switch
+src/clique.c:1:0: error: bad value (cortex-a8) for -mtune= switch
+cc1: error: unrecognized command line option ‘-mfloat-abi=softfp’
+src/Main.c:1:0: error: bad value (armv7-a) for -march= switch
+src/Main.c:1:0: error: bad value (cortex-a8) for -mtune= switch
+cc1: error: unrecognized command line option ‘-mfloat-abi=softfp’
+src/profile.c:1:0: error: bad value (armv7-a) for -march= switch
+src/profile.c:1:0: error: bad value (cortex-a8) for -mtune= switch
+cc1: error: unrecognized command line option ‘-mfloat-abi=softfp’
+src/util.c:1:0: error: bad value (armv7-a) for -march= switch
+src/util.c:1:0: error: bad value (cortex-a8) for -mtune= switch
+cc1: error: unrecognized command line option ‘-mfloat-abi=softfp’
+src/ZoomCanvas.c:1:0: error: bad value (armv7-a) for -march= switch
+src/ZoomCanvas.c:1:0: error: bad value (cortex-a8) for -mtune= switch
+cc1: error: unrecognized command line option ‘-mfloat-abi=softfp’
+src/ZoomWindow.c:1:0: error: bad value (armv7-a) for -march= switch
+src/ZoomWindow.c:1:0: error: bad value (cortex-a8) for -mtune= switch
+make: *** [all] Error 1
