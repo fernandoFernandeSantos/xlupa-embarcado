@@ -12,9 +12,8 @@ pthread_t clique;
 
 int main(int argc, char **argv){
 	gtk_init(&argc, &argv);
-        int c;
 	zoom=1.0;
-	color=0;
+	color=3;
 	gray=0;
 	brilho = 50;
 	contraste=50;
