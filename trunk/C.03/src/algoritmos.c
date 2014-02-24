@@ -38,7 +38,8 @@ void imagem_to_cinza(GdkPixbuf *subimage) {
         //condição retira a necessidade de dois laços
         
         limite_x = (limite_x + 1) % orig_img_width;
-        limite_x = (limite_x + floor(limite_y / orig_img_width));
+        limite_y = (limite_y + floor(limite_x / (orig_img_width - 1)));
+       
     }
 }
 
@@ -80,7 +81,7 @@ void limiar_imagem(GdkPixbuf *subimage, guchar cor_rgb1[3], guchar cor_rgb2[3]) 
         //condição retira a necessidade de dois laços
        
         limite_x = (limite_x + 1) % orig_img_width;
-        limite_x = (limite_x + floor(limite_y / orig_img_width));
+        limite_y = (limite_y + floor(limite_x / (orig_img_width - 1)));
     }// fim do for externo
     //----------------------------------------------------------------------
 }
@@ -128,7 +129,7 @@ void brilho_contraste_imagem(GdkPixbuf *subimage, double brilho, double contrast
         //condição retira a necessidade de dois laços
         
         limite_x = (limite_x + 1) % orig_img_width;
-        limite_x = (limite_x + floor(limite_y / orig_img_width));
+        limite_y = (limite_y + floor(limite_x / (orig_img_width - 1)));
     }
 }
 
