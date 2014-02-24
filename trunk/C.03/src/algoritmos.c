@@ -1,5 +1,6 @@
 #include <gtk/gtk.h>
 #include "algoritmos.h"
+#include <math.h>
 
 unsigned int orig_img_width = 0;
 unsigned int orig_img_height = 0;
@@ -36,10 +37,8 @@ void imagem_to_cinza(GdkPixbuf *subimage) {
         PUT_PIXEL24(subimage_data, limite_x, limite_y, source_rowstride, pixel);
         //condição retira a necessidade de dois laços
         
-        if (limite_x >= orig_img_width - 1) {
-            limite_y++;
-        }
         limite_x = (limite_x + 1) % orig_img_width;
+        limite_x = (limite_x + floor(limite_y / orig_img_width));
     }
 }
 
@@ -80,10 +79,8 @@ void limiar_imagem(GdkPixbuf *subimage, guchar cor_rgb1[3], guchar cor_rgb2[3]) 
         PUT_PIXEL24(subimage_data, limite_x, limite_y, source_rowstride, pixel);
         //condição retira a necessidade de dois laços
        
-        if (limite_x >= orig_img_width - 1) {
-            limite_y++;
-        }
         limite_x = (limite_x + 1) % orig_img_width;
+        limite_x = (limite_x + floor(limite_y / orig_img_width));
     }// fim do for externo
     //----------------------------------------------------------------------
 }
@@ -130,10 +127,8 @@ void brilho_contraste_imagem(GdkPixbuf *subimage, double brilho, double contrast
         rgb[2] = (unsigned char) val;
         //condição retira a necessidade de dois laços
         
-        if (limite_x >= orig_img_width - 1) {
-            limite_y++;
-        }
-        limite_x = (limite_x + 1) % orig_img_width ;
+        limite_x = (limite_x + 1) % orig_img_width;
+        limite_x = (limite_x + floor(limite_y / orig_img_width));
     }
 }
 
