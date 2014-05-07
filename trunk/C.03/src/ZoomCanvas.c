@@ -27,7 +27,9 @@ void free_resources(gpointer data) {
 void processa_imagem(unsigned char *ini) {
     int width = 1280;
     int height = 720;
+/*
     int j;
+*/
     int estado;
 
     //	width = get_current_width();
@@ -69,7 +71,9 @@ void processa_imagem(unsigned char *ini) {
     cairo_t* cr = gdk_cairo_create(canvas->window);
 
     //cairo_translate(cr, 0,-100);
-    cairo_scale(cr, current_zoom, current_zoom);
+
+    if (current_zoom > 1.0)
+        cairo_scale(cr, current_zoom, current_zoom);
 
     gdk_cairo_set_source_pixbuf(cr, pixbuf, 0, 0);
 
@@ -81,16 +85,16 @@ void processa_imagem(unsigned char *ini) {
 
 gboolean time_handler() {
     static int temp = 0;
-    while (1) {
-        register_time();
-        call_process_image(processa_imagem);
-        double t = get_time_mili();
-        if (temp++ > 7) {
-            acc += t;
-            cont++;
-            printf("Amostragem: %3d | Atual : %10.2lfms | Média: %10.2lfms\n", cont, t, acc / cont);
-        }
+    //while (1) {
+    register_time();
+    call_process_image(processa_imagem);
+    double t = get_time_mili();
+    if (temp++ > 7) {
+        acc += t;
+        cont++;
+        printf("Amostragem: %3d | Atual : %10.2lfms | Média: %10.2lfms\n", cont, t, acc / cont);
     }
+    //}
 
 }
 
@@ -98,8 +102,10 @@ GtkWidget* zoom_canvas_new() {
 
     canvas = gtk_drawing_area_new();
 
+/*
     int width;
     int height;
+*/
     g_signal_connect(canvas, "expose-event", G_CALLBACK(zoom_canvas_on_expose_event), NULL);
     open_device();
     init_device();
