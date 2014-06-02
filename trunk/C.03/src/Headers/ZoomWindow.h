@@ -1,7 +1,7 @@
 #ifndef _ZOOMWINDOW_
 #define _ZOOMWINDOW_
 
-GtkWidget* zoom_window_new(int width, int height, char *title);
+GtkWidget* zoom_window_new(int largura, int altua, char *title);
 float fator_zoom;
 int current_width;
 int current_height;

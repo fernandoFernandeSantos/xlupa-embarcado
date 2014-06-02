@@ -12,7 +12,7 @@ void stop_capturing(void);
 void uninit_device (void);
 void close_device (void);
 void call_process_image(void (*process_image)(unsigned char*));
-void main_loop();
+//void main_loop();
 
 #define CLEAR(x) memset(&(x), 0, sizeof(x))
 
