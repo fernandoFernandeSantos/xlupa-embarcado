@@ -1,20 +1,20 @@
 #include <gtk/gtk.h>
-#include "ZoomWindow.h"
-#include "capture.h"
+#include "./Headers/ZoomWindow.h"
+#include "./Headers/capture.h"
 #include <unistd.h>  
-#include "ZoomCanvas.h"
-#include "debug.h"
+#include "./Headers/ZoomCanvas.h"
+#include "./Headers/debug.h"
 #include <string.h>
 #include <stdlib.h>
 #include <pthread.h>
-#include "clique.h"
+#include "./Headers/clique.h"
 pthread_t clique;
 
 int main(int argc, char **argv) {
     gtk_init(&argc, &argv);
     zoom = 1.0;
     color = 3;
-    gray = 0;
+    gray = 1;
     brilho = 50;
     contraste = 50;
     strcpy(dev_name, "/dev/video0");
