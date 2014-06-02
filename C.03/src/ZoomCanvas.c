@@ -27,9 +27,6 @@ void free_resources(gpointer data) {
 
 void processa_imagem(unsigned char *ini) {
     int estado;
-
-
-    //
     fator = get_fator();
     //Ajuste de escala do zoom
     current_zoom = zoom * fator;
@@ -42,21 +39,18 @@ void processa_imagem(unsigned char *ini) {
     if (gray) {//escala cinza
         imagem_to_cinza(ini);
     }
-
     //esquema é se cor vale 0, 1, ou 2 é a posição do vetor que altera
     //se cor vale 3 não altera nada
-    if((color == 0) || (color == 1) || (color == 2)){
+    if ((color == 0) || (color == 1) || (color == 2)) {
         limiar_imagem(ini, color);
     }
-
     //recebe o nível de brilho que quer
     //0 a 1, double
     if (brilho != 0.5 || contraste != 0.5) {
         brilho_contraste_imagem(ini, brilho, contraste);
     }
-
     GdkPixbuf *pixbuf = gdk_pixbuf_new_from_data(ini, GDK_COLORSPACE_RGB, 0, 8, width, height, width * 3, NULL, NULL);
-    
+
     cairo_t* cr = gdk_cairo_create(canvas->window);
 
 
@@ -71,18 +65,17 @@ void processa_imagem(unsigned char *ini) {
 
 }
 
+
 gboolean time_handler() {
     static int temp = 0;
-    //while (1) {
-        register_time();
-        call_process_image(processa_imagem);
-        double t = get_time_mili();
-        if (temp++ > 7) {
-            acc += t;
-            cont++;
-            printf("Amostragem: %3d | Atual : %10.2lfms | Média: %10.2lfms\n", cont, t, acc / cont);
-        }
-    //}
+    register_time();
+    call_process_image(processa_imagem);
+    double t = get_time_mili();
+    if (temp++ > 7) {
+        acc += t;
+        cont++;
+        printf("Amostragem: %3d | Atual : %10.2lfms | Média: %10.2lfms\n", cont, t, acc / cont);
+    }
     return 1;
 
 }
@@ -111,7 +104,7 @@ gboolean zoom_canvas_on_expose_event(GtkWidget *widget, GdkEventExpose *event, g
 }
 
 void change_config() {
-    int status;
+    unsigned char status;
     status = get_profile();
     if (status == 0) {
         zoom = 1;

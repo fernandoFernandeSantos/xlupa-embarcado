@@ -352,7 +352,7 @@ void *get_clique()
         }
 }
 
-int get_estado()
+unsigned char get_estado()
 {
 	return verifica_clique;
 }

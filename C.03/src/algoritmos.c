@@ -118,11 +118,11 @@ void limiar_imagem(unsigned char *subimage, unsigned char cor) {
     //----------------------------------------------------------------------*/
 }
 
-void brilho_contraste_imagem(unsigned char *subimage, double brilho, double contraste) {
+void brilho_contraste_imagem(unsigned char *subimage, float brilho, float contraste) {
     int i;
     int val = 0;
-    double multiplicaConstraste = 2 * contraste;
-    double somaBrilho =  255 * (brilho - 0.5);
+    float multiplicaConstraste = 2 * contraste;
+    float somaBrilho =  255 * (brilho - 0.5);
     
     for (i = 0; i < (sizeImage * 3); i += 3) {
         val = subimage[i] * multiplicaConstraste + somaBrilho;

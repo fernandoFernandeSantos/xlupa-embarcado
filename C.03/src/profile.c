@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include "./Headers/profile.h"
 
-int get_profile()
+unsigned char get_profile()
 {
 	return profile;
 }

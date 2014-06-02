@@ -1,7 +1,7 @@
 #ifndef _PROFILE_
 #define _PROFILE_
 
-int profile;
+unsigned char profile;
 void refresh_profile();
-int get_profile();
+unsigned char get_profile();
 #endif
