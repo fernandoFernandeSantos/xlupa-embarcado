@@ -5,23 +5,25 @@
       <df name="C.03">
       </df>
       <df name="src">
+        <df name="Headers">
+          <in>ZoomCanvas.h</in>
+          <in>ZoomWindow.h</in>
+          <in>algoritmos.h</in>
+          <in>capture.h</in>
+          <in>clique.h</in>
+          <in>debug.h</in>
+          <in>profile.h</in>
+          <in>properties.h</in>
+          <in>util.h</in>
+        </df>
         <in>Main.c</in>
         <in>ZoomCanvas.c</in>
-        <in>ZoomCanvas.h</in>
         <in>ZoomWindow.c</in>
-        <in>ZoomWindow.h</in>
         <in>algoritmos.c</in>
-        <in>algoritmos.h</in>
         <in>capture.c</in>
-        <in>capture.h</in>
         <in>clique.c</in>
-        <in>clique.h</in>
-        <in>debug.h</in>
         <in>profile.c</in>
-        <in>profile.h</in>
-        <in>properties.h</in>
         <in>util.c</in>
-        <in>util.h</in>
       </df>
     </df>
   </logicalFolder>

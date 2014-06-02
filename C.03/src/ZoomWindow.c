@@ -6,7 +6,7 @@ void zoom_window_quit(GtkWidget *widget, gpointer data){
 	gtk_main_quit();
 }
 
-GtkWidget* zoom_window_new(gint width, gint height, gchar *title){
+GtkWidget* zoom_window_new(gint lagura, gint altura, gchar *title){
 	GdkScreen* screen = NULL;
 
 	float fator_width;
@@ -29,9 +29,9 @@ GtkWidget* zoom_window_new(gint width, gint height, gchar *title){
         else
             fator_zoom = fator_width;
 
-        width = current_width;
-        height = current_height;
-       	gtk_widget_set_size_request(widget, width, height);
+        lagura = current_width;
+        altura = current_height;
+       	gtk_widget_set_size_request(widget, lagura, altura);
 	gtk_widget_set_app_paintable(widget, TRUE);/*???*/
         gtk_window_fullscreen(GTK_WINDOW(widget));
 	g_signal_connect(widget, "destroy", G_CALLBACK(zoom_window_quit), NULL);

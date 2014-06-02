@@ -14,4 +14,7 @@ SRC =  $(wildcard $(SRC_DIR)/*.c)
 all:
 	$(CC) $(SRC) $(CFLAGS) -o $(OUTPUT)
 
+clean:
+	rm xLupaEmbedded 
+
 
