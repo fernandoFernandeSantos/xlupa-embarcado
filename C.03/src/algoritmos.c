@@ -1,5 +1,5 @@
 #include <gtk/gtk.h>
-#include "algoritmos.h"
+#include "./Headers/algoritmos.h"
 #include <math.h>
 
 unsigned int orig_img_width = 0;

@@ -13,8 +13,8 @@
 #include <sys/stat.h>
 #include <assert.h>
 #include <gtk/gtk.h>
-#include "capture.h"
-#include "debug.h"
+#include "./Headers/capture.h"
+#include "./Headers/debug.h"
 
 
 

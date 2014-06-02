@@ -9,8 +9,10 @@ void brilho_contraste_imagem(GdkPixbuf *subimage, double brilho, double contrast
 #define PUT_PIXEL24(a,i,j,s,b) \
 (memcpy (a + ((j) * s + (i) * 3), &(b), 3))
 
+
 #define GET_PIXEL24(a,i,j,s,b) \
 (*(guint32 *)(memcpy (b,(a) + ((j) * s + (i) * 3), 3)))
+
 
 
 #endif

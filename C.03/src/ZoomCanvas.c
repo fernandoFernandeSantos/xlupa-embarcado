@@ -1,12 +1,12 @@
 #include <gtk/gtk.h>
-#include "ZoomCanvas.h"
-#include "capture.h"
-#include "algoritmos.h"
-#include "debug.h"
-#include "util.h"
-#include "clique.h"
-#include "profile.h"
-#include "ZoomWindow.h"
+#include "./Headers/ZoomCanvas.h"
+#include "./Headers/capture.h"
+#include "./Headers/algoritmos.h"
+#include "./Headers/debug.h"
+#include "./Headers/util.h"
+#include "./Headers/clique.h"
+#include "./Headers/profile.h"
+#include "./Headers/ZoomWindow.h"
 
 static char buffer[256];
 static GtkWidget *canvas;

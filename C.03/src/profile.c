@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "profile.h"
+#include "./Headers/profile.h"
 
 int get_profile()
 {
