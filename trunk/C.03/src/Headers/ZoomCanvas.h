@@ -3,12 +3,12 @@
 
 GtkWidget* zoom_canvas_new();
 int color, gray;
-double zoom;
-double current_zoom;
-double brilho, contraste;
+float zoom;
+float current_zoom;
+float brilho, contraste;
 gboolean zoom_canvas_on_expose_event(GtkWidget *widget, GdkEventExpose *event, gpointer data);
 void change_config();
 void *captura_clique();
-int verifica_clique;
+unsigned char verifica_clique;
 
 #endif

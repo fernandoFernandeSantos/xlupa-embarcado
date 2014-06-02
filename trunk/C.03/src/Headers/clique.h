@@ -4,7 +4,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int verifica_clique;
+unsigned char verifica_clique;
 void *get_clique();
-int get_estado();
+unsigned char get_estado();
 #endif
