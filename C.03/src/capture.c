@@ -16,14 +16,16 @@
 #include "./Headers/capture.h"
 #include "./Headers/debug.h"
 
+/*
 static void pixbuf_destroy(guchar *pixels, gpointer data);
+ */
 static int xioctl(int fh, int request, void *arg);
 static void errno_exit(const char * s);
 
 #define CLEAR(x) memset(&(x), 0, sizeof(x))
 static unsigned char *novo;
 static int fd = -1;
-struct buffer * buffers = NULL;
+
 static unsigned int n_buffers = 0;
 
 static void errno_exit(const char * s) {
@@ -51,6 +53,10 @@ static int xioctl(int fh, int request, void *arg) {
 }
 
 int open_device(void) {
+    //TCC
+    buffersV4L1 = NULL;
+    buffersV4L2 = NULL;
+    //----------------
     struct stat st;
     DEBUG_LINE();
     if (-1 == stat(dev_name, &st)) {
@@ -109,7 +115,7 @@ void init_mmap(void) {
 
     DEBUG_LINE();
 
-    req.count = 2; /*= 4; /*=2?*/
+    req.count = BUFFERSIZE; /*= 4; /*=2?*/
     req.type = V4L2_BUF_TYPE_VIDEO_CAPTURE;
     req.memory = V4L2_MEMORY_MMAP;
 
@@ -123,9 +129,11 @@ void init_mmap(void) {
         }
     }
     DEBUG_LINE();
-    buffers = calloc(req.count, sizeof (*buffers));
+    buffersV4L1 = calloc(req.count, sizeof (*buffersV4L1));
+    //aloca também para o buffersV4L2 
+    buffersV4L2 = calloc(req.count, sizeof (*buffersV4L2));
 
-    if (!buffers) {
+    if (!buffersV4L1 || !buffersV4L2) {
         fprintf(stderr, "Out of memory\n");
         exit(EXIT_FAILURE);
     }
@@ -142,19 +150,29 @@ void init_mmap(void) {
         if (-1 == xioctl(fd, VIDIOC_QUERYBUF, &buf))
             errno_exit("VIDIOC_QUERYBUF");
 
-        buffers[n_buffers].length = buf.length;
-        buffers[n_buffers].start =
+        buffersV4L1[n_buffers].length = buf.length;
+        buffersV4L1[n_buffers].start =
+                v4l2_mmap(NULL /* start anywhere */,
+                buf.length,
+                PROT_READ | PROT_WRITE /* required */,
+                MAP_SHARED /* recommended */,
+                fd, buf.m.offset);
+        //faz o mesmo para buffersvl2
+        buffersV4L2[n_buffers].length = buf.length;
+        buffersV4L2[n_buffers].start =
                 v4l2_mmap(NULL /* start anywhere */,
                 buf.length,
                 PROT_READ | PROT_WRITE /* required */,
                 MAP_SHARED /* recommended */,
                 fd, buf.m.offset);
 
-        /*Note device memory accesses (e. g. the memory on a graphics card with video capturing hardware) may incur a performance 
-        penalty compared to main memory 		accesses, or reads may be significantly slower than writes or vice versa. 
+        /*Note device memory accesses (e. g. the memory on a graphics card with 
+         * video capturing hardware) may incur a performance 
+        penalty compared to main memory 		accesses, or reads may
+         *  be significantly slower than writes or vice versa. 
         Other I/O methods may be more efficient in this case.*/
 
-        if (MAP_FAILED == buffers[n_buffers].start)
+        if ((MAP_FAILED == buffersV4L1[n_buffers].start) || (MAP_FAILED == buffersV4L2[n_buffers].start))
             errno_exit("mmap");
     }
     DEBUG_LINE();
@@ -187,19 +205,22 @@ void start_capturing(void) {
 
 void uninit_device(void) {
     unsigned int i;
-
-
     for (i = 0; i < n_buffers; ++i)
-        if (-1 == munmap(buffers[i].start, buffers[i].length))
+        if (-1 == munmap(buffersV4L1[i].start, buffersV4L1[i].length))
             errno_exit("munmap");
 
-    free(buffers);
+    free(buffersV4L1);
+
+    //TCC, faz também para buffersv42l
+    for (i = 0; i < n_buffers; ++i)
+        if (-1 == munmap(buffersV4L2[i].start, buffersV4L2[i].length))
+            errno_exit("munmap");
+
+    free(buffersV4L2);
 }
 
 void stop_capturing(void) {
     enum v4l2_buf_type type;
-
-
     type = V4L2_BUF_TYPE_VIDEO_CAPTURE;
 
     if (-1 == xioctl(fd, VIDIOC_STREAMOFF, &type))
@@ -207,10 +228,12 @@ void stop_capturing(void) {
 
 }
 
+/*
 void pixbuf_destroy(guchar *pixels, gpointer data) {
 }
+ */
 
-int read_frame(void (*process_image)()) {
+int read_frame() {
     struct v4l2_buffer buf;
     CLEAR(buf);
     buf.type = V4L2_BUF_TYPE_VIDEO_CAPTURE;
@@ -225,15 +248,19 @@ int read_frame(void (*process_image)()) {
         }
     }
     assert(buf.index < n_buffers);
-
-    process_image((unsigned char *) buffers[buf.index].start);
+    // process_image((unsigned char *) buffers[buf.index].start);
+    //TCC
+    buffersV4L2[buf.index].start = buffersV4L1[buf.index].start;
+    currentIndex = buf.index;
+    //printf("foi ate read frame\n");
+    printf("passou do buf.index\n");
     if (-1 == xioctl(fd, VIDIOC_QBUF, &buf))
         errno_exit("VIDIOC_QBUF");
 
     return 1;
 }
 
-void call_process_image(void (*process_image)(unsigned char*)) {
+void *call_process_image() {
     struct v4l2_buffer buf;
     unsigned int i;
 
@@ -261,11 +288,12 @@ void call_process_image(void (*process_image)(unsigned char*)) {
             fprintf(stderr, "select timeout\n");
             exit(EXIT_FAILURE);
         }
-        if (read_frame(process_image) == 0)
+        
+        if (read_frame() == 0)
             continue;
         else
             break;
-
+        
     }
 }
 
@@ -275,9 +303,3 @@ void close_device(void) {
 
     fd = -1;
 }
-/*
-void main_loop() {
-    sleep(1);
-    while (1) time_handler();
-}*/
-

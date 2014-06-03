@@ -27,6 +27,7 @@ void free_resources(gpointer data) {
 
 void processa_imagem(unsigned char *ini) {
     int estado;
+
     fator = get_fator();
     //Ajuste de escala do zoom
     current_zoom = zoom * fator;
@@ -49,6 +50,7 @@ void processa_imagem(unsigned char *ini) {
     if (brilho != 0.5 || contraste != 0.5) {
         brilho_contraste_imagem(ini, brilho, contraste);
     }
+    printf("foi até o pixbuf\n");
     GdkPixbuf *pixbuf = gdk_pixbuf_new_from_data(ini, GDK_COLORSPACE_RGB, 0, 8, width, height, width * 3, NULL, NULL);
 
     cairo_t* cr = gdk_cairo_create(canvas->window);
@@ -65,34 +67,43 @@ void processa_imagem(unsigned char *ini) {
 
 }
 
-
-gboolean time_handler() {
+void * time_handler() {
     static int temp = 0;
-    register_time();
-    call_process_image(processa_imagem);
-    double t = get_time_mili();
-    if (temp++ > 7) {
-        acc += t;
-        cont++;
-        printf("Amostragem: %3d | Atual : %10.2lfms | Média: %10.2lfms\n", cont, t, acc / cont);
+    while (1) {
+        register_time();
+        //call_process_image(processa_imagem);
+        //TCC, chamada para process imagem
+        printf("entrou no time handler\n");
+        
+        processa_imagem((unsigned char *)buffersV4L2[currentIndex].start);
+        
+        double t = get_time_mili();
+        if (temp++ > 7) {
+            acc += t;
+            cont++;
+            printf("Amostragem: %3d | Atual : %10.2lfms | Média: %10.2lfms\n", cont, t, acc / cont);
+        }
     }
-    return 1;
+
 
 }
 
 GtkWidget* zoom_canvas_new() {
 
     canvas = gtk_drawing_area_new();
-
-    /*
-        int width;
-        int height;
-     */
     g_signal_connect(canvas, "expose-event", G_CALLBACK(zoom_canvas_on_expose_event), NULL);
     open_device();
     init_device();
     start_capturing();
-    g_timeout_add(50, (GSourceFunc) time_handler, (gpointer) canvas);
+   /* TCC
+    troca de sequencial para paralelo part arm
+    thread threadProcess vai fazer o processamento da imagem, só a parte de zoom
+    thread threadRead  vai fazer a obtenção da imagem e colocar no buffer*/
+    //mutex
+    pthread_create(&threadRead, NULL, &call_process_image, NULL);
+    printf("criou a primeia thread\n");
+    pthread_create(&threadProcess, NULL, &time_handler, NULL);
+    //g_timeout_add(50, (GSourceFunc) time_handler, (gpointer) canvas);
     //g_timeout_add_full(G_PRIORITY_HIGH+20,100, (GSourceFunc) time_handler, canvas, (GDestroyNotify)free_resources);
 
     return canvas;

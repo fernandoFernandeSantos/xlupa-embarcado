@@ -26,7 +26,7 @@ int main(int argc, char **argv) {
     GtkWidget* window = zoom_window_new(1280, 720, "xLupa Embedded");
     gtk_widget_set_app_paintable(window, TRUE);
     //pthread_create(&clique, NULL, &get_clique, NULL);
-    //pthread_create(&clique, NULL, &main_loop, NULL);
+
     GtkWidget *canvas = zoom_canvas_new();
     gtk_container_add(GTK_CONTAINER(window), canvas);
     gtk_widget_show_all(window);
