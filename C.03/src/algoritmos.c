@@ -27,7 +27,7 @@ void limiar_imagem(unsigned char *subimage, unsigned char cor) {
     int k = 0;
 
     for (i = 0; i < (sizeImage * 3); i += 3) {
-        k = (0.299 * subimage[i] + 0.587 * subimage[i + 1] + 0.114 * subimage[i + 2]);
+        k = matValores[subimage[i]][ subimage[i + 1]][ subimage[i + 2]];
         if (k > 127) {
             subimage[i] = (cor1[0] * k);
             subimage[i + 1] = (cor1[1] * k);
