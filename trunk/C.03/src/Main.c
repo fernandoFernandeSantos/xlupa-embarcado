@@ -8,9 +8,23 @@
 #include <stdlib.h>
 #include <pthread.h>
 #include "./Headers/clique.h"
+#include "./Headers/tableCreate.h"
 pthread_t clique;
 
 int main(int argc, char **argv) {
+    //chama a criação da tabela
+
+    //if (!naiveTable(vetR, vetG, vetB))
+    //    return -1;
+
+   // if (!expertTableCreate())
+   //     return -2;
+    printf("Loading expertTable...\n");
+    if(expertTableLoad())
+        printf("ExpertTable loaded!\n");
+    else
+        printf("Failed to load expertTable\n");
+    
     gtk_init(&argc, &argv);
     /* Para color é necessário colocar qual cor quer
      * Se R = 0, se G = 1, se B = 2
@@ -18,7 +32,7 @@ int main(int argc, char **argv) {
      * o nível vai de 0 a 1
      */
     zoom = 1.0;
-    color = 3;
+    color = 0;
     gray = 0;
     brilho = 0.5;
     contraste = 0.5;
@@ -32,5 +46,7 @@ int main(int argc, char **argv) {
     gtk_widget_show_all(window);
     gtk_main();
     printf(" Finaliza ");
-    return (0);
+     
+     expertTableDestroy();
+     return (0);
 }

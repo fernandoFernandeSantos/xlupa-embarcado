@@ -14,7 +14,6 @@ void close_device (void);
 void * call_process_image();
 
 //TCC
-pthread_t threadProcess;
 pthread_t threadRead;
 
 unsigned int currentIndex;
