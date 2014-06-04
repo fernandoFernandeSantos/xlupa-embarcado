@@ -50,7 +50,7 @@ void processa_imagem(unsigned char *ini) {
     if (brilho != 0.5 || contraste != 0.5) {
         brilho_contraste_imagem(ini, brilho, contraste);
     }
-    printf("foi até o pixbuf\n");
+    //printf("foi até o pixbuf\n");
     GdkPixbuf *pixbuf = gdk_pixbuf_new_from_data(ini, GDK_COLORSPACE_RGB, 0, 8, width, height, width * 3, NULL, NULL);
 
     cairo_t* cr = gdk_cairo_create(canvas->window);
@@ -73,10 +73,10 @@ void * time_handler() {
         register_time();
         //call_process_image(processa_imagem);
         //TCC, chamada para process imagem
-        printf("entrou no time handler\n");
-        
-        processa_imagem((unsigned char *)buffersV4L2[currentIndex].start);
-        
+       // printf("entrou no time handler\n");
+        if (currentIndex != -1) //a primeira vez da pau, então tem que esperar
+            processa_imagem((unsigned char *) buffersV4L2[currentIndex].start);
+
         double t = get_time_mili();
         if (temp++ > 7) {
             acc += t;
@@ -95,15 +95,15 @@ GtkWidget* zoom_canvas_new() {
     open_device();
     init_device();
     start_capturing();
-   /* TCC
-    troca de sequencial para paralelo part arm
-    thread threadProcess vai fazer o processamento da imagem, só a parte de zoom
-    thread threadRead  vai fazer a obtenção da imagem e colocar no buffer*/
+    /* TCC
+     troca de sequencial para paralelo part arm
+     thread threadProcess vai fazer o processamento da imagem, só a parte de zoom
+     thread threadRead  vai fazer a obtenção da imagem e colocar no buffer*/
     //mutex
     pthread_create(&threadRead, NULL, &call_process_image, NULL);
-    printf("criou a primeia thread\n");
-    pthread_create(&threadProcess, NULL, &time_handler, NULL);
-    //g_timeout_add(50, (GSourceFunc) time_handler, (gpointer) canvas);
+    //printf("criou a primeia thread\n");
+    //pthread_create(&threadProcess, NULL, &time_handler, NULL);
+    g_timeout_add(50, (GSourceFunc) time_handler, (gpointer) canvas);
     //g_timeout_add_full(G_PRIORITY_HIGH+20,100, (GSourceFunc) time_handler, canvas, (GDestroyNotify)free_resources);
 
     return canvas;

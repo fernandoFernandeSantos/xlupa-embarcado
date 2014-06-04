@@ -56,6 +56,7 @@ int open_device(void) {
     //TCC
     buffersV4L1 = NULL;
     buffersV4L2 = NULL;
+    currentIndex = -1;
     //----------------
     struct stat st;
     DEBUG_LINE();
@@ -250,14 +251,14 @@ int read_frame() {
     assert(buf.index < n_buffers);
     // process_image((unsigned char *) buffers[buf.index].start);
     //TCC
-    buffersV4L2[buf.index].start = buffersV4L1[buf.index].start;
+   // buffersV4L2[buf.index].start = buffersV4L1[buf.index].start;
     currentIndex = buf.index;
     //printf("foi ate read frame\n");
-    printf("passou do buf.index\n");
+   // printf("passou do buf.index\n");
     if (-1 == xioctl(fd, VIDIOC_QBUF, &buf))
         errno_exit("VIDIOC_QBUF");
 
-    return 1;
+    return 0;
 }
 
 void *call_process_image() {

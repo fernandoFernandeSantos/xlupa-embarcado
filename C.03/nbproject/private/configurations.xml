@@ -14,6 +14,7 @@
           <in>debug.h</in>
           <in>profile.h</in>
           <in>properties.h</in>
+          <in>tableCreate.h</in>
           <in>util.h</in>
         </df>
         <in>Main.c</in>
@@ -23,6 +24,7 @@
         <in>capture.c</in>
         <in>clique.c</in>
         <in>profile.c</in>
+        <in>tableCreate.c</in>
         <in>util.c</in>
       </df>
     </df>

@@ -10,6 +10,7 @@
         <in>capture.c</in>
         <in>clique.c</in>
         <in>profile.c</in>
+        <in>tableCreate.c</in>
         <in>util.c</in>
       </df>
     </df>
@@ -78,6 +79,8 @@
       <item path="src/clique.c" ex="false" tool="0" flavor2="0">
       </item>
       <item path="src/profile.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="src/tableCreate.c" ex="false" tool="0" flavor2="0">
       </item>
       <item path="src/util.c" ex="false" tool="0" flavor2="0">
       </item>
