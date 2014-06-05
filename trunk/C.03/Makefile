@@ -73,9 +73,9 @@ endif
 	$(QUIET_CC)$(CC) $(CFLAGS) -MMD -o $@ -c $<
 
 dummy:
-	$(QUIET_LINK)$(CC) $(GTK_FLAGS) $(V4L_FLAGS) $(LDFLAGS) -o $@ $^ $(LIBS)
+	$(QUIET_LINK)$(CC) $(SRC) $(GTK_FLAGS) $(V4L_FLAGS) $(LDFLAGS) -o $@ $^ $(LIBS)
 
 clean:
-	$(QUIET_CLEAN)$(RM) $(bins) *.o *.o64P *.x64P
+	$(QUIET_CLEAN)$(RM)  $(bins) *.o *.o64P *.x64P
 
 -include ./DSPHeaders/*.d
