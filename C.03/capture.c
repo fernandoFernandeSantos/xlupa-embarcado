@@ -13,8 +13,8 @@
 #include <sys/stat.h>
 #include <assert.h>
 #include <gtk/gtk.h>
-#include "./Headers/capture.h"
-#include "./Headers/debug.h"
+#include "./src/Headers/capture.h"
+#include "./src/Headers/debug.h"
 
 /*
 static void pixbuf_destroy(guchar *pixels, gpointer data);

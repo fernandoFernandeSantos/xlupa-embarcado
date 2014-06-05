@@ -2,17 +2,20 @@
 <configurationDescriptor version="90">
   <logicalFolder name="root" displayName="root" projectFiles="true" kind="ROOT">
     <df root="." name="0">
-      <df name="src">
-        <in>Main.c</in>
-        <in>ZoomCanvas.c</in>
-        <in>ZoomWindow.c</in>
-        <in>algoritmos.c</in>
-        <in>capture.c</in>
-        <in>clique.c</in>
-        <in>profile.c</in>
-        <in>tableCreate.c</in>
-        <in>util.c</in>
-      </df>
+      <in>Main.c</in>
+      <in>ZoomCanvas.c</in>
+      <in>ZoomWindow.c</in>
+      <in>algoritmos.c</in>
+      <in>capture.c</in>
+      <in>clique.c</in>
+      <in>dsp_bridge.c</in>
+      <in>dummy_arm.c</in>
+      <in>dummy_dsp.c</in>
+      <in>log.c</in>
+      <in>profile.c</in>
+      <in>soma.c</in>
+      <in>tableCreate.c</in>
+      <in>util.c</in>
     </df>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
@@ -24,6 +27,7 @@
   <sourceFolderFilter>^(nbproject)$</sourceFolderFilter>
   <sourceRootList>
     <Elem>.</Elem>
+    <Elem>../dsp_dummy_master_tentativa_2</Elem>
   </sourceRootList>
   <projectmakefile>Makefile</projectmakefile>
   <confs>
@@ -55,34 +59,63 @@
               <pElem>/usr/include/pixman-1</pElem>
               <pElem>/usr/include/freetype2</pElem>
               <pElem>/usr/include/libpng12</pElem>
-              <pElem>.</pElem>
             </incDir>
-            <preprocessorList>
-              <Elem>_OPTIMIZE__=1</Elem>
-            </preprocessorList>
-            <undefinedList>
-              <Elem>__NO_INLINE__</Elem>
-            </undefinedList>
           </cTool>
         </makeTool>
       </makefileType>
-      <item path="src/Main.c" ex="false" tool="0" flavor2="0">
+      <item path="Main.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+        </cTool>
       </item>
-      <item path="src/ZoomCanvas.c" ex="false" tool="0" flavor2="0">
+      <item path="ZoomCanvas.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+        </cTool>
       </item>
-      <item path="src/ZoomWindow.c" ex="false" tool="0" flavor2="0">
+      <item path="ZoomWindow.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+        </cTool>
       </item>
-      <item path="src/algoritmos.c" ex="false" tool="0" flavor2="0">
+      <item path="algoritmos.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+        </cTool>
       </item>
-      <item path="src/capture.c" ex="false" tool="0" flavor2="0">
+      <item path="capture.c" ex="false" tool="0" flavor2="2">
       </item>
-      <item path="src/clique.c" ex="false" tool="0" flavor2="0">
+      <item path="clique.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+        </cTool>
       </item>
-      <item path="src/profile.c" ex="false" tool="0" flavor2="0">
+      <item path="dsp_bridge.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+        </cTool>
       </item>
-      <item path="src/tableCreate.c" ex="false" tool="0" flavor2="0">
+      <item path="dummy_arm.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+        </cTool>
       </item>
-      <item path="src/util.c" ex="false" tool="0" flavor2="0">
+      <item path="dummy_dsp.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+        </cTool>
+      </item>
+      <item path="log.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+        </cTool>
+      </item>
+      <item path="profile.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+        </cTool>
+      </item>
+      <item path="soma.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+        </cTool>
+      </item>
+      <item path="tableCreate.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+        </cTool>
+      </item>
+      <item path="util.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+        </cTool>
       </item>
     </conf>
   </confs>

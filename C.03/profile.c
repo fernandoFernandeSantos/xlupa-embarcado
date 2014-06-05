@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "./Headers/profile.h"
+#include "./src/Headers/profile.h"
 
 unsigned char get_profile()
 {

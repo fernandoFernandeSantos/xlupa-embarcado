@@ -10,6 +10,7 @@ gboolean zoom_canvas_on_expose_event(GtkWidget *widget, GdkEventExpose *event, g
 void change_config();
 void *captura_clique();
 unsigned char verifica_clique;
+void * dspThread();
 
 
 #endif

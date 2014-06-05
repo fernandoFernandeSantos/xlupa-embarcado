@@ -1,5 +1,5 @@
 #include <gtk/gtk.h>
-#include "./Headers/ZoomWindow.h"
+#include "./src/Headers/ZoomWindow.h"
 
 void zoom_window_quit(GtkWidget *widget, gpointer data) {
     puts("AKI");

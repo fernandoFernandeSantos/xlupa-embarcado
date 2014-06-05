@@ -1,6 +1,6 @@
 #include <gtk/gtk.h>
-#include "./Headers/algoritmos.h"
-#include "Headers/tableCreate.h"
+#include "./src/Headers/algoritmos.h"
+#include "./src/Headers/tableCreate.h"
 #include <math.h>
 
 void imagem_to_cinza(unsigned char *subimage) {

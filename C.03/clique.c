@@ -33,7 +33,7 @@
 #include <unistd.h>
 #include <stdio.h>
 
-#include "./Headers/clique.h"
+#include "./src/Headers/clique.h"
 
 #ifndef EV_SYN
 #define EV_SYN 0

@@ -1,6 +1,6 @@
 
 #include <stdio.h>
-#include "Headers/tableCreate.h"
+#include "./src/Headers/tableCreate.h"
 
 unsigned char naiveTable() {
     unsigned short i;
