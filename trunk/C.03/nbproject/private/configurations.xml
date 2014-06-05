@@ -4,6 +4,16 @@
     <df root="." name="0">
       <df name="C.03">
       </df>
+      <df name="DSPHeaders">
+        <in>dmm_buffer.h</in>
+        <in>dsp_bridge.h</in>
+        <in>dummy_arm.h</in>
+        <in>log.h</in>
+        <in>node.h</in>
+        <in>soma.h</in>
+      </df>
+      <df name="SAVED">
+      </df>
       <df name="src">
         <df name="Headers">
           <in>ZoomCanvas.h</in>
@@ -17,16 +27,22 @@
           <in>tableCreate.h</in>
           <in>util.h</in>
         </df>
-        <in>Main.c</in>
-        <in>ZoomCanvas.c</in>
-        <in>ZoomWindow.c</in>
-        <in>algoritmos.c</in>
-        <in>capture.c</in>
-        <in>clique.c</in>
-        <in>profile.c</in>
-        <in>tableCreate.c</in>
-        <in>util.c</in>
       </df>
+      <in>Main.c</in>
+      <in>ZoomCanvas.c</in>
+      <in>ZoomWindow.c</in>
+      <in>algoritmos.c</in>
+      <in>capture.c</in>
+      <in>clique.c</in>
+      <in>dsp_bridge.c</in>
+      <in>dummy_arm.c</in>
+      <in>dummy_bridge.s</in>
+      <in>dummy_dsp.c</in>
+      <in>log.c</in>
+      <in>profile.c</in>
+      <in>soma.c</in>
+      <in>tableCreate.c</in>
+      <in>util.c</in>
     </df>
   </logicalFolder>
   <projectmakefile>Makefile</projectmakefile>

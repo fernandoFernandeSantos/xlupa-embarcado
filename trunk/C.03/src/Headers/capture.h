@@ -15,6 +15,7 @@ void * call_process_image();
 
 //TCC
 pthread_t threadRead;
+pthread_t threadDSP;
 
 unsigned int currentIndex;
 

@@ -1,12 +1,12 @@
 #include <gtk/gtk.h>
-#include "./Headers/ZoomCanvas.h"
-#include "./Headers/capture.h"
-#include "./Headers/algoritmos.h"
-#include "./Headers/debug.h"
-#include "./Headers/util.h"
-#include "./Headers/clique.h"
-#include "./Headers/profile.h"
-#include "./Headers/ZoomWindow.h"
+#include "./src/Headers/ZoomCanvas.h"
+#include "./src/Headers/capture.h"
+#include "./src/Headers/algoritmos.h"
+#include "./src/Headers/debug.h"
+#include "./src/Headers/util.h"
+#include "./src/Headers/clique.h"
+#include "./src/Headers/profile.h"
+#include "./src/Headers/ZoomWindow.h"
 
 
 static char buffer[256];
@@ -88,6 +88,10 @@ void * time_handler() {
 
 }
 
+void * dspThread(){
+    
+}
+
 GtkWidget* zoom_canvas_new() {
 
     canvas = gtk_drawing_area_new();
@@ -101,10 +105,8 @@ GtkWidget* zoom_canvas_new() {
      thread threadRead  vai fazer a obtenção da imagem e colocar no buffer*/
     //mutex
     pthread_create(&threadRead, NULL, &call_process_image, NULL);
-    //printf("criou a primeia thread\n");
-    //pthread_create(&threadProcess, NULL, &time_handler, NULL);
+    pthread_create(&threadDSP, NULL, &dspThread, NULL);
     g_timeout_add(50, (GSourceFunc) time_handler, (gpointer) canvas);
-    //g_timeout_add_full(G_PRIORITY_HIGH+20,100, (GSourceFunc) time_handler, canvas, (GDestroyNotify)free_resources);
 
     return canvas;
 }

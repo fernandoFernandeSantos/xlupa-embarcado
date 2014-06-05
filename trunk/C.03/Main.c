@@ -1,14 +1,14 @@
 #include <gtk/gtk.h>
-#include "./Headers/ZoomWindow.h"
-#include "./Headers/capture.h"
+#include "./src/Headers/ZoomWindow.h"
+#include "./src/Headers/capture.h"
 #include <unistd.h>  
-#include "./Headers/ZoomCanvas.h"
-#include "./Headers/debug.h"
+#include "./src/Headers/ZoomCanvas.h"
+#include "./src/Headers/debug.h"
 #include <string.h>
 #include <stdlib.h>
 #include <pthread.h>
-#include "./Headers/clique.h"
-#include "./Headers/tableCreate.h"
+#include "./src/Headers/clique.h"
+#include "./src/Headers/tableCreate.h"
 pthread_t clique;
 
 int main(int argc, char **argv) {
