@@ -7,7 +7,7 @@ void imagem_to_cinza(unsigned char *subimage) {
 
     //faz mudanças direto no vetor da imagem
     unsigned int i, temp = 0;
-    for (i = 0; i < (sizeImage * 3); i += 3) {
+    for (i = 0; i < sizeImage; i += 3) {
         temp = 0;
 
         temp += subimage[i] + subimage[i + 1] + subimage[i + 2];
@@ -27,7 +27,7 @@ void limiar_imagem(unsigned char *subimage, unsigned char cor) {
     int i;
     int k = 0;
 
-    for (i = 0; i < (sizeImage * 3); i += 3) {
+    for (i = 0; i < sizeImage; i += 3) {
         k = matValores[subimage[i]][ subimage[i + 1]][ subimage[i + 2]];
         if (k > 127) {
             subimage[i] = (cor1[0] * k);
@@ -48,7 +48,7 @@ void brilho_contraste_imagem(unsigned char *subimage, float brilho, float contra
     float multiplicaConstraste = 2 * contraste;
     float somaBrilho = 255 * (brilho - 0.5);
 
-    for (i = 0; i < (sizeImage * 3); i += 3) {
+    for (i = 0; i < sizeImage; i += 3) {
         val = subimage[i] * multiplicaConstraste + somaBrilho;
         if (val > 255)
             val = 255;

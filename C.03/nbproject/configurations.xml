@@ -80,6 +80,8 @@
         </cTool>
       </item>
       <item path="capture.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+        </cTool>
       </item>
       <item path="clique.c" ex="false" tool="0" flavor2="2">
         <cTool>
