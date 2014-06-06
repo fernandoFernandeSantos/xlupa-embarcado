@@ -11,6 +11,6 @@ void brilho_contraste_imagem(unsigned char *subimage, float brilho, float contra
 #define height 720
 
 //definindo valor padrão para o tamanho da imagem
-#define sizeImage (width * height)
+#define sizeImage (width * height * 3)
 
 #endif

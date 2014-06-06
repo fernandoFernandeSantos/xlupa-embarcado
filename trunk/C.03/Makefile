@@ -76,6 +76,6 @@ dummy:
 	$(QUIET_LINK)$(CC) $(SRC) $(GTK_FLAGS) $(V4L_FLAGS) $(LDFLAGS) -o $@ $^ $(LIBS)
 
 clean:
-	$(QUIET_CLEAN)$(RM)  $(bins) *.o *.o64P *.x64P
+	$(QUIET_CLEAN)$(RM) $(bins) *.o *.o64P *.x64P
 
 -include ./DSPHeaders/*.d
