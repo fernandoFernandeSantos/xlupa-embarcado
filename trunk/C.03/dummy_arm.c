@@ -78,7 +78,7 @@ static inline void configure_dsp_node(void *node, dmm_buffer_t *input_buffer, dm
     dsp_node_put_message(dsp_handle, node, &msg, -1);
 }
 
-bool run_task() {
+int run_task() {
     unsigned long exit_status;
 
     dmm_buffer_t *input_buffer;
@@ -86,7 +86,7 @@ bool run_task() {
 
     if (!dsp_node_run(dsp_handle, node)) {
         pr_err("dsp node run failed");
-        return false;
+        return 0;
     }
 
     pr_info("dsp node running");
@@ -128,12 +128,12 @@ bool run_task() {
     if (!dsp_node_terminate(dsp_handle, node, &exit_status)) {
         pr_err("dsp node terminate failed: %lx", exit_status);
         printf("dsp node terminate failed: %lx\n", exit_status);
-        return false;
+        return 0;
     }
 
     pr_info("dsp node terminated");
     printf("dsp node terminated\n");
-    return true;
+    return 1;
 }
 
 int startDSP() {

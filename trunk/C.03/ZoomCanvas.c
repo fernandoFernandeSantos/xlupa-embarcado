@@ -7,6 +7,7 @@
 #include "./src/Headers/clique.h"
 #include "./src/Headers/profile.h"
 #include "./src/Headers/ZoomWindow.h"
+#include "DSPHeaders/dummy_arm.h"
 
 
 static char buffer[256];
@@ -89,7 +90,7 @@ void * time_handler() {
 }
 
 void * dspThread(){
-    
+    startDSP();
 }
 
 GtkWidget* zoom_canvas_new() {

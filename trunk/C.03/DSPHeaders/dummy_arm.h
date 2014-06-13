@@ -9,7 +9,7 @@
 #define	DUMMY_ARM_H
 
 int startDSP();
-bool run_task();
+int run_task();
 
 unsigned short message;
 unsigned long input_buffer_size;
