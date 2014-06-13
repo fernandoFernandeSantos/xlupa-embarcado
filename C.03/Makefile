@@ -36,7 +36,7 @@ all:
 
 # dummy
 
-dummy: dummy_arm.o dsp_bridge.o log.o
+dummy: dummy_arm.o dsp_bridge.o log.o Main.o ZoomCanvas.o ZoomWindow.o algoritmos.o capture.o clique.o profile.o util.o
 
 bins += dummy 
 
@@ -73,7 +73,7 @@ endif
 	$(QUIET_CC)$(CC) $(CFLAGS) -MMD -o $@ -c $<
 
 dummy:
-	$(QUIET_LINK)$(CC) $(SRC) $(GTK_FLAGS) $(V4L_FLAGS) $(LDFLAGS) -o $@ $^ $(LIBS)
+	$(QUIET_LINK)$(CC) $(GTK_FLAGS) $(V4L_FLAGS) $(LDFLAGS) -o $@ $^ $(LIBS)
 
 clean:
 	$(QUIET_CLEAN)$(RM) $(bins) *.o *.o64P *.x64P
