@@ -21,7 +21,7 @@
 
 #include <stddef.h>
 #include "./DSPHeaders/node.h"
-#include "./DSPHeaders/soma.h"
+//#include "./DSPHeaders/soma.h"
 
 unsigned int
 dummy_create(void)
@@ -70,7 +70,7 @@ dummy_execute(void *env)
 				size = (unsigned int) (msg.arg_1);
 
 				BCACHE_inv(input, size, 1);
-				soma_intri(output, input, size);
+				//soma_intri(output, input, size);
 				BCACHE_wb(output, size, 1);
 
 				NODE_putMsg(env, NULL, &msg, 0);
@@ -82,7 +82,7 @@ dummy_execute(void *env)
 				size = (unsigned int) (msg.arg_1);
 
 				BCACHE_inv(input, size, 1);
-				soma_info(output, input, size);
+				//soma_info(output, input, size);
 				BCACHE_wb(output, size, 1);
 
 				NODE_putMsg(env, NULL, &msg, 0);

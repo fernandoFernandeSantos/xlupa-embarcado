@@ -10,9 +10,10 @@
         <in>dummy_arm.h</in>
         <in>log.h</in>
         <in>node.h</in>
-        <in>soma.h</in>
       </df>
       <df name="SAVED">
+        <in>soma.c</in>
+        <in>soma.h</in>
       </df>
       <df name="src">
         <df name="Headers">
@@ -29,6 +30,7 @@
         </df>
       </df>
       <in>Main.c</in>
+      <in>Makefile</in>
       <in>ZoomCanvas.c</in>
       <in>ZoomWindow.c</in>
       <in>algoritmos.c</in>
@@ -40,7 +42,6 @@
       <in>dummy_dsp.c</in>
       <in>log.c</in>
       <in>profile.c</in>
-      <in>soma.c</in>
       <in>tableCreate.c</in>
       <in>util.c</in>
     </df>
