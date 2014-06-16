@@ -1,7 +1,7 @@
 #include <gtk/gtk.h>
 #include "./src/Headers/ZoomCanvas.h"
 #include "./src/Headers/capture.h"
-#include "./src/Headers/algoritmos.h"
+//#include "./src/Headers/algoritmos.h"
 #include "./src/Headers/debug.h"
 #include "./src/Headers/util.h"
 #include "./src/Headers/clique.h"
@@ -27,45 +27,16 @@ void free_resources(gpointer data) {
 }
 
 void processa_imagem(unsigned char *ini) {
-    int estado;
-
-    fator = get_fator();
-    //Ajuste de escala do zoom
-    current_zoom = zoom * fator;
-
-    estado = get_estado();
-    if (estado == 1) {
-        refresh_profile();
-        change_config();
-    }
-    if (gray) {//escala cinza
-        imagem_to_cinza(ini);
-    }
-    //esquema é se cor vale 0, 1, ou 2 é a posição do vetor que altera
-    //se cor vale 3 não altera nada
-    if ((color == 0) || (color == 1) || (color == 2)) {
-        limiar_imagem(ini, color);
-    }
-    //recebe o nível de brilho que quer
-    //0 a 1, double
-    if (brilho != 0.5 || contraste != 0.5) {
-        brilho_contraste_imagem(ini, brilho, contraste);
-    }
-    //printf("foi até o pixbuf\n");
+    //Alteração TCC Multithread com DSP
     GdkPixbuf *pixbuf = gdk_pixbuf_new_from_data(ini, GDK_COLORSPACE_RGB, 0, 8, width, height, width * 3, NULL, NULL);
-
     cairo_t* cr = gdk_cairo_create(canvas->window);
-
 
     if (current_zoom > 1.0)
         cairo_scale(cr, current_zoom, current_zoom);
-
     gdk_cairo_set_source_pixbuf(cr, pixbuf, 0, 0);
-
     cairo_paint(cr);
     g_object_unref(G_OBJECT(pixbuf));
     cairo_destroy(cr);
-
 }
 
 void * time_handler() {
@@ -74,10 +45,11 @@ void * time_handler() {
         register_time();
         //call_process_image(processa_imagem);
         //TCC, chamada para process imagem
-       // printf("entrou no time handler\n");
-        if (currentIndex != -1) //a primeira vez da pau, então tem que esperar
+        // printf("entrou no time handler\n");
+        if (currentIndex != -1) {
+            //a primeira vez da pau, então tem que esperar
             processa_imagem((unsigned char *) buffersV4L2[currentIndex].start);
-
+        }
         double t = get_time_mili();
         if (temp++ > 7) {
             acc += t;
@@ -89,8 +61,28 @@ void * time_handler() {
 
 }
 
-void * dspThread(){
-    startDSP();
+void * dspThread() {
+    input_buffer_size = sizeImage;
+    if (startDSP()) {
+        printf("DSP Running\n");
+    } else {
+        printf("DSP Run Failed\n");
+        exit(1);
+    }
+
+    unsigned char status = 0;
+
+    status = get_profile();
+    if (status == 2) {
+        message = 0;
+    }
+    if (status == 3) {
+        message = 1;
+    }
+    if (status == 5) {
+        message = 2;
+    }
+
 }
 
 GtkWidget* zoom_canvas_new() {
@@ -108,7 +100,6 @@ GtkWidget* zoom_canvas_new() {
     pthread_create(&threadRead, NULL, &call_process_image, NULL);
     pthread_create(&threadDSP, NULL, &dspThread, NULL);
     g_timeout_add(50, (GSourceFunc) time_handler, (gpointer) canvas);
-
     return canvas;
 }
 
@@ -122,33 +113,21 @@ void change_config() {
     status = get_profile();
     if (status == 0) {
         zoom = 1;
-        gray = 0;
-        color = 0;
     }
     if (status == 1) {
         zoom = 2;
-        gray = 0;
-        color = 0;
     }
     if (status == 2) {
         zoom = 2;
-        gray = 1;
-        color = 0;
     }
     if (status == 3) {
         zoom = 1;
-        gray = 0;
-        color = 1;
     }
     if (status == 4) {
         zoom = 2;
-        gray = 0;
-        color = 1;
     }
     if (status == 5) {
         zoom = 1;
-        gray = 0;
-        color = 3;
     }
     verifica_clique = 0;
 }

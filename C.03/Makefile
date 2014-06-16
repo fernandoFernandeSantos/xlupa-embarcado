@@ -38,11 +38,11 @@ all:
 
 # dummy
 
-dummy: dummy_arm.o dsp_bridge.o log.o Main.o ZoomCanvas.o ZoomWindow.o algoritmos.o capture.o clique.o profile.o util.o tableCreate.o
+dummy: Dummy_arm.o Dsp_bridge.o Log.o Main.o ZoomCanvas.o ZoomWindow.o Algoritmos.o Capture.o Clique.o Profile.o Util.o TableCreate.o
 
 bins += dummy 
 
-dummy.x64P: dummy_dsp.o64P dummy_bridge.o64P
+dummy.x64P: Dummy_dsp.o64P Dummy_bridge.o64P
 
 dummy.dll64P: dummy.x64P
 dummy.dll64P: override CFLAGS := -I$(DSP_TOOLS)/include
