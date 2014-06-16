@@ -29,21 +29,20 @@
           <in>util.h</in>
         </df>
       </df>
+      <in>Algoritmos.c</in>
+      <in>Capture.c</in>
+      <in>Clique.c</in>
+      <in>Dsp_bridge.c</in>
+      <in>Dummy_arm.c</in>
+      <in>Dummy_bridge.s</in>
+      <in>Dummy_dsp.c</in>
+      <in>Log.c</in>
       <in>Main.c</in>
-      <in>Makefile</in>
+      <in>Profile.c</in>
+      <in>TableCreate.c</in>
+      <in>Util.c</in>
       <in>ZoomCanvas.c</in>
       <in>ZoomWindow.c</in>
-      <in>algoritmos.c</in>
-      <in>capture.c</in>
-      <in>clique.c</in>
-      <in>dsp_bridge.c</in>
-      <in>dummy_arm.c</in>
-      <in>dummy_bridge.s</in>
-      <in>dummy_dsp.c</in>
-      <in>log.c</in>
-      <in>profile.c</in>
-      <in>tableCreate.c</in>
-      <in>util.c</in>
     </df>
   </logicalFolder>
   <projectmakefile>Makefile</projectmakefile>

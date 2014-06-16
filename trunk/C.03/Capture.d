@@ -1,4 +1,4 @@
-algoritmos.o: algoritmos.c /usr/include/gtk-2.0/gtk/gtk.h \
+Capture.o: Capture.c /usr/include/gtk-2.0/gtk/gtk.h \
  /usr/include/gtk-2.0/gdk/gdk.h \
  /usr/include/gtk-2.0/gdk/gdkapplaunchcontext.h \
  /usr/include/glib-2.0/gio/gio.h /usr/include/glib-2.0/gio/giotypes.h \
@@ -487,5 +487,5 @@ algoritmos.o: algoritmos.c /usr/include/gtk-2.0/gtk/gtk.h \
  /usr/include/gtk-2.0/gtk/gtkoldeditable.h \
  /usr/include/gtk-2.0/gtk/gtkoptionmenu.h \
  /usr/include/gtk-2.0/gtk/gtkpreview.h \
- /usr/include/gtk-2.0/gtk/gtktipsquery.h src/Headers/algoritmos.h \
- src/Headers/tableCreate.h
+ /usr/include/gtk-2.0/gtk/gtktipsquery.h src/Headers/capture.h \
+ src/Headers/debug.h

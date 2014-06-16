@@ -5,19 +5,19 @@
       <df name="SAVED">
         <in>soma.c</in>
       </df>
+      <in>Algoritmos.c</in>
+      <in>Capture.c</in>
+      <in>Clique.c</in>
+      <in>Dsp_bridge.c</in>
+      <in>Dummy_arm.c</in>
+      <in>Dummy_dsp.c</in>
+      <in>Log.c</in>
       <in>Main.c</in>
+      <in>Profile.c</in>
+      <in>TableCreate.c</in>
+      <in>Util.c</in>
       <in>ZoomCanvas.c</in>
       <in>ZoomWindow.c</in>
-      <in>algoritmos.c</in>
-      <in>capture.c</in>
-      <in>clique.c</in>
-      <in>dsp_bridge.c</in>
-      <in>dummy_arm.c</in>
-      <in>dummy_dsp.c</in>
-      <in>log.c</in>
-      <in>profile.c</in>
-      <in>tableCreate.c</in>
-      <in>util.c</in>
     </df>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
@@ -65,7 +65,67 @@
           </cTool>
         </makeTool>
       </makefileType>
+      <item path="Algoritmos.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+          <preprocessorList>
+            <Elem>DSP_API=1</Elem>
+            <Elem>_GNU_SOURCE</Elem>
+          </preprocessorList>
+        </cTool>
+      </item>
+      <item path="Capture.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+          <preprocessorList>
+            <Elem>DSP_API=1</Elem>
+            <Elem>_GNU_SOURCE</Elem>
+          </preprocessorList>
+        </cTool>
+      </item>
+      <item path="Clique.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+          <preprocessorList>
+            <Elem>DSP_API=1</Elem>
+            <Elem>_GNU_SOURCE</Elem>
+          </preprocessorList>
+        </cTool>
+      </item>
+      <item path="Dsp_bridge.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+          <preprocessorList>
+            <Elem>DSP_API=1</Elem>
+            <Elem>_GNU_SOURCE</Elem>
+          </preprocessorList>
+        </cTool>
+      </item>
+      <item path="Dummy_arm.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+          <preprocessorList>
+            <Elem>DSP_API=1</Elem>
+            <Elem>_GNU_SOURCE</Elem>
+          </preprocessorList>
+        </cTool>
+      </item>
+      <item path="Dummy_dsp.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+        </cTool>
+      </item>
+      <item path="Log.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+          <preprocessorList>
+            <Elem>DSP_API=1</Elem>
+            <Elem>_GNU_SOURCE</Elem>
+          </preprocessorList>
+        </cTool>
+      </item>
       <item path="Main.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+          <preprocessorList>
+            <Elem>DSP_API=1</Elem>
+            <Elem>_GNU_SOURCE</Elem>
+          </preprocessorList>
+        </cTool>
+      </item>
+      <item path="Profile.c" ex="false" tool="0" flavor2="2">
         <cTool>
           <preprocessorList>
             <Elem>DSP_API=1</Elem>
@@ -77,6 +137,22 @@
         <cTool>
         </cTool>
       </item>
+      <item path="TableCreate.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+          <preprocessorList>
+            <Elem>DSP_API=1</Elem>
+            <Elem>_GNU_SOURCE</Elem>
+          </preprocessorList>
+        </cTool>
+      </item>
+      <item path="Util.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+          <preprocessorList>
+            <Elem>DSP_API=1</Elem>
+            <Elem>_GNU_SOURCE</Elem>
+          </preprocessorList>
+        </cTool>
+      </item>
       <item path="ZoomCanvas.c" ex="false" tool="0" flavor2="2">
         <cTool>
           <preprocessorList>
@@ -86,82 +162,6 @@
         </cTool>
       </item>
       <item path="ZoomWindow.c" ex="false" tool="0" flavor2="2">
-        <cTool>
-          <preprocessorList>
-            <Elem>DSP_API=1</Elem>
-            <Elem>_GNU_SOURCE</Elem>
-          </preprocessorList>
-        </cTool>
-      </item>
-      <item path="algoritmos.c" ex="false" tool="0" flavor2="2">
-        <cTool>
-          <preprocessorList>
-            <Elem>DSP_API=1</Elem>
-            <Elem>_GNU_SOURCE</Elem>
-          </preprocessorList>
-        </cTool>
-      </item>
-      <item path="capture.c" ex="false" tool="0" flavor2="2">
-        <cTool>
-          <preprocessorList>
-            <Elem>DSP_API=1</Elem>
-            <Elem>_GNU_SOURCE</Elem>
-          </preprocessorList>
-        </cTool>
-      </item>
-      <item path="clique.c" ex="false" tool="0" flavor2="2">
-        <cTool>
-          <preprocessorList>
-            <Elem>DSP_API=1</Elem>
-            <Elem>_GNU_SOURCE</Elem>
-          </preprocessorList>
-        </cTool>
-      </item>
-      <item path="dsp_bridge.c" ex="false" tool="0" flavor2="2">
-        <cTool>
-          <preprocessorList>
-            <Elem>DSP_API=1</Elem>
-            <Elem>_GNU_SOURCE</Elem>
-          </preprocessorList>
-        </cTool>
-      </item>
-      <item path="dummy_arm.c" ex="false" tool="0" flavor2="2">
-        <cTool>
-          <preprocessorList>
-            <Elem>DSP_API=1</Elem>
-            <Elem>_GNU_SOURCE</Elem>
-          </preprocessorList>
-        </cTool>
-      </item>
-      <item path="dummy_dsp.c" ex="false" tool="0" flavor2="2">
-        <cTool>
-        </cTool>
-      </item>
-      <item path="log.c" ex="false" tool="0" flavor2="2">
-        <cTool>
-          <preprocessorList>
-            <Elem>DSP_API=1</Elem>
-            <Elem>_GNU_SOURCE</Elem>
-          </preprocessorList>
-        </cTool>
-      </item>
-      <item path="profile.c" ex="false" tool="0" flavor2="2">
-        <cTool>
-          <preprocessorList>
-            <Elem>DSP_API=1</Elem>
-            <Elem>_GNU_SOURCE</Elem>
-          </preprocessorList>
-        </cTool>
-      </item>
-      <item path="tableCreate.c" ex="false" tool="0" flavor2="2">
-        <cTool>
-          <preprocessorList>
-            <Elem>DSP_API=1</Elem>
-            <Elem>_GNU_SOURCE</Elem>
-          </preprocessorList>
-        </cTool>
-      </item>
-      <item path="util.c" ex="false" tool="0" flavor2="2">
         <cTool>
           <preprocessorList>
             <Elem>DSP_API=1</Elem>
