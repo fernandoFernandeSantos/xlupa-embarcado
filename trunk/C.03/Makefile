@@ -4,7 +4,7 @@ override CFLAGS += -D_GNU_SOURCE
 
 #flags xLupa + dummy DSP
 GTK_FLAGS := `pkg-config --cflags --libs gtk+-2.0` 
-LIBS +=     `pkg-config --libs gtk+-2.0` -lm
+LIBS +=     `pkg-config --libs gtk+-2.0`
 
 #-mfloat-abi=softfp
 V4L_FLAGS := -lv4l2

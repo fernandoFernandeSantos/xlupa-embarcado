@@ -15,6 +15,7 @@
 #include <gtk/gtk.h>
 #include "./src/Headers/capture.h"
 #include "./src/Headers/debug.h"
+#include <semaphore.h>
 
 /*
 static void pixbuf_destroy(guchar *pixels, gpointer data);
@@ -56,7 +57,7 @@ int open_device(void) {
     //TCC
     buffersV4L1 = NULL;
     buffersV4L2 = NULL;
-    currentIndex = -1;
+    IndexProdutor = 0;
     //----------------
     struct stat st;
     DEBUG_LINE();
@@ -251,10 +252,9 @@ int read_frame() {
     assert(buf.index < n_buffers);
     // process_image((unsigned char *) buffers[buf.index].start);
     //TCC
-   // buffersV4L2[buf.index].start = buffersV4L1[buf.index].start;
-    currentIndex = buf.index;
-    //printf("foi ate read frame\n");
-   // printf("passou do buf.index\n");
+    //deixa o produtor inicial loucamente colocar no buffer
+    IndexProdutor = buf.index;
+    
     if (-1 == xioctl(fd, VIDIOC_QBUF, &buf))
         errno_exit("VIDIOC_QBUF");
 

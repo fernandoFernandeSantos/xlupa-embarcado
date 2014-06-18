@@ -1,7 +1,6 @@
 #include <gtk/gtk.h>
 #include "./src/Headers/ZoomCanvas.h"
 #include "./src/Headers/capture.h"
-//#include "./src/Headers/algoritmos.h"
 #include "./src/Headers/debug.h"
 #include "./src/Headers/util.h"
 #include "./src/Headers/clique.h"
@@ -28,7 +27,7 @@ void free_resources(gpointer data) {
 
 void processa_imagem(unsigned char *ini) {
     //Alteração TCC Multithread com DSP
-    GdkPixbuf *pixbuf = gdk_pixbuf_new_from_data(ini, GDK_COLORSPACE_RGB, 0, 8, width, height, width * 3, NULL, NULL);
+    GdkPixbuf *pixbuf = gdk_pixbuf_new_from_data(ini, GDK_COLORSPACE_RGB, 0, 8, sizeWidth, sizeHeight, sizeWidth * 3, NULL, NULL);
     cairo_t* cr = gdk_cairo_create(canvas->window);
 
     if (current_zoom > 1.0)
@@ -43,13 +42,15 @@ void * time_handler() {
     static int temp = 0;
     while (1) {
         register_time();
-        //call_process_image(processa_imagem);
-        //TCC, chamada para process imagem
-        // printf("entrou no time handler\n");
-        if (currentIndex != -1) {
-            //a primeira vez da pau, então tem que esperar
-            processa_imagem((unsigned char *) buffersV4L2[currentIndex].start);
-        }
+        //Magic-----------------------------------------------------------------
+        
+        sem_wait(&bufferEmpty);
+        pthread_mutex_lock(&bufferV4L2_mutex);
+        processa_imagem((unsigned char *) buffersV4L2[--IndexProdutor].start);
+        pthread_mutex_unlock(&bufferV4L2_mutex);
+        sem_post(&bufferFull);
+        
+        //----------------------------------------------------------------------
         double t = get_time_mili();
         if (temp++ > 7) {
             acc += t;
@@ -69,20 +70,6 @@ void * dspThread() {
         printf("DSP Run Failed\n");
         exit(1);
     }
-
-    unsigned char status = 0;
-
-    status = get_profile();
-    if (status == 2) {
-        message = 0;
-    }
-    if (status == 3) {
-        message = 1;
-    }
-    if (status == 5) {
-        message = 2;
-    }
-
 }
 
 GtkWidget* zoom_canvas_new() {
@@ -92,11 +79,20 @@ GtkWidget* zoom_canvas_new() {
     open_device();
     init_device();
     start_capturing();
+    IndexConsumidor = 0;
     /* TCC
      troca de sequencial para paralelo part arm
      thread threadProcess vai fazer o processamento da imagem, só a parte de zoom
      thread threadRead  vai fazer a obtenção da imagem e colocar no buffer*/
     //mutex
+    pthread_mutex_init(&bufferV4L2_mutex, NULL);
+    pthread_mutex_lock(&bufferV4L2_mutex);
+    
+    //semáforo
+    sem_init(&bufferFull, 0, BUFFERSIZE);
+    sem_init(&bufferEmpty, 0, 0);
+    
+    
     pthread_create(&threadRead, NULL, &call_process_image, NULL);
     pthread_create(&threadDSP, NULL, &dspThread, NULL);
     g_timeout_add(50, (GSourceFunc) time_handler, (gpointer) canvas);

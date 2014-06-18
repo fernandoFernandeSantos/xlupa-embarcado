@@ -17,6 +17,7 @@
       </df>
       <df name="src">
         <df name="Headers">
+          <in>SharedVars.h</in>
           <in>ZoomCanvas.h</in>
           <in>ZoomWindow.h</in>
           <in>algoritmos.h</in>

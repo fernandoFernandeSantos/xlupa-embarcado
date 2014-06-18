@@ -5,6 +5,11 @@
       <df name="SAVED">
         <in>soma.c</in>
       </df>
+      <df name="src">
+        <df name="Headers">
+          <in>SharedVars.h</in>
+        </df>
+      </df>
       <in>Algoritmos.c</in>
       <in>Capture.c</in>
       <in>Clique.c</in>
@@ -168,6 +173,8 @@
             <Elem>_GNU_SOURCE</Elem>
           </preprocessorList>
         </cTool>
+      </item>
+      <item path="src/Headers/SharedVars.h" ex="false" tool="3" flavor2="0">
       </item>
     </conf>
   </confs>
