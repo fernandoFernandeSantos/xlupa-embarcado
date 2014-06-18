@@ -46,7 +46,8 @@ void * time_handler() {
         
         sem_wait(&bufferEmpty);
         pthread_mutex_lock(&bufferV4L2_mutex);
-        processa_imagem((unsigned char *) buffersV4L2[--IndexProdutor].start);
+        processa_imagem((unsigned char *) buffersV4L2[IndexConsumidor].start);
+        IndexConsumidor = (IndexConsumidor + 1) % BUFFERSIZE;
         pthread_mutex_unlock(&bufferV4L2_mutex);
         sem_post(&bufferFull);
         
@@ -80,13 +81,13 @@ GtkWidget* zoom_canvas_new() {
     init_device();
     start_capturing();
     IndexConsumidor = 0;
+    IndexProdutor = 0;
     /* TCC
      troca de sequencial para paralelo part arm
      thread threadProcess vai fazer o processamento da imagem, só a parte de zoom
      thread threadRead  vai fazer a obtenção da imagem e colocar no buffer*/
     //mutex
     pthread_mutex_init(&bufferV4L2_mutex, NULL);
-    pthread_mutex_lock(&bufferV4L2_mutex);
     
     //semáforo
     sem_init(&bufferFull, 0, BUFFERSIZE);

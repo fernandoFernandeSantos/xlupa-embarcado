@@ -134,7 +134,7 @@ int run_task() {
         dsp_node_get_message(dsp_handle, node, &msg, -1);
         
         memcpy(buffersV4L2[IndexProdutor].start, input_buffer->data, input_buffer->size);
-        IndexProdutor++;
+        IndexProdutor = (IndexProdutor + 1) % BUFFERSIZE;
         pthread_mutex_unlock(&bufferV4L2_mutex);
         sem_post(&bufferEmpty);; 
                 

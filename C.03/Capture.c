@@ -15,6 +15,7 @@
 #include <gtk/gtk.h>
 #include "./src/Headers/capture.h"
 #include "./src/Headers/debug.h"
+#include "DSPHeaders/dummy_arm.h"
 #include <semaphore.h>
 
 /*
@@ -26,6 +27,8 @@ static void errno_exit(const char * s);
 #define CLEAR(x) memset(&(x), 0, sizeof(x))
 static unsigned char *novo;
 static int fd = -1;
+static char foi = 0;
+static char quant = 0;
 
 static unsigned int n_buffers = 0;
 
@@ -57,7 +60,6 @@ int open_device(void) {
     //TCC
     buffersV4L1 = NULL;
     buffersV4L2 = NULL;
-    IndexProdutor = 0;
     //----------------
     struct stat st;
     DEBUG_LINE();
@@ -252,8 +254,16 @@ int read_frame() {
     assert(buf.index < n_buffers);
     // process_image((unsigned char *) buffers[buf.index].start);
     //TCC
-    //deixa o produtor inicial loucamente colocar no buffer
-    IndexProdutor = buf.index;
+    //enche o buffer pelo menos uma vez
+    if(buf.index < BUFFERSIZE && !foi){
+        sem_wait(&bufferFull);
+    }else{
+        if(!quant){
+            sem_post(&bufferFull);
+        }
+        quant = 1;
+        foi = 1;
+    }
     
     if (-1 == xioctl(fd, VIDIOC_QBUF, &buf))
         errno_exit("VIDIOC_QBUF");
