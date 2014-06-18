@@ -7,17 +7,13 @@
 
 #ifndef DUMMY_ARM_H
 #define	DUMMY_ARM_H
-
+#include <semaphore.h>
+#include <pthread.h>
+#include "../src/Headers/SharedVars.h"
 int startDSP();
 int run_task();
 
-unsigned short message;
-unsigned long input_buffer_size;
-unsigned long output_buffer_size;
-#define width 1280
-#define height 720
+sem_t bufferFull, bufferEmpty;
 
-//definindo valor padrão para o tamanho da imagem
-#define sizeImage (width * height * 3)
-
+pthread_mutex_t bufferV4L2_mutex;
 #endif

@@ -488,4 +488,4 @@ Capture.o: Capture.c /usr/include/gtk-2.0/gtk/gtk.h \
  /usr/include/gtk-2.0/gtk/gtkoptionmenu.h \
  /usr/include/gtk-2.0/gtk/gtkpreview.h \
  /usr/include/gtk-2.0/gtk/gtktipsquery.h src/Headers/capture.h \
- src/Headers/debug.h
+ src/Headers/SharedVars.h src/Headers/debug.h

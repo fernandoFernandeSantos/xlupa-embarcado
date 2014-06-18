@@ -488,6 +488,7 @@ ZoomCanvas.o: ZoomCanvas.c /usr/include/gtk-2.0/gtk/gtk.h \
  /usr/include/gtk-2.0/gtk/gtkoptionmenu.h \
  /usr/include/gtk-2.0/gtk/gtkpreview.h \
  /usr/include/gtk-2.0/gtk/gtktipsquery.h src/Headers/ZoomCanvas.h \
- src/Headers/capture.h src/Headers/debug.h src/Headers/util.h \
- src/Headers/clique.h src/Headers/profile.h src/Headers/ZoomWindow.h \
- DSPHeaders/dummy_arm.h
+ src/Headers/capture.h src/Headers/SharedVars.h src/Headers/debug.h \
+ src/Headers/util.h src/Headers/clique.h src/Headers/profile.h \
+ src/Headers/ZoomWindow.h DSPHeaders/dummy_arm.h \
+ DSPHeaders/../src/Headers/SharedVars.h

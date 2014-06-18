@@ -18,6 +18,7 @@
 #include "./DSPHeaders/dsp_bridge.h"
 #include "./DSPHeaders/log.h"
 #include "./DSPHeaders/dummy_arm.h"
+#include "src/Headers/capture.h"
 
 
 static bool done;
@@ -80,7 +81,8 @@ static inline void configure_dsp_node(void *node, dmm_buffer_t *input_buffer, dm
 
 int run_task() {
     unsigned long exit_status;
-
+    input_buffer_size = sizeImage;
+    output_buffer_size = sizeImage;
     dmm_buffer_t *input_buffer;
     dmm_buffer_t *output_buffer;
 
@@ -103,20 +105,43 @@ int run_task() {
 
     configure_dsp_node(node, input_buffer, output_buffer);
     struct dsp_msg msg;
-    
+    unsigned char status = 0;
     while (!done) {
-
+        status = get_profile();
+        if (status == 2) {
+            msg.cmd = 0; //passa a mensagem para DSP = 0;
+        }
+        if (status == 3) {
+            msg.cmd = 1; //passa a mensagem para DSP = 1;
+        }
+        if (status == 5) {
+            msg.cmd = 2; //passa a mensagem para DSP = 2;
+        }
+        
+        //aqui é a magica da concorrência---------------------------------------
+        
+        sem_wait(&bufferFull);
+        pthread_mutex_lock(&bufferV4L2_mutex);
+        
+        memcpy(input_buffer->data, buffersV4L2[IndexProdutor].start, input_buffer->size);
+        
         dmm_buffer_begin(input_buffer, input_buffer->size);
         dmm_buffer_begin(output_buffer, output_buffer->size);
-        msg.cmd = message; //passa a mensagem para DSP
+
         msg.arg_1 = input_buffer->size;
+        
         dsp_node_put_message(dsp_handle, node, &msg, -1);
-
         dsp_node_get_message(dsp_handle, node, &msg, -1);
-
+        
+        memcpy(buffersV4L2[IndexProdutor].start, input_buffer->data, input_buffer->size);
+        IndexProdutor++;
+        pthread_mutex_unlock(&bufferV4L2_mutex);
+        sem_post(&bufferEmpty);; 
+                
+        //----------------------------------------------------------------------
         dmm_buffer_end(input_buffer, input_buffer->size);
         dmm_buffer_end(output_buffer, output_buffer->size);
-
+        
     }
 
     dmm_buffer_unmap(output_buffer);
