@@ -11,7 +11,6 @@
             <make-dep-projects/>
             <sourceRootList>
                 <sourceRootElem>.</sourceRootElem>
-                <sourceRootElem>../dsp_dummy_master_tentativa_2</sourceRootElem>
             </sourceRootList>
             <confList>
                 <confElem>

@@ -1,84 +1,20 @@
-#CROSS_COMPILE ?= arm-linux-
-CC := $(CROSS_COMPILE)gcc
-override CFLAGS += -D_GNU_SOURCE
 
-#flags xLupa + dummy DSP
-GTK_FLAGS := `pkg-config --cflags --libs gtk+-2.0` 
-LIBS +=     `pkg-config --libs gtk+-2.0`
 
-#-mfloat-abi=softfp
+CC := gcc
+SRC_DIR := src
+OUTPUT := xLupaEmbedded
+GTK_FLAGS := `pkg-config --cflags --libs gtk+-2.0`
 V4L_FLAGS := -lv4l2
-LIBS += -lv4l2
-CFLAGS := -g -O3 -Wall -Wextra -Wno-unused-parameter -std=c99 
-#-march=armv7-a -mtune=cortex-a8 -ftree-vectorizer-verbose=1 
-LDFLAGS := -Wl,--as-needed -lpthread
+CFLAGS := $(GTK_FLAGS) $(V4L_FLAGS) -g -O3 #-march=armv7-a -mtune=cortex-a8 -ftree-vectorizer-verbose=1 -mfloat-abi=softfp
+DEBUG_FLAGS := -g
+LDFLAGS += -lpthread
 
-DSP_TOOLS := /opt/c6000_7.6.0
-DSP_DOFFBUILD := /opt/doffbuild
-SRC_DIR :=.
-
-override CFLAGS += -D_GNU_SOURCE
-
-DSP_API := 1
-
-override CFLAGS += -DDSP_API=$(DSP_API)
-
-ifdef DEBUG
-  override CFLAGS += -DDEBUG
-endif
-
-CL6X := $(DSP_TOOLS)/bin/cl6x
-LNK6X := $(DSP_TOOLS)/bin/lnk6x
-DLLCREATE := $(DSP_DOFFBUILD)/bin/DLLcreate
-#colocado junção
+OBJ = $(wildcard $(OBJ_DIR)/*.o)
 SRC =  $(wildcard $(SRC_DIR)/*.c)
-
-
 all:
-
-# dummy
-
-dummy: Dummy_arm.o Dsp_bridge.o Log.o Main.o ZoomCanvas.o ZoomWindow.o Algoritmos.o Capture.o Clique.o Profile.o Util.o TableCreate.o
-
-bins += dummy 
-
-dummy.x64P: Dummy_dsp.o64P Dummy_bridge.o64P
-
-dummy.dll64P: dummy.x64P
-dummy.dll64P: override CFLAGS := -I$(DSP_TOOLS)/include
-
-bins += dummy.dll64P 
-
-all: $(bins)
-
-# pretty print
-
-ifndef V
-QUIET_CC    = @echo '   CC         '$@;
-QUIET_LINK  = @echo '   LINK       '$@;
-QUIET_CLEAN = @echo '   CLEAN      '$@;
-QUIET_DLL   = @echo '   DLLCREATE  '$@;
-endif
-
-%.o64P:: %.s
-	$(QUIET_CC)$(CL6X) -mv=64p -eo.o64P -c $< 
-
-%.o64P:: %.c
-	$(QUIET_CC)$(CL6X) $(CFLAGS) -mv=64p -eo.o64P -c $<
-
-%.x64P::
-	$(QUIET_LINK)$(LNK6X) -r -cr --localize='$$bss' -o $@ $+
-
-%.dll64P::
-	$(QUIET_DLL)$(DLLCREATE) $< -o=$@
-
-%.o:: %.c
-	$(QUIET_CC)$(CC) $(CFLAGS) -MMD -o $@ -c $< $(GTK_FLAGS) $(V4L_FLAGS)
-
-dummy:
-	$(QUIET_LINK)$(CC) $(LDFLAGS) -o $@ $^ $(LIBS) $(GTK_FLAGS) $(V4L_FLAGS)
+	$(CC) $(SRC) $(CFLAGS) -o $(OUTPUT) $(LDFLAGS)
 
 clean:
-	$(QUIET_CLEAN)$(RM) $(bins) *.o *.o64P *.x64P
+	rm xLupaEmbedded 
 
--include ./DSPHeaders/*.d
+

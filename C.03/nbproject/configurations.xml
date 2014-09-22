@@ -2,39 +2,30 @@
 <configurationDescriptor version="90">
   <logicalFolder name="root" displayName="root" projectFiles="true" kind="ROOT">
     <df root="." name="0">
-      <df name="SAVED">
-        <in>soma.c</in>
-      </df>
       <df name="src">
         <df name="Headers">
           <in>SharedVars.h</in>
         </df>
+        <in>Main.c</in>
+        <in>ZoomCanvas.c</in>
+        <in>ZoomWindow.c</in>
+        <in>capture.c</in>
+        <in>clique.c</in>
+        <in>profile.c</in>
+        <in>tableCreate.c</in>
+        <in>util.c</in>
       </df>
-      <in>Algoritmos.c</in>
-      <in>Capture.c</in>
-      <in>Clique.c</in>
-      <in>Dsp_bridge.c</in>
-      <in>Dummy_arm.c</in>
-      <in>Dummy_dsp.c</in>
-      <in>Log.c</in>
-      <in>Main.c</in>
-      <in>Profile.c</in>
-      <in>TableCreate.c</in>
-      <in>Util.c</in>
-      <in>ZoomCanvas.c</in>
-      <in>ZoomWindow.c</in>
     </df>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
                    projectFiles="false"
                    kind="IMPORTANT_FILES_FOLDER">
-      <itemPath>MakefileBeagle</itemPath>
+      <itemPath>Makefile</itemPath>
     </logicalFolder>
   </logicalFolder>
   <sourceFolderFilter>^(nbproject)$</sourceFolderFilter>
   <sourceRootList>
     <Elem>.</Elem>
-    <Elem>../dsp_dummy_master_tentativa_2</Elem>
   </sourceRootList>
   <projectmakefile>Makefile</projectmakefile>
   <confs>
@@ -66,115 +57,35 @@
               <pElem>/usr/include/pixman-1</pElem>
               <pElem>/usr/include/freetype2</pElem>
               <pElem>/usr/include/libpng12</pElem>
+              <pElem>/usr/include/harfbuzz</pElem>
+              <pElem>.</pElem>
             </incDir>
+            <preprocessorList>
+              <Elem>_OPTIMIZE__=1</Elem>
+            </preprocessorList>
+            <undefinedList>
+              <Elem>__NO_INLINE__</Elem>
+            </undefinedList>
           </cTool>
         </makeTool>
       </makefileType>
-      <item path="Algoritmos.c" ex="false" tool="0" flavor2="2">
-        <cTool>
-          <preprocessorList>
-            <Elem>DSP_API=1</Elem>
-            <Elem>_GNU_SOURCE</Elem>
-          </preprocessorList>
-        </cTool>
-      </item>
-      <item path="Capture.c" ex="false" tool="0" flavor2="2">
-        <cTool>
-          <preprocessorList>
-            <Elem>DSP_API=1</Elem>
-            <Elem>_GNU_SOURCE</Elem>
-          </preprocessorList>
-        </cTool>
-      </item>
-      <item path="Clique.c" ex="false" tool="0" flavor2="2">
-        <cTool>
-          <preprocessorList>
-            <Elem>DSP_API=1</Elem>
-            <Elem>_GNU_SOURCE</Elem>
-          </preprocessorList>
-        </cTool>
-      </item>
-      <item path="Dsp_bridge.c" ex="false" tool="0" flavor2="2">
-        <cTool>
-          <preprocessorList>
-            <Elem>DSP_API=1</Elem>
-            <Elem>_GNU_SOURCE</Elem>
-          </preprocessorList>
-        </cTool>
-      </item>
-      <item path="Dummy_arm.c" ex="false" tool="0" flavor2="2">
-        <cTool>
-          <preprocessorList>
-            <Elem>DSP_API=1</Elem>
-            <Elem>_GNU_SOURCE</Elem>
-          </preprocessorList>
-        </cTool>
-      </item>
-      <item path="Dummy_dsp.c" ex="false" tool="0" flavor2="2">
-        <cTool>
-        </cTool>
-      </item>
-      <item path="Log.c" ex="false" tool="0" flavor2="2">
-        <cTool>
-          <preprocessorList>
-            <Elem>DSP_API=1</Elem>
-            <Elem>_GNU_SOURCE</Elem>
-          </preprocessorList>
-        </cTool>
-      </item>
-      <item path="Main.c" ex="false" tool="0" flavor2="2">
-        <cTool>
-          <preprocessorList>
-            <Elem>DSP_API=1</Elem>
-            <Elem>_GNU_SOURCE</Elem>
-          </preprocessorList>
-        </cTool>
-      </item>
-      <item path="Profile.c" ex="false" tool="0" flavor2="2">
-        <cTool>
-          <preprocessorList>
-            <Elem>DSP_API=1</Elem>
-            <Elem>_GNU_SOURCE</Elem>
-          </preprocessorList>
-        </cTool>
-      </item>
-      <item path="SAVED/soma.c" ex="false" tool="0" flavor2="2">
-        <cTool>
-        </cTool>
-      </item>
-      <item path="TableCreate.c" ex="false" tool="0" flavor2="2">
-        <cTool>
-          <preprocessorList>
-            <Elem>DSP_API=1</Elem>
-            <Elem>_GNU_SOURCE</Elem>
-          </preprocessorList>
-        </cTool>
-      </item>
-      <item path="Util.c" ex="false" tool="0" flavor2="2">
-        <cTool>
-          <preprocessorList>
-            <Elem>DSP_API=1</Elem>
-            <Elem>_GNU_SOURCE</Elem>
-          </preprocessorList>
-        </cTool>
-      </item>
-      <item path="ZoomCanvas.c" ex="false" tool="0" flavor2="2">
-        <cTool>
-          <preprocessorList>
-            <Elem>DSP_API=1</Elem>
-            <Elem>_GNU_SOURCE</Elem>
-          </preprocessorList>
-        </cTool>
-      </item>
-      <item path="ZoomWindow.c" ex="false" tool="0" flavor2="2">
-        <cTool>
-          <preprocessorList>
-            <Elem>DSP_API=1</Elem>
-            <Elem>_GNU_SOURCE</Elem>
-          </preprocessorList>
-        </cTool>
-      </item>
       <item path="src/Headers/SharedVars.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/Main.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="src/ZoomCanvas.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="src/ZoomWindow.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="src/capture.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="src/clique.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="src/profile.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="src/tableCreate.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="src/util.c" ex="false" tool="0" flavor2="0">
       </item>
     </conf>
   </confs>
