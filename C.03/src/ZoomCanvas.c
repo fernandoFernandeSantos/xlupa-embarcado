@@ -39,12 +39,12 @@ void processa_imagem(unsigned char *ini) {
     }
     //register_time();
     if ((color == 0) || (color == 1) || (color == 2)) {
-        limiar_imagem(ini, dest, color);
+        ImageThreshold(ini, dest, color);
     } else {
         if (!gray)
-            sem_modificacao(ini, dest);
+            YUYVtoRGB(ini, dest);
         else
-            imagem_to_cinza(ini, dest);
+            Grayscale(ini, dest);
     }
     //t = get_time_mili();
     //printf("Atual %10.2l\n", t);
