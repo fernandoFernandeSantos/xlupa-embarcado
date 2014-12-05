@@ -5,10 +5,10 @@
 #define SIZE_IMAGE_ALGORITMOS (1280 * 720 * 3)
 #define SCREEN_SIZE_ALGORITMOS (1280 * 720)
 
-void inline imagem_to_cinza(const unsigned char * __restrict__ subimage, unsigned char* __restrict__ dest) {
-    uint j = 0;
-    uint i = 0;
-    uint k = 0;
+void inline Grayscale(const unsigned char * __restrict__ subimage, unsigned char* __restrict__ dest) {
+    unsigned int j = 0;
+    unsigned int i = 0;
+    unsigned int k = 0;
 #pragma MUST_ITERATE(8, ,8)
     for (j = 0; j < SCREEN_SIZE_ALGORITMOS; j += 2) {
         dest[i] = subimage[k];
@@ -22,11 +22,11 @@ void inline imagem_to_cinza(const unsigned char * __restrict__ subimage, unsigne
     }
 }
 
-void inline limiar_imagem(const unsigned char * __restrict__ subimage, unsigned char* __restrict__ dest,
+void inline ImageThreshold(const unsigned char * __restrict__ subimage, unsigned char* __restrict__ dest,
         const unsigned char cor) {
-    uint j = 0;
-    uint i = 0;
-    uint k = 0;
+    unsigned int j = 0;
+    unsigned int i = 0;
+    unsigned int k = 0;
     unsigned char temp = 0, temp2 = 0;
 #pragma MUST_ITERATE(8, ,8)
     for (j = 0; j < SCREEN_SIZE_ALGORITMOS; j += 2) {
@@ -52,10 +52,10 @@ void inline limiar_imagem(const unsigned char * __restrict__ subimage, unsigned 
     }
 }
 
-void inline sem_modificacao(unsigned char * __restrict__ subimage, unsigned char* __restrict__ dest) {
-    uint j;
-    uint i = 0;
-    uint k = 0;
+void inline YUYVtoRGB(unsigned char * __restrict__ subimage, unsigned char* __restrict__ dest) {
+    unsigned int j;
+    unsigned int i = 0;
+    unsigned int k = 0;
     int u, v, u1, rg, v1;
 #pragma MUST_ITERATE(8, ,8)
     for (j = 0; j < SCREEN_SIZE_ALGORITMOS; j += 2) {
@@ -80,7 +80,7 @@ void inline sem_modificacao(unsigned char * __restrict__ subimage, unsigned char
 
 /*Duas imagens do mesmo tamanho - zoom no centro
   arm_nearest_neighbor_interpolation*/
-void inline arm_vizinho_mais_proximo(const unsigned char* __restrict__ src,
+void inline NearestNeighbour(const unsigned char* __restrict__ src,
         unsigned char* __restrict__ dst, int scale) {
 
 
