@@ -3,17 +3,12 @@
   <logicalFolder name="root" displayName="root" projectFiles="true" kind="ROOT">
     <df root="." name="0">
       <df name="src">
-        <df name="Headers">
-          <in>SharedVars.h</in>
-        </df>
+        <in>Capture.c</in>
+        <in>Clique.c</in>
         <in>Main.c</in>
+        <in>Profile.c</in>
         <in>ZoomCanvas.c</in>
         <in>ZoomWindow.c</in>
-        <in>capture.c</in>
-        <in>clique.c</in>
-        <in>profile.c</in>
-        <in>tableCreate.c</in>
-        <in>util.c</in>
       </df>
     </df>
     <logicalFolder name="ExternalFiles"
@@ -69,23 +64,17 @@
           </cTool>
         </makeTool>
       </makefileType>
-      <item path="src/Headers/SharedVars.h" ex="false" tool="3" flavor2="0">
+      <item path="src/Capture.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="src/Clique.c" ex="false" tool="0" flavor2="0">
       </item>
       <item path="src/Main.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="src/Profile.c" ex="false" tool="0" flavor2="0">
       </item>
       <item path="src/ZoomCanvas.c" ex="false" tool="0" flavor2="0">
       </item>
       <item path="src/ZoomWindow.c" ex="false" tool="0" flavor2="0">
-      </item>
-      <item path="src/capture.c" ex="false" tool="0" flavor2="0">
-      </item>
-      <item path="src/clique.c" ex="false" tool="0" flavor2="0">
-      </item>
-      <item path="src/profile.c" ex="false" tool="0" flavor2="0">
-      </item>
-      <item path="src/tableCreate.c" ex="false" tool="0" flavor2="0">
-      </item>
-      <item path="src/util.c" ex="false" tool="0" flavor2="0">
       </item>
     </conf>
   </confs>
