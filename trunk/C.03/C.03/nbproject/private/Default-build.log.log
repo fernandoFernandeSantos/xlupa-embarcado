@@ -1,1 +1,0 @@
-gcc src/algoritmos.c src/capture.c src/clique.c src/Main.c src/profile.c src/util.c src/ZoomCanvas.c src/ZoomWindow.c `pkg-config --cflags --libs gtk+-2.0`  -lv4l2 -g -O3  -o xLupaEmbedded
