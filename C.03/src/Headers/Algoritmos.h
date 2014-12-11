@@ -2,34 +2,31 @@
 #define _ALGORITMOS_
 
 #define CLIP(color) (unsigned char)(((color)>0xFF)?0xff:(((color)<0)?0:(color)))
-#define SIZE_IMAGE_ALGORITMOS (1280 * 720 * 3)
-#define SCREEN_SIZE_ALGORITMOS (1280 * 720)
+#define WIDTH_AL 1280
+#define HEIGHT_AL 720
+#define SIZE_IMAGE_ALGORITMOS (WIDTH_AL * HEIGHT_AL  * 3)
+#define SCREEN_SIZE_ALGORITMOS (WIDTH_AL * HEIGHT_AL)
 
 void inline Grayscale(const unsigned char * __restrict__ subimage, unsigned char* __restrict__ dest) {
     unsigned int j = 0;
     unsigned int i = 0;
     unsigned int k = 0;
-#pragma MUST_ITERATE(8, ,8)
-    for (j = 0; j < SCREEN_SIZE_ALGORITMOS; j += 2) {
+    for (j = 0; j < SCREEN_SIZE_ALGORITMOS; j += 2, k += 4, i += 6) {
         dest[i] = subimage[k];
         dest[i + 1] = subimage[k];
         dest[i + 2] = subimage[k];
         dest[i + 3] = subimage[k + 2];
         dest[i + 4] = subimage[k + 2];
         dest[i + 5] = subimage[k + 2];
-        i += 6;
-        k += 4;
     }
 }
 
-void inline ImageThreshold(const unsigned char * __restrict__ subimage, unsigned char* __restrict__ dest,
-        const unsigned char cor) {
+void inline ImageThreshold(const unsigned char * __restrict__ subimage, unsigned char* __restrict__ dest, const unsigned char cor) {
     unsigned int j = 0;
     unsigned int i = 0;
     unsigned int k = 0;
     unsigned char temp = 0, temp2 = 0;
-#pragma MUST_ITERATE(8, ,8)
-    for (j = 0; j < SCREEN_SIZE_ALGORITMOS; j += 2) {
+    for (j = 0; j < SCREEN_SIZE_ALGORITMOS; j += 2, k += 4, i += 6) {
         //zera todas para o limiar
         dest[i] = 0;
         dest[i + 1] = 0;
@@ -46,9 +43,6 @@ void inline ImageThreshold(const unsigned char * __restrict__ subimage, unsigned
 
         if (temp2 > 127)
             dest[i + cor + 3] = temp2;
-
-        i += 6;
-        k += 4;
     }
 }
 
@@ -57,8 +51,7 @@ void inline YUYVtoRGB(unsigned char * __restrict__ subimage, unsigned char* __re
     unsigned int i = 0;
     unsigned int k = 0;
     int u, v, u1, rg, v1;
-#pragma MUST_ITERATE(8, ,8)
-    for (j = 0; j < SCREEN_SIZE_ALGORITMOS; j += 2) {
+    for (j = 0; j < SCREEN_SIZE_ALGORITMOS; j += 2, k += 4, i += 6) {
         u = subimage[k + 1];
         v = subimage[k + 3];
         u1 = (((u - 128) << 7) + (u - 128)) >> 6;
@@ -72,33 +65,22 @@ void inline YUYVtoRGB(unsigned char * __restrict__ subimage, unsigned char* __re
         dest[i + 3] = CLIP(subimage[k + 2] + v1);
         dest[i + 4] = CLIP(subimage[k + 2] - rg);
         dest[i + 5] = CLIP(subimage[k + 2] + u1);
-
-        i += 6;
-        k += 4;
     }
 }
 
-/*Duas imagens do mesmo tamanho - zoom no centro
-  arm_nearest_neighbor_interpolation*/
-void inline NearestNeighbour(const unsigned char* __restrict__ src,
-        unsigned char* __restrict__ dst, int scale) {
-
-
-    static int width = 1280;
-    static int height = 720;
-
-    int dst_x = width / 2 - width / scale / 2;
-    int dst_y = height / 2 - height / scale / 2;
+void inline NearestNeighbour(const unsigned char* __restrict__ src, unsigned char* __restrict__ dst, int scale) {
+    int dst_x = WIDTH_AL / 2 - WIDTH_AL / scale / 2;
+    int dst_y = HEIGHT_AL / 2 - HEIGHT_AL / scale / 2;
 
     static int i, j, k;
 
-    int p_src = (dst_x + dst_y * width)*3;
+    int p_src = (dst_x + dst_y * WIDTH_AL)*3;
     static int p_dst = 0;
     static int cnt = 0;
     int ant = p_src;
 
-    for (i = 0; i < height; i++) {
-        for (j = 0; j < width;) {
+    for (i = 0; i < HEIGHT_AL; i++) {
+        for (j = 0; j < WIDTH_AL;) {
             for (k = 0; k < scale; k++, j++) {
                 dst[p_dst] = src[p_src];
                 dst[p_dst + 1] = src[p_src + 1];
@@ -107,10 +89,10 @@ void inline NearestNeighbour(const unsigned char* __restrict__ src,
             }
             p_src += 3;
         }
-        p_dst = i * width * 3;
+        p_dst = i * WIDTH_AL * 3;
         p_src = ant;
         if (++cnt == scale) {
-            p_src += width * 3;
+            p_src += WIDTH_AL * 3;
             ant = p_src;
             cnt = 0;
         }
