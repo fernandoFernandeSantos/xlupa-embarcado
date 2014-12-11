@@ -24,7 +24,6 @@ static int troca = 0;
 static double media = 0;
 
 void free_resources(gpointer data) {
-    //puts("LIBERANDO DISPOSITIVO");
     void stop_capturing(void);
     void uninit_device(void);
     void close_device(void);
@@ -37,7 +36,6 @@ void processa_imagem(unsigned char *ini) {
         refresh_profile();
         change_config();
     }
-    //register_time();
     if ((color == 0) || (color == 1) || (color == 2)) {
         ImageThreshold(ini, dest, color);
     } else {
@@ -46,9 +44,6 @@ void processa_imagem(unsigned char *ini) {
         else
             Grayscale(ini, dest);
     }
-    //t = get_time_mili();
-    //printf("Atual %10.2l\n", t);
-
     pixbuf = gdk_pixbuf_new_from_data(dest, GDK_COLORSPACE_RGB, 0, 8, WIDTH, HEIGHT, WIDTH * 3, NULL, NULL);
 
     cr = gdk_cairo_create(canvas->window);
