@@ -40,6 +40,8 @@ dummy_execute(void *env) {
     void *output;
     unsigned char done = 0;
     unsigned int size;
+    unsigned char dest_dsp[1280 * 720 * 3];
+    unsigned int zoom;
 
     while (!done) {
         NODE_getMsg(env, &msg, (unsigned) - 1);
@@ -51,9 +53,32 @@ dummy_execute(void *env) {
                 output = (void *) (msg.arg_2);
                 break;
             }
-            case 1: //cinza
+                //YUYV to rgb
+            case 1:
             {
+                size = (unsigned int) (msg.arg_1);
 
+                BCACHE_inv(input, size, 1);
+                sem_modificacao(input, output);
+                BCACHE_wbInv(output, SIZE_IMAGE_ALGORITMOS, 1);
+
+                NODE_putMsg(env, NULL, &msg, 0);
+                break;
+            }
+            case 2: //sem nada mais zoom
+            {
+                size = (unsigned int) (msg.arg_1);
+                zoom = (unsigned int) (msg.arg_2);
+                BCACHE_inv(input, size, 1);
+                sem_modificacao(input, dest_dsp);
+                NearestNeighbour(dest_dsp, output, zoom);
+                BCACHE_wbInv(output, SIZE_IMAGE_ALGORITMOS, 1);
+                NODE_putMsg(env, NULL, &msg, 0);
+
+                break;
+            }
+            case 3: //cinza
+            {
                 size = (unsigned int) (msg.arg_1);
 
                 BCACHE_inv(input, size, 1);
@@ -63,7 +88,7 @@ dummy_execute(void *env) {
                 NODE_putMsg(env, NULL, &msg, 0);
                 break;
             }
-            case 2: //verde
+            case 4: //verde
             {
                 size = (unsigned int) (msg.arg_1);
 
@@ -74,23 +99,25 @@ dummy_execute(void *env) {
                 NODE_putMsg(env, NULL, &msg, 0);
                 break;
             }
-            case 3://vermelho
+            case 5://verde mais zoom
+            {
+                size = (unsigned int) (msg.arg_1);
+                zoom = (unsigned int) (msg.arg_2);
+                BCACHE_inv(input, size, 1);
+                limiar_imagem(input, dest_dsp, 1);
+                NearestNeighbour(dest_dsp, output, zoom);
+                BCACHE_wbInv(output, SIZE_IMAGE_ALGORITMOS, 1);
+
+                NODE_putMsg(env, NULL, &msg, 0);
+
+                break;
+            }
+            case 6: //vermelho
             {
                 size = (unsigned int) (msg.arg_1);
 
                 BCACHE_inv(input, size, 1);
                 limiar_imagem(input, output, 0);
-                BCACHE_wbInv(output, SIZE_IMAGE_ALGORITMOS, 1);
-
-                NODE_putMsg(env, NULL, &msg, 0);
-                break;
-            }
-            case 4:
-            {
-                size = (unsigned int) (msg.arg_1);
-
-                BCACHE_inv(input, size, 1);
-                sem_modificacao(input, output);
                 BCACHE_wbInv(output, SIZE_IMAGE_ALGORITMOS, 1);
 
                 NODE_putMsg(env, NULL, &msg, 0);

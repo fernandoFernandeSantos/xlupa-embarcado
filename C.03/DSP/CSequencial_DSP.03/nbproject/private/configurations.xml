@@ -36,8 +36,6 @@
           <in>util.h</in>
         </df>
       </df>
-      <in>Algoritmos.asm</in>
-      <in>Algoritmos.c</in>
       <in>Main.c</in>
       <in>ZoomCanvas.c</in>
       <in>ZoomWindow.c</in>

@@ -35,7 +35,7 @@ dummy: Main.o ZoomWindow.o ZoomCanvas.o util.o log.o clique.o profile.o capture.
 
 bins += dummy
 
-dummy.x64P: dummy_dsp.o64P dummy_bridge.o64P Algoritmos.o64P
+dummy.x64P: dummy_dsp.o64P dummy_bridge.o64P
 
 dummy.dll64P: dummy.x64P
 dummy.dll64P: override CFLAGS := -I$(DSP_TOOLS)/include

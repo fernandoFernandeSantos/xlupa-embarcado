@@ -17,7 +17,7 @@
 extern "C" {
 #endif
     int startDSP();
-    void runTaskIn(unsigned char *ini, unsigned char *dest, unsigned int message);
+    void runTaskIn(unsigned char *ini, unsigned char *dest, unsigned int message, unsigned int zoom);
     int freeDSP();
     dmm_buffer_t *input_buffer;
     dmm_buffer_t *output_buffer;
