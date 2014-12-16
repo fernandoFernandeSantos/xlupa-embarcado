@@ -15,9 +15,10 @@ static char buffer[256];
 static GtkWidget *canvas;
 static GdkPixbuf *pixbuf;
 static cairo_t* cr;
-static int acc = 0;
+static double acc = 0;
 static int cont = 0;
 static unsigned char * dest;
+static unsigned char *dest_zoom;
 
 static double t = 0;
 static int troca = 0;
@@ -38,41 +39,43 @@ void processa_imagem(unsigned char *ini) {
     }
     if ((color == 0) || (color == 1) || (color == 2)) {
         ImageThreshold(ini, dest, color);
+        if (zoom > 1) {
+            NearestNeighbour(dest, dest_zoom, zoom);
+            pixbuf = gdk_pixbuf_new_from_data(dest_zoom, GDK_COLORSPACE_RGB, 0, 8, WIDTH, HEIGHT, WIDTH * 3, NULL, NULL);
+        } else
+            pixbuf = gdk_pixbuf_new_from_data(dest, GDK_COLORSPACE_RGB, 0, 8, WIDTH, HEIGHT, WIDTH * 3, NULL, NULL);
     } else {
         if (!gray)
             YUYVtoRGB(ini, dest);
         else
             Grayscale(ini, dest);
+
+        if (zoom > 1) {
+            YUYVtoRGB(ini, dest_zoom);
+            NearestNeighbour(dest_zoom, dest, zoom);
+        }
+        pixbuf = gdk_pixbuf_new_from_data(dest, GDK_COLORSPACE_RGB, 0, 8, WIDTH, HEIGHT, WIDTH * 3, NULL, NULL);
     }
-    pixbuf = gdk_pixbuf_new_from_data(dest, GDK_COLORSPACE_RGB, 0, 8, WIDTH, HEIGHT, WIDTH * 3, NULL, NULL);
-
     cr = gdk_cairo_create(canvas->window);
-
-
-    if (zoom > 1)
-        cairo_scale(cr, zoom, zoom);
-
     gdk_cairo_set_source_pixbuf(cr, pixbuf, 0, 0);
-
     cairo_paint(cr);
     g_object_unref(G_OBJECT(pixbuf));
     cairo_destroy(cr);
-
 }
 
 static int fpscont = 0;
 static int frames_count = 0;
 
 gboolean * time_handler() {
-    /*static int temp = 0;
+    static int temp = 0;
     register_time();
     call_process_image(processa_imagem);
     t = get_time_mili();
     if (temp++ > 7) {
-          //acc += t;
-          cont++;
+        acc += t;
+        cont++;
         media += t;
-        //printf("Amostragem: %3d | Atual : %10.2lfms | Média: %10.2lfms\n", cont, t, acc / cont);
+        printf("Amostragem: %3d | Atual : %10.2lfms | Média: %10.2lfms\n", cont, t, acc / cont);
         if (!(cont % 100)) {
             refresh_profile();
             change_config();
@@ -82,59 +85,24 @@ gboolean * time_handler() {
             if (troca > 5)
                 exit(1);
         }
-    }*/
-    
-    if (acc == 0) {
-        register_time();
-    }
-
-    call_process_image(processa_imagem);
-
-    frames_count++;
-    double aux;
-    if (frames_count == 30) {
-        double t = get_time_mili();
-        acc += 30;
-        //printf("tempo %lf\n",t);
-        //para não deixar 
-        aux = (30000 / t);
-        media += aux;
-        fpscont++;
-        printf("%lf\n", 30000 / t);
-        frames_count = 0;
-        if (acc >= 300) {
-            if (fpscont == 10) {
-                printf("Trocou perfil %d\nMedia %lf\n", troca, media / 10);
-                refresh_profile();
-                change_config();
-                troca++;
-                media = 0;
-                fpscont = 0;
-            }
-            if (troca > 6)
-                stop_capturing();
-        }
-        register_time();
     }
     return (gboolean*) TRUE;
 }
 
 GtkWidget* zoom_canvas_new() {
     dest = calloc(SIZE_IMAGE_ALGORITMOS, sizeof (unsigned char));
+    dest_zoom = calloc(SIZE_IMAGE_ALGORITMOS, sizeof (unsigned char));
     canvas = gtk_drawing_area_new();
-
     g_signal_connect(canvas, "expose-event", G_CALLBACK(zoom_canvas_on_expose_event), NULL);
     open_device();
     init_device();
     start_capturing();
-    // pthread_create(&theadProcess, NULL, &time_handler, NULL);
     g_timeout_add(10, (GSourceFunc) time_handler, (gpointer) canvas);
     return canvas;
 }
 
 gboolean zoom_canvas_on_expose_event(GtkWidget *widget, GdkEventExpose *event, gpointer data) {
     return TRUE;
-
 }
 
 void change_config() {

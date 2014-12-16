@@ -1,13 +1,16 @@
 #include <gtk/gtk.h>
-#include "./Headers/ZoomWindow.h"
-#include "./Headers/Capture.h"
+#include "src/Headers/ZoomWindow.h"
+#include "src/Headers/capture.h"
 #include <unistd.h>  
-#include "./Headers/ZoomCanvas.h"
-#include "./Headers/Debug.h"
+#include "src/Headers/ZoomCanvas.h"
+#include "src/Headers/debug.h"
 #include <string.h>
 #include <stdlib.h>
 #include <pthread.h>
-#include "./Headers/Clique.h"
+#include "src/Headers/clique.h"
+#include "src/Headers/tableCreate.h"
+//#include "src/Headers/algoritmos.h"
+//#include "DSPHeaders/dummy_arm.h"
 pthread_t clique;
 
 int main(int argc, char **argv) {
@@ -22,8 +25,9 @@ int main(int argc, char **argv) {
     gray = 0;
     brilho = 0;
     contraste = 0;
+   
     strcpy(dev_name, "/dev/video0");
-    GtkWidget* window = zoom_window_new(WIDTH, HEIGHT, "xLupa Embedded");
+    GtkWidget* window = zoom_window_new(1280, 720, "xLupa Embedded");
     gtk_widget_set_app_paintable(window, TRUE);
     pthread_create(&clique, NULL, &get_clique, NULL);
 
@@ -32,5 +36,7 @@ int main(int argc, char **argv) {
     gtk_widget_show_all(window);
     gtk_main();
     printf(" Finaliza ");
+    freeDSP();
+
     return (0);
 }
