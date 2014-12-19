@@ -7,11 +7,10 @@
 #define HEIGHT_AL 720
 #define SIZE_IMAGE_ALGORITMOS (WIDTH_AL * HEIGHT_AL  * 3)
 #define SCREEN_SIZE_ALGORITMOS (WIDTH_AL * HEIGHT_AL)
-void  imagem_to_cinza(const unsigned char * __restrict__ subimage, unsigned char* __restrict__ dest);
-void  limiar_imagem(const unsigned char * __restrict__ subimage, unsigned char* __restrict__ dest,
-        const unsigned char cor);
-void  sem_modificacao(unsigned char * __restrict__ subimage, unsigned char* __restrict__ dest);
-void  NearestNeighbour(const unsigned char* __restrict__ src, unsigned char* __restrict__ dst, int scale);
+void imagem_to_cinza(const unsigned char * __restrict__ subimage, unsigned char* __restrict__ dest);
+void limiar_imagem(const unsigned char * __restrict__ subimage, unsigned char* __restrict__ dest,const unsigned char cor);
+void sem_modificacao(const unsigned char * __restrict__ subimage, unsigned char* __restrict__ dest);
+void NearestNeighbour(unsigned char* __restrict__ src, unsigned char* __restrict__ dst, unsigned int scale);
 
 
 
