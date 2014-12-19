@@ -1,6 +1,6 @@
 #include "DSPHeaders/algoritmos.h"
 
-void  imagem_to_cinza(const unsigned char * __restrict__ subimage, unsigned char* __restrict__ dest) {
+void imagem_to_cinza(const unsigned char * __restrict__ subimage, unsigned char* __restrict__ dest) {
     unsigned int j = 0;
     unsigned int i = 0;
     unsigned int k = 0;
@@ -8,9 +8,7 @@ void  imagem_to_cinza(const unsigned char * __restrict__ subimage, unsigned char
     unsigned short su1 = 0;
     unsigned short su2 = 0;
     unsigned short su3 = 0;
-
-    //#pragma MUST_ITERATE(460800, ,8)
-    for (j = 0; j < SCREEN_SIZE_ALGORITMOS; j += 2, k += 4) {
+    for (j = 0; j < SCREEN_SIZE_ALGORITMOS; j += 2, i += 6, k += 4) {
         de = _amem4_const(&subimage[k]);
 
         ((unsigned char *) &su1)[0] = ((unsigned char *) &de)[0];
@@ -28,7 +26,7 @@ void  imagem_to_cinza(const unsigned char * __restrict__ subimage, unsigned char
     }
 }
 
-void  limiar_imagem(const unsigned char * __restrict__ subimage, unsigned char* __restrict__ dest,
+void limiar_imagem(const unsigned char * __restrict__ subimage, unsigned char* __restrict__ dest,
         const unsigned char cor) {
     unsigned int j = 0;
     unsigned int i = 0;
@@ -52,7 +50,7 @@ void  limiar_imagem(const unsigned char * __restrict__ subimage, unsigned char* 
     }
 }
 
-void  sem_modificacao(unsigned char * __restrict__ subimage, unsigned char* __restrict__ dest) {
+void sem_modificacao(const unsigned char * __restrict__ subimage, unsigned char* __restrict__ dest) {
     unsigned int j, i = 0, k = 0;
     unsigned char u, v;
     short u1, rg, v1;
@@ -82,14 +80,14 @@ void  sem_modificacao(unsigned char * __restrict__ subimage, unsigned char* __re
         ((unsigned char *) &su2)[0] = CLIP(Y1 + u1);
         ((unsigned char *) &su2)[1] = CLIP(Y2 + v1);
         ((unsigned char *) &su3)[0] = CLIP(Y2 - rg);
-        ((unsigned char *) &su3)[2] = CLIP(Y2 + u1);
+        ((unsigned char *) &su3)[1] = CLIP(Y2 + u1);
         _amem2(&dest[i]) = su1;
         _amem2(&dest[i + 2]) = su2;
         _amem2(&dest[i + 4]) = su3;
     }
 }
 
-void  NearestNeighbour(const unsigned char* __restrict__ src, unsigned char* __restrict__ dst, int scale) {
+void NearestNeighbour(unsigned char* __restrict__ src, unsigned char* __restrict__ dst, unsigned int scale) {
     int dst_x = WIDTH_AL / 2 - WIDTH_AL / scale / 2;
     int dst_y = HEIGHT_AL / 2 - HEIGHT_AL / scale / 2;
 
