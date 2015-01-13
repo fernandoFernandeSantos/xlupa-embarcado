@@ -83,7 +83,8 @@ configure_dsp_node(void *node, dmm_buffer_t *input_buffer, dmm_buffer_t *output_
     dsp_node_put_message(dsp_handle, node, &msg, -1);
 }
 static double t;
-void runTaskIn(unsigned char *ini, unsigned char *dest, unsigned int message, unsigned int zoom) {
+
+void runTaskIn(unsigned char *ini, unsigned int message, unsigned int zoom) {
     //messagem passada por paramêtro
     msg.cmd = message;
     msg.arg_1 = input_buffer->size;
@@ -91,7 +92,7 @@ void runTaskIn(unsigned char *ini, unsigned char *dest, unsigned int message, un
     memcpy(input_buffer->data, ini, input_buffer_size);
     dsp_node_put_message(dsp_handle, node, &msg, -1);
     dsp_node_get_message(dsp_handle, node, &msg, -1);
-    memcpy(dest, output_buffer->data, output_buffer_size);
+    //memcpy(dest, output_buffer->data, output_buffer_size);
 }
 
 static bool
@@ -175,7 +176,6 @@ int startDSP() {
     }
     //aloca();
     run_task();
-
     return ret;
 }
 

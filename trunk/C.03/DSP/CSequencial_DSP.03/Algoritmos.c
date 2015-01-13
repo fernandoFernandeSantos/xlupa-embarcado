@@ -1,6 +1,6 @@
 #include "DSPHeaders/algoritmos.h"
 
-void imagem_to_cinza(const unsigned char * __restrict__ subimage, unsigned char* __restrict__ dest) {
+void Grayscale(const unsigned char * __restrict__ subimage, unsigned char* __restrict__ dest) {
     unsigned int j = 0;
     unsigned int i = 0;
     unsigned int k = 0;
@@ -26,7 +26,7 @@ void imagem_to_cinza(const unsigned char * __restrict__ subimage, unsigned char*
     }
 }
 
-void limiar_imagem(const unsigned char * __restrict__ subimage, unsigned char* __restrict__ dest,
+void ImageThreshold(const unsigned char * __restrict__ subimage, unsigned char* __restrict__ dest,
         const unsigned char cor) {
     unsigned int j = 0;
     unsigned int i = 0;
@@ -50,7 +50,7 @@ void limiar_imagem(const unsigned char * __restrict__ subimage, unsigned char* _
     }
 }
 
-void sem_modificacao(const unsigned char * __restrict__ subimage, unsigned char* __restrict__ dest) {
+void YUYVtoRGB(const unsigned char * __restrict__ subimage, unsigned char* __restrict__ dest) {
     unsigned int j, i = 0, k = 0;
     unsigned char u, v;
     short u1, rg, v1;
@@ -87,7 +87,7 @@ void sem_modificacao(const unsigned char * __restrict__ subimage, unsigned char*
     }
 }
 
-void NearestNeighbour(unsigned char* __restrict__ src, unsigned char* __restrict__ dst, unsigned int scale) {
+void NearestNeighbour(const unsigned char* subimage, unsigned char* dest, unsigned int scale) {
     int dst_x = WIDTH_AL / 2 - WIDTH_AL / scale / 2;
     int dst_y = HEIGHT_AL / 2 - HEIGHT_AL / scale / 2;
 
@@ -101,9 +101,9 @@ void NearestNeighbour(unsigned char* __restrict__ src, unsigned char* __restrict
     for (i = 0; i < HEIGHT_AL; i++) {
         for (j = 0; j < WIDTH_AL;) {
             for (k = 0; k < scale; k++, j++) {
-                dst[p_dst] = src[p_src];
-                dst[p_dst + 1] = src[p_src + 1];
-                dst[p_dst + 2] = src[p_src + 2];
+                dest[p_dst] = subimage[p_src];
+                dest[p_dst + 1] = subimage[p_src + 1];
+                dest[p_dst + 2] = subimage[p_src + 2];
                 p_dst += 3;
             }
             p_src += 3;
@@ -117,3 +117,16 @@ void NearestNeighbour(unsigned char* __restrict__ src, unsigned char* __restrict
         }
     }
 }
+
+void ImageThresholdPlusZoom(const unsigned char *  subimage,
+        unsigned char*  dest, unsigned char*  aux, const unsigned char cor, unsigned int scale) {
+    ImageThreshold(subimage, aux, cor);
+    NearestNeighbour(aux, dest, scale);
+}
+
+void YUYVtoRGBPlusZoom(const unsigned char *  subimage,
+        unsigned char*  dest, unsigned char* aux, unsigned int scale) {
+    YUYVtoRGB(subimage, aux);
+    NearestNeighbour(aux, dest, scale);
+}
+

@@ -42,9 +42,7 @@ dummy_execute(void *env) {
     unsigned char done = 0;
     unsigned int size;
     unsigned int zoom;
-/*
-    unsigned char *out = calloc(SIZE_IMAGE_ALGORITMOS, 1);
-*/
+    unsigned char *aux = calloc(SIZE_IMAGE_ALGORITMOS, 1);
 
     while (!done) {
         NODE_getMsg(env, &msg, (unsigned) - 1);
@@ -61,7 +59,7 @@ dummy_execute(void *env) {
 
                 size = (unsigned int) (msg.arg_1);
                 BCACHE_inv(input, size, 1);
-                sem_modificacao(input, output);
+                YUYVtoRGB(input, output);
                 BCACHE_wbInv(output, SIZE_IMAGE_ALGORITMOS, 1);
 
                 NODE_putMsg(env, NULL, &msg, 0);
@@ -73,9 +71,8 @@ dummy_execute(void *env) {
                 zoom = (unsigned int) (msg.arg_2);
                 BCACHE_inv(input, size, 1);
 
-                sem_modificacao(input,output);
-                NearestNeighbour(output, output, zoom);
-                
+                YUYVtoRGBPlusZoom(input, output,aux, zoom);
+
                 BCACHE_wbInv(output, SIZE_IMAGE_ALGORITMOS, 1);
 
                 NODE_putMsg(env, NULL, &msg, 0);
@@ -87,7 +84,7 @@ dummy_execute(void *env) {
                 size = (unsigned int) (msg.arg_1);
 
                 BCACHE_inv(input, size, 1);
-                imagem_to_cinza(input, output);
+                Grayscale(input, output);
                 BCACHE_wbInv(output, SIZE_IMAGE_ALGORITMOS, 1);
 
                 NODE_putMsg(env, NULL, &msg, 0);
@@ -98,7 +95,7 @@ dummy_execute(void *env) {
                 size = (unsigned int) (msg.arg_1);
 
                 BCACHE_inv(input, size, 1);
-                limiar_imagem(input, output, 1);
+                ImageThreshold(input, output, 1);
                 BCACHE_wbInv(output, SIZE_IMAGE_ALGORITMOS, 1);
 
                 NODE_putMsg(env, NULL, &msg, 0);
@@ -110,10 +107,7 @@ dummy_execute(void *env) {
                 zoom = (unsigned int) (msg.arg_2);
                 BCACHE_inv(input, size, 1);
 
-                limiar_imagem(input, output, 1);
-                NearestNeighbour(output, output, zoom);
-
-
+                ImageThresholdPlusZoom(input, output,aux, 1, zoom);
                 BCACHE_wbInv(output, SIZE_IMAGE_ALGORITMOS, 1);
                 NODE_putMsg(env, NULL, &msg, 0);
                 break;
@@ -122,7 +116,7 @@ dummy_execute(void *env) {
             {
                 size = (unsigned int) (msg.arg_1);
                 BCACHE_inv(input, size, 1);
-                limiar_imagem(input, output, 0);
+                ImageThreshold(input, output, 0);
                 BCACHE_wbInv(output, SIZE_IMAGE_ALGORITMOS, 1);
                 NODE_putMsg(env, NULL, &msg, 0);
                 break;
@@ -131,6 +125,7 @@ dummy_execute(void *env) {
                 done = 1;
                 break;
         }
+        free(aux);
     }
 
     return 0x8000;
