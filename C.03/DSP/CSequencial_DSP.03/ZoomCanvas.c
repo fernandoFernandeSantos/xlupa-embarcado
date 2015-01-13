@@ -47,8 +47,8 @@ void processa_imagem(unsigned char *ini) {
         change_config();
     }
 
-    runTaskIn(ini,dest, get_profile()+1, zoom);
-    pixbuf = gdk_pixbuf_new_from_data(dest, GDK_COLORSPACE_RGB, 0, 8, width, height, width * 3, NULL, NULL);
+    runTaskIn(ini, get_profile()+1, zoom);
+    pixbuf = gdk_pixbuf_new_from_data(output_buffer->data, GDK_COLORSPACE_RGB, 0, 8, width, height, width * 3, NULL, NULL);
     cr = gdk_cairo_create(canvas->window);
     gdk_cairo_set_source_pixbuf(cr, pixbuf, 0, 0);
     cairo_paint(cr);

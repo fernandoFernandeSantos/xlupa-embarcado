@@ -1,6 +1,6 @@
 ;******************************************************************************
 ;* TMS320C6x C/C++ Codegen                                        Unix v7.6.0 *
-;* Date/Time created: Fri Dec 19 20:01:14 2014                                *
+;* Date/Time created: Tue Jan 13 18:34:06 2015                                *
 ;******************************************************************************
 	.compiler_opts --abi=coffabi --array_alignment=8 --c64p_l1d_workaround=default --endian=little --hll_source=on --long_precision_bits=40 --mem_model:code=near --mem_model:const=data --mem_model:data=far_aggregates --object_format=coff --silicon_version=6500 --symdebug:dwarf_version=3 --symdebug:skeletal 
 
@@ -34,7 +34,7 @@ $C$DW$CU	.dwtag  DW_TAG_compile_unit
 
 $C$DW$1	.dwtag  DW_TAG_subprogram, DW_AT_name("_amem4_const")
 	.dwattr $C$DW$1, DW_AT_TI_symbol_name("__amem4_const")
-	.dwattr $C$DW$1, DW_AT_type(*$C$DW$T$35)
+	.dwattr $C$DW$1, DW_AT_type(*$C$DW$T$41)
 	.dwattr $C$DW$1, DW_AT_declaration
 	.dwattr $C$DW$1, DW_AT_external
 $C$DW$2	.dwtag  DW_TAG_formal_parameter
@@ -44,22 +44,22 @@ $C$DW$2	.dwtag  DW_TAG_formal_parameter
 
 $C$DW$3	.dwtag  DW_TAG_subprogram, DW_AT_name("_amem2")
 	.dwattr $C$DW$3, DW_AT_TI_symbol_name("__amem2")
-	.dwattr $C$DW$3, DW_AT_type(*$C$DW$T$31)
+	.dwattr $C$DW$3, DW_AT_type(*$C$DW$T$37)
 	.dwattr $C$DW$3, DW_AT_declaration
 	.dwattr $C$DW$3, DW_AT_external
 $C$DW$4	.dwtag  DW_TAG_formal_parameter
 	.dwattr $C$DW$4, DW_AT_type(*$C$DW$T$3)
 	.dwendtag $C$DW$3
 
-;	/opt/c6000_7.6.0/bin/opt6x /tmp/15269nnbeXM /tmp/152693sO4Av 
+;	/opt/c6000_7.6.0/bin/opt6x /tmp/14743hyUVKV /tmp/14743UYQ3wj 
 	.sect	".text"
 	.clink
-	.global	_sem_modificacao
+	.global	_YUYVtoRGB
 
-$C$DW$5	.dwtag  DW_TAG_subprogram, DW_AT_name("sem_modificacao")
-	.dwattr $C$DW$5, DW_AT_low_pc(_sem_modificacao)
+$C$DW$5	.dwtag  DW_TAG_subprogram, DW_AT_name("YUYVtoRGB")
+	.dwattr $C$DW$5, DW_AT_low_pc(_YUYVtoRGB)
 	.dwattr $C$DW$5, DW_AT_high_pc(0x00)
-	.dwattr $C$DW$5, DW_AT_TI_symbol_name("_sem_modificacao")
+	.dwattr $C$DW$5, DW_AT_TI_symbol_name("_YUYVtoRGB")
 	.dwattr $C$DW$5, DW_AT_external
 	.dwattr $C$DW$5, DW_AT_TI_begin_file("Algoritmos.c")
 	.dwattr $C$DW$5, DW_AT_TI_begin_line(0x35)
@@ -67,7 +67,7 @@ $C$DW$5	.dwtag  DW_TAG_subprogram, DW_AT_name("sem_modificacao")
 	.dwattr $C$DW$5, DW_AT_TI_max_frame_size(0x10)
 	.dwattr $C$DW$5, DW_AT_frame_base[DW_OP_breg31 16]
 	.dwattr $C$DW$5, DW_AT_TI_skeletal
-	.dwpsn	file "Algoritmos.c",line 53,column 101,is_stmt,address _sem_modificacao,isa 0
+	.dwpsn	file "Algoritmos.c",line 53,column 95,is_stmt,address _YUYVtoRGB,isa 0
 $C$DW$6	.dwtag  DW_TAG_formal_parameter, DW_AT_name("subimage")
 	.dwattr $C$DW$6, DW_AT_TI_symbol_name("_subimage")
 	.dwattr $C$DW$6, DW_AT_type(*$C$DW$T$23)
@@ -78,7 +78,7 @@ $C$DW$7	.dwtag  DW_TAG_formal_parameter, DW_AT_name("dest")
 	.dwattr $C$DW$7, DW_AT_location[DW_OP_reg20]
 
 ;******************************************************************************
-;* FUNCTION NAME: sem_modificacao                                             *
+;* FUNCTION NAME: YUYVtoRGB                                                   *
 ;*                                                                            *
 ;*   Regs Modified     : A0,A1,A2,A3,A4,A5,A6,A7,A8,A9,B0,B1,B2,B4,B5,B6,B7,  *
 ;*                           B8,B9,SP,A16,A17,A18,A19,A20,A21,A22,A23,A24,B16,*
@@ -88,7 +88,7 @@ $C$DW$7	.dwtag  DW_TAG_formal_parameter, DW_AT_name("dest")
 ;*                           A24,B16,B17,B18,B19,B20,B21                      *
 ;*   Local Frame Size  : 0 Args + 12 Auto + 0 Save = 12 byte                  *
 ;******************************************************************************
-_sem_modificacao:
+_YUYVtoRGB:
 ;** --------------------------------------------------------------------------*
 ;          EXCLUSIVE CPU CYCLES: 27
 
@@ -321,7 +321,7 @@ $C$L1:    ; PIPED LOOP PROLOG
 
 ;** --------------------------------------------------------------------------*
 $C$L2:    ; PIPED LOOP KERNEL
-$C$DW$L$_sem_modificacao$3$B:
+$C$DW$L$_YUYVtoRGB$3$B:
 ;          EXCLUSIVE CPU CYCLES: 14
 
    [!A1]   EXTU    .S2     B4,24,24,B19      ; |Algoritmos.c:80| <0,41> 
@@ -425,7 +425,7 @@ $C$DW$L$_sem_modificacao$3$B:
 ||         ADD     .L2X    B5,A6,B6          ; |Algoritmos.c:79| <2,26> 
 ||         EXT     .S1     A3,15,16,A5       ; |Algoritmos.c:78| <2,26> 
 
-$C$DW$L$_sem_modificacao$3$E:
+$C$DW$L$_YUYVtoRGB$3$E:
 ;** --------------------------------------------------------------------------*
 $C$L3:    ; PIPED LOOP EPILOG
 ;          EXCLUSIVE CPU CYCLES: 41
@@ -634,13 +634,13 @@ $C$DW$8	.dwtag  DW_TAG_TI_branch
            ; BRANCH OCCURS {B3}              ; |Algoritmos.c:88| 
 
 $C$DW$9	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$9, DW_AT_name("/home/fernandofernandes/NetBeansProjects/C.03/DSP/CSequencial_DSP.03/Algoritmos.asm:$C$L2:1:1419026474")
+	.dwattr $C$DW$9, DW_AT_name("/home/fernandofernandes/NetBeansProjects/C.03/DSP/CSequencial_DSP.03/Algoritmos.asm:$C$L2:1:1421181247")
 	.dwattr $C$DW$9, DW_AT_TI_begin_file("Algoritmos.c")
 	.dwattr $C$DW$9, DW_AT_TI_begin_line(0x41)
 	.dwattr $C$DW$9, DW_AT_TI_end_line(0x57)
 $C$DW$10	.dwtag  DW_TAG_TI_loop_range
-	.dwattr $C$DW$10, DW_AT_low_pc($C$DW$L$_sem_modificacao$3$B)
-	.dwattr $C$DW$10, DW_AT_high_pc($C$DW$L$_sem_modificacao$3$E)
+	.dwattr $C$DW$10, DW_AT_low_pc($C$DW$L$_YUYVtoRGB$3$B)
+	.dwattr $C$DW$10, DW_AT_high_pc($C$DW$L$_YUYVtoRGB$3$E)
 	.dwendtag $C$DW$9
 
 	.dwattr $C$DW$5, DW_AT_TI_end_file("Algoritmos.c")
@@ -650,35 +650,466 @@ $C$DW$10	.dwtag  DW_TAG_TI_loop_range
 
 	.sect	".text"
 	.clink
-	.global	_limiar_imagem
+	.global	_NearestNeighbour
 
-$C$DW$11	.dwtag  DW_TAG_subprogram, DW_AT_name("limiar_imagem")
-	.dwattr $C$DW$11, DW_AT_low_pc(_limiar_imagem)
+$C$DW$11	.dwtag  DW_TAG_subprogram, DW_AT_name("NearestNeighbour")
+	.dwattr $C$DW$11, DW_AT_low_pc(_NearestNeighbour)
 	.dwattr $C$DW$11, DW_AT_high_pc(0x00)
-	.dwattr $C$DW$11, DW_AT_TI_symbol_name("_limiar_imagem")
+	.dwattr $C$DW$11, DW_AT_TI_symbol_name("_NearestNeighbour")
 	.dwattr $C$DW$11, DW_AT_external
 	.dwattr $C$DW$11, DW_AT_TI_begin_file("Algoritmos.c")
-	.dwattr $C$DW$11, DW_AT_TI_begin_line(0x1d)
+	.dwattr $C$DW$11, DW_AT_TI_begin_line(0x5a)
 	.dwattr $C$DW$11, DW_AT_TI_begin_column(0x06)
 	.dwattr $C$DW$11, DW_AT_TI_max_frame_size(0x00)
 	.dwattr $C$DW$11, DW_AT_frame_base[DW_OP_breg31 0]
 	.dwattr $C$DW$11, DW_AT_TI_skeletal
-	.dwpsn	file "Algoritmos.c",line 30,column 34,is_stmt,address _limiar_imagem,isa 0
+	.dwpsn	file "Algoritmos.c",line 90,column 95,is_stmt,address _NearestNeighbour,isa 0
 $C$DW$12	.dwtag  DW_TAG_formal_parameter, DW_AT_name("subimage")
 	.dwattr $C$DW$12, DW_AT_TI_symbol_name("_subimage")
-	.dwattr $C$DW$12, DW_AT_type(*$C$DW$T$23)
+	.dwattr $C$DW$12, DW_AT_type(*$C$DW$T$22)
 	.dwattr $C$DW$12, DW_AT_location[DW_OP_reg4]
 $C$DW$13	.dwtag  DW_TAG_formal_parameter, DW_AT_name("dest")
 	.dwattr $C$DW$13, DW_AT_TI_symbol_name("_dest")
-	.dwattr $C$DW$13, DW_AT_type(*$C$DW$T$25)
+	.dwattr $C$DW$13, DW_AT_type(*$C$DW$T$24)
 	.dwattr $C$DW$13, DW_AT_location[DW_OP_reg20]
-$C$DW$14	.dwtag  DW_TAG_formal_parameter, DW_AT_name("cor")
-	.dwattr $C$DW$14, DW_AT_TI_symbol_name("_cor")
-	.dwattr $C$DW$14, DW_AT_type(*$C$DW$T$21)
+$C$DW$14	.dwtag  DW_TAG_formal_parameter, DW_AT_name("scale")
+	.dwattr $C$DW$14, DW_AT_TI_symbol_name("_scale")
+	.dwattr $C$DW$14, DW_AT_type(*$C$DW$T$11)
 	.dwattr $C$DW$14, DW_AT_location[DW_OP_reg6]
 
 ;******************************************************************************
-;* FUNCTION NAME: limiar_imagem                                               *
+;* FUNCTION NAME: NearestNeighbour                                            *
+;*                                                                            *
+;*   Regs Modified     : A0,A1,A2,A3,A4,A5,A6,A7,A8,A9,B0,B1,B2,B3,B4,B5,B6,  *
+;*                           B7,B8,B9,A16,A17,A18,A19,A20,A21,B30,B31         *
+;*   Regs Used         : A0,A1,A2,A3,A4,A5,A6,A7,A8,A9,B0,B1,B2,B3,B4,B5,B6,  *
+;*                           B7,B8,B9,DP,SP,A16,A17,A18,A19,A20,A21,B30,B31   *
+;*   Local Frame Size  : 0 Args + 0 Auto + 0 Save = 0 byte                    *
+;******************************************************************************
+_NearestNeighbour:
+;** --------------------------------------------------------------------------*
+;          EXCLUSIVE CPU CYCLES: 35
+           MV      .L1X    B4,A16            ; |Algoritmos.c:90| 
+
+           MV      .L1X    B3,A21            ; |Algoritmos.c:90| 
+||         MV      .S1     A4,A9             ; |Algoritmos.c:90| 
+
+$C$DW$15	.dwtag  DW_TAG_TI_branch
+	.dwattr $C$DW$15, DW_AT_low_pc(0x00)
+	.dwattr $C$DW$15, DW_AT_name("__divu")
+	.dwattr $C$DW$15, DW_AT_TI_call
+
+           CALLP   .S2     __divu,B3
+||         MVK     .S1     0x2d0,A4          ; |Algoritmos.c:96| 
+||         MV      .L2X    A6,B4             ; |Algoritmos.c:96| 
+||         MV      .L1     A6,A3             ; |Algoritmos.c:96| 
+||         MV      .D1     A6,A8             ; |Algoritmos.c:90| 
+
+$C$RL0:    ; CALL OCCURS {__divu} {0}        ; |Algoritmos.c:96| 
+$C$DW$16	.dwtag  DW_TAG_TI_branch
+	.dwattr $C$DW$16, DW_AT_low_pc(0x00)
+	.dwattr $C$DW$16, DW_AT_name("__divu")
+	.dwattr $C$DW$16, DW_AT_TI_call
+
+           CALLP   .S2     __divu,B3
+||         MV      .L2X    A3,B4             ; |Algoritmos.c:96| 
+||         MV      .L1     A4,A5             ; |Algoritmos.c:96| 
+||         MVK     .S1     0x500,A4          ; |Algoritmos.c:96| 
+
+$C$RL1:    ; CALL OCCURS {__divu} {0}        ; |Algoritmos.c:96| 
+$C$DW$17	.dwtag  DW_TAG_TI_branch
+	.dwattr $C$DW$17, DW_AT_low_pc(0x00)
+	.dwattr $C$DW$17, DW_AT_name("__divu")
+	.dwattr $C$DW$17, DW_AT_TI_call
+
+           CALLP   .S2     __divu,B3
+||         MV      .L2X    A3,B4             ; |Algoritmos.c:99| 
+||         MV      .L1     A4,A7             ; |Algoritmos.c:96| 
+||         MVK     .S1     0x500,A4          ; |Algoritmos.c:99| 
+
+$C$RL2:    ; CALL OCCURS {__divu} {0}        ; |Algoritmos.c:99| 
+           SHRU    .S1     A5,1,A3           ; |Algoritmos.c:96| 
+           MVK     .S2     360,B4            ; |Algoritmos.c:96| 
+
+           SUB     .L2X    B4,A3,B4          ; |Algoritmos.c:96| 
+||         MVK     .S2     1280,B5           ; |Algoritmos.c:96| 
+
+           MPY     .M2     B4,B5,B4          ; |Algoritmos.c:96| 
+||         MVK     .S2     640,B5            ; |Algoritmos.c:96| 
+||         SHRU    .S1     A7,1,A3           ; |Algoritmos.c:96| 
+
+           MV      .L1     A8,A0
+
+           MV      .L1X    B5,A5             ; |Algoritmos.c:96| 
+||         SUB     .L2X    B5,A3,B5          ; |Algoritmos.c:96| 
+||         SHRU    .S1     A4,1,A3           ; |Algoritmos.c:99| 
+
+           SUB     .L1     A5,A3,A4          ; |Algoritmos.c:99| 
+
+           ADD     .L2     B4,B5,B5          ; |Algoritmos.c:96| 
+||         MVK     .L1     3,A3              ; |Algoritmos.c:96| 
+
+           ADD     .L2X    B4,A4,B4          ; |Algoritmos.c:99| 
+
+           MPYLI   .M1X    A3,B5,A5:A4       ; |Algoritmos.c:96| 
+||         MV      .L2X    A3,B5             ; |Algoritmos.c:96| 
+
+           MPYLI   .M2     B5,B4,B5:B4       ; |Algoritmos.c:99| 
+           MVK     .S2     0x500,B9          ; |Algoritmos.c:99| 
+           ZERO    .L1     A18               ; |Algoritmos.c:101| 
+           MV      .L1     A4,A7             ; |Algoritmos.c:96| 
+	.dwpsn	file "Algoritmos.c",line 101,column 0,is_stmt,isa 0
+
+   [ A0]   ADD     .L1     A7,A9,A3
+||         MV      .L2     B4,B7             ; |Algoritmos.c:99| 
+||         ZERO    .D1     A17               ; |Algoritmos.c:101| 
+||         MVK     .S2     0x1,B8            ; |Algoritmos.c:98| 
+||         MVK     .S1     0xf00,A19
+||         ZERO    .D2     B6                ; |Algoritmos.c:102| 
+
+;** --------------------------------------------------------------------------*
+;**   BEGIN LOOP $C$L4
+;** --------------------------------------------------------------------------*
+$C$L4:    
+$C$DW$L$_NearestNeighbour$2$B:
+;          EXCLUSIVE CPU CYCLES: 5
+	.dwpsn	file "Algoritmos.c",line 102,column 0,is_stmt,isa 0
+   [!A0]   BNOP    .S1     $C$L9,4           ; |Algoritmos.c:103| 
+$C$DW$L$_NearestNeighbour$2$E:
+;** --------------------------------------------------------------------------*
+;**   BEGIN LOOP $C$L5
+;** --------------------------------------------------------------------------*
+$C$L5:    
+$C$DW$L$_NearestNeighbour$3$B:
+;          EXCLUSIVE CPU CYCLES: 1
+
+   [ A0]   MVK     .L1     3,A4              ; |Algoritmos.c:107| 
+|| [ A0]   LDBU    .D1T1   *+A3(2),A6
+
+           ; BRANCHCC OCCURS {$C$L9}         ; |Algoritmos.c:103| 
+$C$DW$L$_NearestNeighbour$3$E:
+;*----------------------------------------------------------------------------*
+;*   SOFTWARE PIPELINE INFORMATION
+;*
+;*      Loop found in file               : Algoritmos.c
+;*      Loop source line                 : 103
+;*      Loop opening brace source line   : 103
+;*      Loop closing brace source line   : 108
+;*      Known Minimum Trip Count         : 1                    
+;*      Known Max Trip Count Factor      : 1
+;*      Loop Carried Dependency Bound(^) : 0
+;*      Unpartitioned Resource Bound     : 2
+;*      Partitioned Resource Bound(*)    : 2
+;*      Resource Partition:
+;*                                A-side   B-side
+;*      .L units                     0        0     
+;*      .S units                     0        0     
+;*      .D units                     2*       1     
+;*      .M units                     0        0     
+;*      .X cross paths               0        0     
+;*      .T address paths             2*       1     
+;*      Long read paths              0        0     
+;*      Long write paths             0        0     
+;*      Logical  ops (.LS)           0        0     (.L or .S unit)
+;*      Addition ops (.LSD)          0        0     (.L or .S or .D unit)
+;*      Bound(.L .S .LS)             0        0     
+;*      Bound(.L .S .D .LS .LSD)     1        1     
+;*
+;*      Searching for software pipeline schedule at ...
+;*         ii = 2  Schedule found with 2 iterations in parallel
+;*
+;*      Register Usage Table:
+;*          +-----------------------------------------------------------------+
+;*          |AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA|BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB|
+;*          |00000000001111111111222222222233|00000000001111111111222222222233|
+;*          |01234567890123456789012345678901|01234567890123456789012345678901|
+;*          |--------------------------------+--------------------------------|
+;*       0: |   ****                         |    **                          |
+;*       1: |   ****                         |    **                          |
+;*          +-----------------------------------------------------------------+
+;*
+;*      Done
+;*
+;*      Loop will be splooped
+;*      Collapsed epilog stages       : 0
+;*      Collapsed prolog stages       : 0
+;*      Minimum required memory pad   : 0 bytes
+;*
+;*      Minimum safe trip count       : 1
+;*      Min. prof. trip count  (est.) : 2
+;*
+;*      Mem bank conflicts/iter(est.) : { min 0.969, est 0.969, max 0.969 }
+;*      Mem bank perf. penalty (est.) : 32.6%
+;*
+;*      Effective ii                : 3.0
+;*
+;*
+;*      Total cycles (est.)         : 2 + trip_cnt * 2        
+;*----------------------------------------------------------------------------*
+;*       SETUP CODE
+;*
+;*                  MV              A4,A3
+;*                  ADD             5,A3,A3
+;*                  MV              A4,B4
+;*                  ADD             4,B4,B4
+;*                  ADD             3,A4,A4
+;*
+;*        SINGLE SCHEDULED ITERATION
+;*
+;*        $C$C149:
+;*   0              STB     .D1T1   A5,*A4++(3)       ; |Algoritmos.c:104| 
+;*   1              STB     .D2T2   B5,*B4++(3)       ; |Algoritmos.c:105| 
+;*     ||           STB     .D1T1   A6,*A3++(3)       ; |Algoritmos.c:106| 
+;*     ||           SPBR            $C$C149
+;*   2              NOP             2
+;*   4              ; BRANCHCC OCCURS {$C$C149}       ; |Algoritmos.c:103| 
+;*----------------------------------------------------------------------------*
+$C$L6:    ; PIPED LOOP PROLOG
+;          EXCLUSIVE CPU CYCLES: 7
+
+           MVC     .S2X    A8,ILC
+||         MPYLI   .M1     A4,A8,A5:A4       ; |Algoritmos.c:107| 
+||         LDBU    .D1T1   *+A7[A9],A5
+
+           LDBU    .D1T2   *+A3(1),B5
+           NOP             1
+           ADD     .L1     A17,A16,A20
+	.dwpsn	file "Algoritmos.c",line 103,column 0,is_stmt,isa 0
+
+           SPLOOP  2       ;4                ; (P) 
+||         ADD     .L1     A4,A17,A17        ; |Algoritmos.c:107| 
+||         MV      .S1     A20,A4
+
+;** --------------------------------------------------------------------------*
+$C$L7:    ; PIPED LOOP KERNEL
+$C$DW$L$_NearestNeighbour$5$B:
+;          EXCLUSIVE CPU CYCLES: 2
+
+           SPMASK          L1,L2
+||         ADD     .L1     2,A20,A3
+||         ADD     .L2X    1,A20,B4
+||         STB     .D1T1   A5,*A4++(3)       ; |Algoritmos.c:104| (P) <0,0> 
+
+           SPMASK          L2
+||         ADD     .L2X    A8,B6,B6          ; |Algoritmos.c:103| 
+||         STB     .D2T2   B5,*B4++(3)       ; |Algoritmos.c:105| (P) <0,1> 
+||         STB     .D1T1   A6,*A3++(3)       ; |Algoritmos.c:106| (P) <0,1> 
+
+	.dwpsn	file "Algoritmos.c",line 108,column 0,is_stmt,isa 0
+           SPKERNEL 0,0
+$C$DW$L$_NearestNeighbour$5$E:
+;** --------------------------------------------------------------------------*
+$C$L8:    ; PIPED LOOP EPILOG
+;          EXCLUSIVE CPU CYCLES: 1
+           NOP             1
+;** --------------------------------------------------------------------------*
+$C$L9:    
+$C$DW$L$_NearestNeighbour$7$B:
+;          EXCLUSIVE CPU CYCLES: 7
+
+           CMPLT   .L2     B6,B9,B0          ; |Algoritmos.c:102| 
+||         ADD     .L1     3,A7,A7           ; |Algoritmos.c:109| 
+
+   [!B0]   MVK     .L1     0x1,A0            ; nullify predicate
+|| [ B0]   B       .S1     $C$L5             ; |Algoritmos.c:102| 
+
+	.dwpsn	file "Algoritmos.c",line 110,column 0,is_stmt,isa 0
+
+   [!A0]   BNOP    .S1     $C$L9,4           ; |Algoritmos.c:103| 
+|| [ A0]   ADD     .L1     A7,A9,A3
+
+           ; BRANCHCC OCCURS {$C$L5}         ; |Algoritmos.c:102| 
+$C$DW$L$_NearestNeighbour$7$E:
+;** --------------------------------------------------------------------------*
+$C$DW$L$_NearestNeighbour$8$B:
+;          EXCLUSIVE CPU CYCLES: 8
+
+           MPY     .M1     A18,A19,A17       ; |Algoritmos.c:111| 
+||         ADD     .L1     1,A18,A18         ; |Algoritmos.c:101| 
+||         MVK     .S1     720,A3            ; |Algoritmos.c:101| 
+||         MV      .D1X    B7,A7             ; |Algoritmos.c:112| 
+||         CMPEQ   .L2X    B8,A8,B0          ; |Algoritmos.c:113| 
+||         ZERO    .S2     B6                ; |Algoritmos.c:102| 
+
+           CMPLT   .L1     A18,A3,A0         ; |Algoritmos.c:101| 
+|| [ B0]   ADD     .S1X    A19,B7,A7         ; |Algoritmos.c:114| 
+|| [ B0]   ADDK    .S2     3840,B7           ; |Algoritmos.c:115| 
+|| [!B0]   ADD     .L2     1,B8,B8           ; |Algoritmos.c:113| 
+|| [ B0]   MVK     .D2     0x1,B8            ; |Algoritmos.c:116| 
+
+   [ A0]   BNOP    .S1     $C$L4,4           ; |Algoritmos.c:101| 
+||         MV      .L1     A8,A0
+
+	.dwpsn	file "Algoritmos.c",line 118,column 0,is_stmt,isa 0
+   [ A0]   ADD     .L1     A7,A9,A3
+           ; BRANCHCC OCCURS {$C$L4}         ; |Algoritmos.c:101| 
+$C$DW$L$_NearestNeighbour$8$E:
+;** --------------------------------------------------------------------------*
+;          EXCLUSIVE CPU CYCLES: 6
+	.dwpsn	file "Algoritmos.c",line 119,column 1,is_stmt,isa 0
+$C$DW$18	.dwtag  DW_TAG_TI_branch
+	.dwattr $C$DW$18, DW_AT_low_pc(0x00)
+	.dwattr $C$DW$18, DW_AT_TI_return
+           RETNOP  .S2X    A21,5             ; |Algoritmos.c:119| 
+           ; BRANCH OCCURS {A21}             ; |Algoritmos.c:119| 
+
+$C$DW$19	.dwtag  DW_TAG_TI_loop
+	.dwattr $C$DW$19, DW_AT_name("/home/fernandofernandes/NetBeansProjects/C.03/DSP/CSequencial_DSP.03/Algoritmos.asm:$C$L4:1:1421181247")
+	.dwattr $C$DW$19, DW_AT_TI_begin_file("Algoritmos.c")
+	.dwattr $C$DW$19, DW_AT_TI_begin_line(0x65)
+	.dwattr $C$DW$19, DW_AT_TI_end_line(0x76)
+$C$DW$20	.dwtag  DW_TAG_TI_loop_range
+	.dwattr $C$DW$20, DW_AT_low_pc($C$DW$L$_NearestNeighbour$2$B)
+	.dwattr $C$DW$20, DW_AT_high_pc($C$DW$L$_NearestNeighbour$2$E)
+$C$DW$21	.dwtag  DW_TAG_TI_loop_range
+	.dwattr $C$DW$21, DW_AT_low_pc($C$DW$L$_NearestNeighbour$8$B)
+	.dwattr $C$DW$21, DW_AT_high_pc($C$DW$L$_NearestNeighbour$8$E)
+
+$C$DW$22	.dwtag  DW_TAG_TI_loop
+	.dwattr $C$DW$22, DW_AT_name("/home/fernandofernandes/NetBeansProjects/C.03/DSP/CSequencial_DSP.03/Algoritmos.asm:$C$L5:2:1421181247")
+	.dwattr $C$DW$22, DW_AT_TI_begin_file("Algoritmos.c")
+	.dwattr $C$DW$22, DW_AT_TI_begin_line(0x66)
+	.dwattr $C$DW$22, DW_AT_TI_end_line(0x6e)
+$C$DW$23	.dwtag  DW_TAG_TI_loop_range
+	.dwattr $C$DW$23, DW_AT_low_pc($C$DW$L$_NearestNeighbour$3$B)
+	.dwattr $C$DW$23, DW_AT_high_pc($C$DW$L$_NearestNeighbour$3$E)
+$C$DW$24	.dwtag  DW_TAG_TI_loop_range
+	.dwattr $C$DW$24, DW_AT_low_pc($C$DW$L$_NearestNeighbour$7$B)
+	.dwattr $C$DW$24, DW_AT_high_pc($C$DW$L$_NearestNeighbour$7$E)
+
+$C$DW$25	.dwtag  DW_TAG_TI_loop
+	.dwattr $C$DW$25, DW_AT_name("/home/fernandofernandes/NetBeansProjects/C.03/DSP/CSequencial_DSP.03/Algoritmos.asm:$C$L7:3:1421181247")
+	.dwattr $C$DW$25, DW_AT_TI_begin_file("Algoritmos.c")
+	.dwattr $C$DW$25, DW_AT_TI_begin_line(0x67)
+	.dwattr $C$DW$25, DW_AT_TI_end_line(0x6c)
+$C$DW$26	.dwtag  DW_TAG_TI_loop_range
+	.dwattr $C$DW$26, DW_AT_low_pc($C$DW$L$_NearestNeighbour$5$B)
+	.dwattr $C$DW$26, DW_AT_high_pc($C$DW$L$_NearestNeighbour$5$E)
+	.dwendtag $C$DW$25
+
+	.dwendtag $C$DW$22
+
+	.dwendtag $C$DW$19
+
+	.dwattr $C$DW$11, DW_AT_TI_end_file("Algoritmos.c")
+	.dwattr $C$DW$11, DW_AT_TI_end_line(0x77)
+	.dwattr $C$DW$11, DW_AT_TI_end_column(0x01)
+	.dwendtag $C$DW$11
+
+	.sect	".text"
+	.clink
+	.global	_YUYVtoRGBPlusZoom
+
+$C$DW$27	.dwtag  DW_TAG_subprogram, DW_AT_name("YUYVtoRGBPlusZoom")
+	.dwattr $C$DW$27, DW_AT_low_pc(_YUYVtoRGBPlusZoom)
+	.dwattr $C$DW$27, DW_AT_high_pc(0x00)
+	.dwattr $C$DW$27, DW_AT_TI_symbol_name("_YUYVtoRGBPlusZoom")
+	.dwattr $C$DW$27, DW_AT_external
+	.dwattr $C$DW$27, DW_AT_TI_begin_file("Algoritmos.c")
+	.dwattr $C$DW$27, DW_AT_TI_begin_line(0x7f)
+	.dwattr $C$DW$27, DW_AT_TI_begin_column(0x06)
+	.dwattr $C$DW$27, DW_AT_TI_max_frame_size(0x00)
+	.dwattr $C$DW$27, DW_AT_frame_base[DW_OP_breg31 0]
+	.dwattr $C$DW$27, DW_AT_TI_skeletal
+	.dwpsn	file "Algoritmos.c",line 128,column 71,is_stmt,address _YUYVtoRGBPlusZoom,isa 0
+$C$DW$28	.dwtag  DW_TAG_formal_parameter, DW_AT_name("subimage")
+	.dwattr $C$DW$28, DW_AT_TI_symbol_name("_subimage")
+	.dwattr $C$DW$28, DW_AT_type(*$C$DW$T$22)
+	.dwattr $C$DW$28, DW_AT_location[DW_OP_reg4]
+$C$DW$29	.dwtag  DW_TAG_formal_parameter, DW_AT_name("dest")
+	.dwattr $C$DW$29, DW_AT_TI_symbol_name("_dest")
+	.dwattr $C$DW$29, DW_AT_type(*$C$DW$T$24)
+	.dwattr $C$DW$29, DW_AT_location[DW_OP_reg20]
+$C$DW$30	.dwtag  DW_TAG_formal_parameter, DW_AT_name("aux")
+	.dwattr $C$DW$30, DW_AT_TI_symbol_name("_aux")
+	.dwattr $C$DW$30, DW_AT_type(*$C$DW$T$24)
+	.dwattr $C$DW$30, DW_AT_location[DW_OP_reg6]
+$C$DW$31	.dwtag  DW_TAG_formal_parameter, DW_AT_name("scale")
+	.dwattr $C$DW$31, DW_AT_TI_symbol_name("_scale")
+	.dwattr $C$DW$31, DW_AT_type(*$C$DW$T$11)
+	.dwattr $C$DW$31, DW_AT_location[DW_OP_reg22]
+
+;******************************************************************************
+;* FUNCTION NAME: YUYVtoRGBPlusZoom                                           *
+;*                                                                            *
+;*   Regs Modified     : A0,A1,A2,A3,A4,A5,A6,A7,A8,A9,B0,B1,B2,B3,B4,B5,B6,  *
+;*                           B7,B8,B9,A16,A17,A18,A19,A20,A21,A22,A23,A24,A25,*
+;*                           A26,A27,A28,B16,B17,B18,B19,B20,B21,B30,B31      *
+;*   Regs Used         : A0,A1,A2,A3,A4,A5,A6,A7,A8,A9,B0,B1,B2,B3,B4,B5,B6,  *
+;*                           B7,B8,B9,DP,SP,A16,A17,A18,A19,A20,A21,A22,A23,  *
+;*                           A24,A25,A26,A27,A28,B16,B17,B18,B19,B20,B21,B30, *
+;*                           B31                                              *
+;*   Local Frame Size  : 0 Args + 0 Auto + 0 Save = 0 byte                    *
+;******************************************************************************
+_YUYVtoRGBPlusZoom:
+;** --------------------------------------------------------------------------*
+;          EXCLUSIVE CPU CYCLES: 20
+           MV      .L1X    B3,A28            ; |Algoritmos.c:128| 
+           MV      .L1X    B4,A26            ; |Algoritmos.c:128| 
+$C$DW$32	.dwtag  DW_TAG_TI_branch
+	.dwattr $C$DW$32, DW_AT_low_pc(0x00)
+	.dwattr $C$DW$32, DW_AT_name("_YUYVtoRGB")
+	.dwattr $C$DW$32, DW_AT_TI_call
+
+           CALLP   .S2     _YUYVtoRGB,B3
+||         MV      .L2X    A6,B4             ; |Algoritmos.c:128| 
+||         MV      .L1     A6,A25            ; |Algoritmos.c:128| 
+||         MV      .S1X    B6,A27            ; |Algoritmos.c:128| 
+
+$C$RL3:    ; CALL OCCURS {_YUYVtoRGB} {0}    ; |Algoritmos.c:129| 
+$C$DW$33	.dwtag  DW_TAG_TI_branch
+	.dwattr $C$DW$33, DW_AT_low_pc(0x00)
+	.dwattr $C$DW$33, DW_AT_name("_NearestNeighbour")
+	.dwattr $C$DW$33, DW_AT_TI_call
+
+           CALLP   .S2     _NearestNeighbour,B3
+||         MV      .L2X    A26,B4            ; |Algoritmos.c:128| 
+||         MV      .L1     A27,A6            ; |Algoritmos.c:128| 
+||         MV      .S1     A25,A4            ; |Algoritmos.c:130| 
+
+$C$RL4:    ; CALL OCCURS {_NearestNeighbour} {0}  ; |Algoritmos.c:130| 
+	.dwpsn	file "Algoritmos.c",line 131,column 1,is_stmt,isa 0
+$C$DW$34	.dwtag  DW_TAG_TI_branch
+	.dwattr $C$DW$34, DW_AT_low_pc(0x00)
+	.dwattr $C$DW$34, DW_AT_TI_return
+           RETNOP  .S2X    A28,5             ; |Algoritmos.c:131| 
+           ; BRANCH OCCURS {A28}             ; |Algoritmos.c:131| 
+	.dwattr $C$DW$27, DW_AT_TI_end_file("Algoritmos.c")
+	.dwattr $C$DW$27, DW_AT_TI_end_line(0x83)
+	.dwattr $C$DW$27, DW_AT_TI_end_column(0x01)
+	.dwendtag $C$DW$27
+
+	.sect	".text"
+	.clink
+	.global	_ImageThreshold
+
+$C$DW$35	.dwtag  DW_TAG_subprogram, DW_AT_name("ImageThreshold")
+	.dwattr $C$DW$35, DW_AT_low_pc(_ImageThreshold)
+	.dwattr $C$DW$35, DW_AT_high_pc(0x00)
+	.dwattr $C$DW$35, DW_AT_TI_symbol_name("_ImageThreshold")
+	.dwattr $C$DW$35, DW_AT_external
+	.dwattr $C$DW$35, DW_AT_TI_begin_file("Algoritmos.c")
+	.dwattr $C$DW$35, DW_AT_TI_begin_line(0x1d)
+	.dwattr $C$DW$35, DW_AT_TI_begin_column(0x06)
+	.dwattr $C$DW$35, DW_AT_TI_max_frame_size(0x00)
+	.dwattr $C$DW$35, DW_AT_frame_base[DW_OP_breg31 0]
+	.dwattr $C$DW$35, DW_AT_TI_skeletal
+	.dwpsn	file "Algoritmos.c",line 30,column 34,is_stmt,address _ImageThreshold,isa 0
+$C$DW$36	.dwtag  DW_TAG_formal_parameter, DW_AT_name("subimage")
+	.dwattr $C$DW$36, DW_AT_TI_symbol_name("_subimage")
+	.dwattr $C$DW$36, DW_AT_type(*$C$DW$T$23)
+	.dwattr $C$DW$36, DW_AT_location[DW_OP_reg4]
+$C$DW$37	.dwtag  DW_TAG_formal_parameter, DW_AT_name("dest")
+	.dwattr $C$DW$37, DW_AT_TI_symbol_name("_dest")
+	.dwattr $C$DW$37, DW_AT_type(*$C$DW$T$25)
+	.dwattr $C$DW$37, DW_AT_location[DW_OP_reg20]
+$C$DW$38	.dwtag  DW_TAG_formal_parameter, DW_AT_name("cor")
+	.dwattr $C$DW$38, DW_AT_TI_symbol_name("_cor")
+	.dwattr $C$DW$38, DW_AT_type(*$C$DW$T$21)
+	.dwattr $C$DW$38, DW_AT_location[DW_OP_reg6]
+
+;******************************************************************************
+;* FUNCTION NAME: ImageThreshold                                              *
 ;*                                                                            *
 ;*   Regs Modified     : A0,A1,A2,A3,A4,A5,A6,A7,A8,A9,B4,B5,B6,B7,B8,B9,A16, *
 ;*                           B16,B17,B18                                      *
@@ -686,7 +1117,7 @@ $C$DW$14	.dwtag  DW_TAG_formal_parameter, DW_AT_name("cor")
 ;*                           DP,SP,A16,B16,B17,B18                            *
 ;*   Local Frame Size  : 0 Args + 0 Auto + 0 Save = 0 byte                    *
 ;******************************************************************************
-_limiar_imagem:
+_ImageThreshold:
 ;** --------------------------------------------------------------------------*
 ;          EXCLUSIVE CPU CYCLES: 8
 
@@ -786,7 +1217,7 @@ _limiar_imagem:
 ;*
 ;*        SINGLE SCHEDULED ITERATION
 ;*
-;*        $C$C191:
+;*        $C$C243:
 ;*   0              LDBU    .D1T1   *+A6(2),A8        ; |Algoritmos.c:42| 
 ;*   1              NOP             1
 ;*   2              LDBU    .D1T1   *A6++(8),A9       ; |Algoritmos.c:44| 
@@ -803,7 +1234,7 @@ _limiar_imagem:
 ;*     ||           CMPLT   .L1     A9,A5,A1          ; |Algoritmos.c:44| 
 ;*     ||           ADD     .S2     B8,B17,B6         ; |Algoritmos.c:48| 
 ;*     ||           ADD     .L2     B8,B6,B17         ; |Algoritmos.c:48| 
-;*     ||   [ A2]   BDEC    .S1     $C$C191,A2        ; |Algoritmos.c:35| 
+;*     ||   [ A2]   BDEC    .S1     $C$C243,A2        ; |Algoritmos.c:35| 
 ;*  10              ADD     .S2     B9,B16,B6         ; |Algoritmos.c:45| 
 ;*     ||   [!A0]   STB     .D2T1   A8,*+B6(3)        ; |Algoritmos.c:48|  ^ 
 ;*     ||           CMPLT   .L1X    B7,A5,A0          ; |Algoritmos.c:44| 
@@ -817,9 +1248,9 @@ _limiar_imagem:
 ;*     ||   [!A1]   STB     .D2T1   A7,*+B17(9)       ; |Algoritmos.c:48|  ^ 
 ;*  14      [!A0]   STB     .D2T2   B7,*+B6(6)        ; |Algoritmos.c:45|  ^ 
 ;*     ||           ADD     .L2     12,B16,B16        ; |Algoritmos.c:35| 
-;*  15              ; BRANCHCC OCCURS {$C$C191}       ; |Algoritmos.c:35| 
+;*  15              ; BRANCHCC OCCURS {$C$C243}       ; |Algoritmos.c:35| 
 ;*----------------------------------------------------------------------------*
-$C$L4:    ; PIPED LOOP PROLOG
+$C$L10:    ; PIPED LOOP PROLOG
 ;          EXCLUSIVE CPU CYCLES: 1
 	.dwpsn	file "Algoritmos.c",line 35,column 0,is_stmt,isa 0
 
@@ -831,8 +1262,8 @@ $C$L4:    ; PIPED LOOP PROLOG
 ||         LDBU    .D1T1   *+A6(2),A8        ; |Algoritmos.c:42| (P) <1,0> 
 
 ;** --------------------------------------------------------------------------*
-$C$L5:    ; PIPED LOOP KERNEL
-$C$DW$L$_limiar_imagem$3$B:
+$C$L11:    ; PIPED LOOP KERNEL
+$C$DW$L$_ImageThreshold$3$B:
 ;          EXCLUSIVE CPU CYCLES: 7
 
            ADD     .L2     B16,B9,B6         ; |Algoritmos.c:48| <0,8> 
@@ -840,7 +1271,7 @@ $C$DW$L$_limiar_imagem$3$B:
 ||         STH     .D1T2   B5,*++A3(12)      ; |Algoritmos.c:39| <0,8> 
 ||         STH     .D2T1   A4,*++B4(12)      ; |Algoritmos.c:37| <0,8>  ^ 
 
-   [ A2]   BDEC    .S1     $C$L5,A2          ; |Algoritmos.c:35| <0,9> 
+   [ A2]   BDEC    .S1     $C$L11,A2         ; |Algoritmos.c:35| <0,9> 
 ||         ADD     .L2     B8,B6,B17         ; |Algoritmos.c:48| <0,9> 
 ||         ADD     .S2     B8,B17,B6         ; |Algoritmos.c:48| <0,9> 
 ||         STH     .D2T2   B5,*+B4(2)        ; |Algoritmos.c:38| <0,9>  ^ 
@@ -873,9 +1304,9 @@ $C$DW$L$_limiar_imagem$3$B:
 || [!A0]   STB     .D2T2   B7,*+B6(6)        ; |Algoritmos.c:45| <0,14>  ^ 
 ||         LDBU    .D1T1   *+A6(2),A8        ; |Algoritmos.c:42| <2,0> 
 
-$C$DW$L$_limiar_imagem$3$E:
+$C$DW$L$_ImageThreshold$3$E:
 ;** --------------------------------------------------------------------------*
-$C$L6:    ; PIPED LOOP EPILOG
+$C$L12:    ; PIPED LOOP EPILOG
 ;          EXCLUSIVE CPU CYCLES: 7
 
            ADD     .L2     B16,B9,B17        ; |Algoritmos.c:48| (E) <1,8> 
@@ -924,9 +1355,9 @@ $C$L6:    ; PIPED LOOP EPILOG
 ||         STH     .D1T2   B5,*++A3(12)      ; |Algoritmos.c:39| (E) <2,8> 
 ||         STH     .D2T1   A4,*++B4(12)      ; |Algoritmos.c:37| (E) <2,8>  ^ 
 
-$C$DW$15	.dwtag  DW_TAG_TI_branch
-	.dwattr $C$DW$15, DW_AT_low_pc(0x00)
-	.dwattr $C$DW$15, DW_AT_TI_return
+$C$DW$39	.dwtag  DW_TAG_TI_branch
+	.dwattr $C$DW$39, DW_AT_low_pc(0x00)
+	.dwattr $C$DW$39, DW_AT_TI_return
 
            RET     .S2     B3                ; |Algoritmos.c:51| 
 ||         STH     .D2T2   B5,*+B4(2)        ; |Algoritmos.c:38| (E) <2,9>  ^ 
@@ -953,54 +1384,398 @@ $C$DW$15	.dwtag  DW_TAG_TI_branch
 
            ; BRANCH OCCURS {B3}              ; |Algoritmos.c:51| 
 
-$C$DW$16	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$16, DW_AT_name("/home/fernandofernandes/NetBeansProjects/C.03/DSP/CSequencial_DSP.03/Algoritmos.asm:$C$L5:1:1419026474")
-	.dwattr $C$DW$16, DW_AT_TI_begin_file("Algoritmos.c")
-	.dwattr $C$DW$16, DW_AT_TI_begin_line(0x23)
-	.dwattr $C$DW$16, DW_AT_TI_end_line(0x32)
-$C$DW$17	.dwtag  DW_TAG_TI_loop_range
-	.dwattr $C$DW$17, DW_AT_low_pc($C$DW$L$_limiar_imagem$3$B)
-	.dwattr $C$DW$17, DW_AT_high_pc($C$DW$L$_limiar_imagem$3$E)
-	.dwendtag $C$DW$16
+$C$DW$40	.dwtag  DW_TAG_TI_loop
+	.dwattr $C$DW$40, DW_AT_name("/home/fernandofernandes/NetBeansProjects/C.03/DSP/CSequencial_DSP.03/Algoritmos.asm:$C$L11:1:1421181247")
+	.dwattr $C$DW$40, DW_AT_TI_begin_file("Algoritmos.c")
+	.dwattr $C$DW$40, DW_AT_TI_begin_line(0x23)
+	.dwattr $C$DW$40, DW_AT_TI_end_line(0x32)
+$C$DW$41	.dwtag  DW_TAG_TI_loop_range
+	.dwattr $C$DW$41, DW_AT_low_pc($C$DW$L$_ImageThreshold$3$B)
+	.dwattr $C$DW$41, DW_AT_high_pc($C$DW$L$_ImageThreshold$3$E)
+	.dwendtag $C$DW$40
 
-	.dwattr $C$DW$11, DW_AT_TI_end_file("Algoritmos.c")
-	.dwattr $C$DW$11, DW_AT_TI_end_line(0x33)
-	.dwattr $C$DW$11, DW_AT_TI_end_column(0x01)
-	.dwendtag $C$DW$11
+	.dwattr $C$DW$35, DW_AT_TI_end_file("Algoritmos.c")
+	.dwattr $C$DW$35, DW_AT_TI_end_line(0x33)
+	.dwattr $C$DW$35, DW_AT_TI_end_column(0x01)
+	.dwendtag $C$DW$35
 
 	.sect	".text"
 	.clink
-	.global	_imagem_to_cinza
+	.global	_ImageThresholdPlusZoom
 
-$C$DW$18	.dwtag  DW_TAG_subprogram, DW_AT_name("imagem_to_cinza")
-	.dwattr $C$DW$18, DW_AT_low_pc(_imagem_to_cinza)
-	.dwattr $C$DW$18, DW_AT_high_pc(0x00)
-	.dwattr $C$DW$18, DW_AT_TI_symbol_name("_imagem_to_cinza")
-	.dwattr $C$DW$18, DW_AT_external
-	.dwattr $C$DW$18, DW_AT_TI_begin_file("Algoritmos.c")
-	.dwattr $C$DW$18, DW_AT_TI_begin_line(0x03)
-	.dwattr $C$DW$18, DW_AT_TI_begin_column(0x06)
-	.dwattr $C$DW$18, DW_AT_TI_max_frame_size(0x10)
-	.dwattr $C$DW$18, DW_AT_frame_base[DW_OP_breg31 16]
-	.dwattr $C$DW$18, DW_AT_TI_skeletal
-	.dwpsn	file "Algoritmos.c",line 3,column 101,is_stmt,address _imagem_to_cinza,isa 0
-$C$DW$19	.dwtag  DW_TAG_formal_parameter, DW_AT_name("subimage")
-	.dwattr $C$DW$19, DW_AT_TI_symbol_name("_subimage")
-	.dwattr $C$DW$19, DW_AT_type(*$C$DW$T$23)
-	.dwattr $C$DW$19, DW_AT_location[DW_OP_reg4]
-$C$DW$20	.dwtag  DW_TAG_formal_parameter, DW_AT_name("dest")
-	.dwattr $C$DW$20, DW_AT_TI_symbol_name("_dest")
-	.dwattr $C$DW$20, DW_AT_type(*$C$DW$T$25)
-	.dwattr $C$DW$20, DW_AT_location[DW_OP_reg20]
+$C$DW$42	.dwtag  DW_TAG_subprogram, DW_AT_name("ImageThresholdPlusZoom")
+	.dwattr $C$DW$42, DW_AT_low_pc(_ImageThresholdPlusZoom)
+	.dwattr $C$DW$42, DW_AT_high_pc(0x00)
+	.dwattr $C$DW$42, DW_AT_TI_symbol_name("_ImageThresholdPlusZoom")
+	.dwattr $C$DW$42, DW_AT_external
+	.dwattr $C$DW$42, DW_AT_TI_begin_file("Algoritmos.c")
+	.dwattr $C$DW$42, DW_AT_TI_begin_line(0x79)
+	.dwattr $C$DW$42, DW_AT_TI_begin_column(0x06)
+	.dwattr $C$DW$42, DW_AT_TI_max_frame_size(0x00)
+	.dwattr $C$DW$42, DW_AT_frame_base[DW_OP_breg31 0]
+	.dwattr $C$DW$42, DW_AT_TI_skeletal
+	.dwpsn	file "Algoritmos.c",line 122,column 97,is_stmt,address _ImageThresholdPlusZoom,isa 0
+$C$DW$43	.dwtag  DW_TAG_formal_parameter, DW_AT_name("subimage")
+	.dwattr $C$DW$43, DW_AT_TI_symbol_name("_subimage")
+	.dwattr $C$DW$43, DW_AT_type(*$C$DW$T$22)
+	.dwattr $C$DW$43, DW_AT_location[DW_OP_reg4]
+$C$DW$44	.dwtag  DW_TAG_formal_parameter, DW_AT_name("dest")
+	.dwattr $C$DW$44, DW_AT_TI_symbol_name("_dest")
+	.dwattr $C$DW$44, DW_AT_type(*$C$DW$T$24)
+	.dwattr $C$DW$44, DW_AT_location[DW_OP_reg20]
+$C$DW$45	.dwtag  DW_TAG_formal_parameter, DW_AT_name("aux")
+	.dwattr $C$DW$45, DW_AT_TI_symbol_name("_aux")
+	.dwattr $C$DW$45, DW_AT_type(*$C$DW$T$24)
+	.dwattr $C$DW$45, DW_AT_location[DW_OP_reg6]
+$C$DW$46	.dwtag  DW_TAG_formal_parameter, DW_AT_name("cor")
+	.dwattr $C$DW$46, DW_AT_TI_symbol_name("_cor")
+	.dwattr $C$DW$46, DW_AT_type(*$C$DW$T$21)
+	.dwattr $C$DW$46, DW_AT_location[DW_OP_reg22]
+$C$DW$47	.dwtag  DW_TAG_formal_parameter, DW_AT_name("scale")
+	.dwattr $C$DW$47, DW_AT_TI_symbol_name("_scale")
+	.dwattr $C$DW$47, DW_AT_type(*$C$DW$T$11)
+	.dwattr $C$DW$47, DW_AT_location[DW_OP_reg8]
 
 ;******************************************************************************
-;* FUNCTION NAME: imagem_to_cinza                                             *
+;* FUNCTION NAME: ImageThresholdPlusZoom                                      *
+;*                                                                            *
+;*   Regs Modified     : A0,A1,A2,A3,A4,A5,A6,A7,A8,A9,B0,B1,B2,B3,B4,B5,B6,  *
+;*                           B7,B8,B9,A16,A17,A18,A19,A20,A21,A22,B16,B17,B18,*
+;*                           B30,B31                                          *
+;*   Regs Used         : A0,A1,A2,A3,A4,A5,A6,A7,A8,A9,B0,B1,B2,B3,B4,B5,B6,  *
+;*                           B7,B8,B9,DP,SP,A16,A17,A18,A19,A20,A21,A22,B16,  *
+;*                           B17,B18,B30,B31                                  *
+;*   Local Frame Size  : 0 Args + 0 Auto + 0 Save = 0 byte                    *
+;******************************************************************************
+_ImageThresholdPlusZoom:
+;** --------------------------------------------------------------------------*
+;          EXCLUSIVE CPU CYCLES: 8
+
+           MV      .L2X    A6,B16            ; |Algoritmos.c:122| 
+||         MV      .L1     A6,A18            ; |Algoritmos.c:122| 
+||         SUB     .S1     A6,12,A4
+||         MV      .D1     A4,A6             ; |Algoritmos.c:122| 
+
+           MV      .L1     A8,A16            ; |Algoritmos.c:122| 
+||         LDBU    .D1T1   *+A6(2),A8        ; |Algoritmos.c:42| (P) <0,0> 
+
+           MVK     .S1     0x80,A5
+           LDBU    .D1T1   *A6++(8),A9       ; |Algoritmos.c:44| (P) <0,2> 
+           MVKL    .S1     0x38400,A2
+           MV      .L1X    B3,A22            ; |Algoritmos.c:122| 
+
+           CMPLT   .L1     A8,A5,A0          ; |Algoritmos.c:47| (P) <0,5> 
+||         LDBU    .D1T2   *-A6(4),B7        ; |Algoritmos.c:44| (P) <0,3> 
+||         MV      .S1X    B4,A17            ; |Algoritmos.c:122| 
+
+           MVD     .M1     A0,A0             ; |Algoritmos.c:47| (P) <0,6> Post-sched spill
+||         LDBU    .D1T1   *-A6(2),A7        ; |Algoritmos.c:42| (P) <0,5> 
+||         ADD     .L1     4,A4,A3
+||         MVKH    .S1     0x38400,A2
+||         DINT                              ; interrupts off
+||         ZERO    .L2     B5                ; |Algoritmos.c:32| 
+
+;*----------------------------------------------------------------------------*
+;*   SOFTWARE PIPELINE INFORMATION
+;*
+;*      Loop found in file               : Algoritmos.c
+;*      Loop source line                 : 35
+;*      Loop opening brace source line   : 35
+;*      Loop closing brace source line   : 50
+;*      Loop Unroll Multiple             : 2x
+;*      Known Minimum Trip Count         : 230400                    
+;*      Known Maximum Trip Count         : 230400                    
+;*      Known Max Trip Count Factor      : 230400
+;*      Loop Carried Dependency Bound(^) : 4
+;*      Unpartitioned Resource Bound     : 7
+;*      Partitioned Resource Bound(*)    : 7
+;*      Resource Partition:
+;*                                A-side   B-side
+;*      .L units                     4        0     
+;*      .S units                     1        0     
+;*      .D units                     7*       7*    
+;*      .M units                     0        0     
+;*      .X cross paths               1        0     
+;*      .T address paths             7*       7*    
+;*      Long read paths              0        0     
+;*      Long write paths             0        0     
+;*      Logical  ops (.LS)           0        0     (.L or .S unit)
+;*      Addition ops (.LSD)          0        8     (.L or .S or .D unit)
+;*      Bound(.L .S .LS)             3        0     
+;*      Bound(.L .S .D .LS .LSD)     4        5     
+;*
+;*      Searching for software pipeline schedule at ...
+;*         ii = 7  Schedule found with 3 iterations in parallel
+;*
+;*      Register Usage Table:
+;*          +-----------------------------------------------------------------+
+;*          |AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA|BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB|
+;*          |00000000001111111111222222222233|00000000001111111111222222222233|
+;*          |01234567890123456789012345678901|01234567890123456789012345678901|
+;*          |--------------------------------+--------------------------------|
+;*       0: |  ***** **                      |    ** ***      *               |
+;*       1: |  ***** **                      |    ******      **              |
+;*       2: |**********                      |    ******      **              |
+;*       3: |******** *                      |    ******      ***             |
+;*       4: |*********                       |    ******      **              |
+;*       5: |*********                       |    ******      **              |
+;*       6: |* ***** **                      |    ******      *               |
+;*          +-----------------------------------------------------------------+
+;*
+;*      Done
+;*
+;*      Epilog not removed
+;*      Collapsed epilog stages       : 0
+;*
+;*      Prolog not removed
+;*      Collapsed prolog stages       : 0
+;*
+;*      Minimum required memory pad   : 0 bytes
+;*
+;*      For further improvement on this loop, try option -mh16
+;*
+;*      Minimum safe trip count       : 3 (after unrolling)
+;*
+;*
+;*      Mem bank conflicts/iter(est.) : { min 0.000, est 0.750, max 6.000 }
+;*      Mem bank perf. penalty (est.) : 9.7%
+;*
+;*      Effective ii                : { min 7.00, est 7.75, max 13.00 }
+;*
+;*
+;*      Total cycles (est.)         : 8 + min_trip_cnt * 7 = 1612808        
+;*----------------------------------------------------------------------------*
+;*       SETUP CODE
+;*
+;*                  SUB             A2,1,A2
+;*                  MV              A4,B5
+;*                  MV              A3,B4
+;*                  ADD             4,A3,A3
+;*
+;*        SINGLE SCHEDULED ITERATION
+;*
+;*        $C$C324:
+;*   0              LDBU    .D1T1   *+A6(2),A8        ; |Algoritmos.c:42| 
+;*   1              NOP             1
+;*   2              LDBU    .D1T1   *A6++(8),A9       ; |Algoritmos.c:44| 
+;*   3              LDBU    .D1T2   *-A6(4),B7        ; |Algoritmos.c:44| 
+;*   4              NOP             1
+;*   5              CMPLT   .L1     A8,A5,A0          ; |Algoritmos.c:47| 
+;*     ||           LDBU    .D1T1   *-A6(2),A7        ; |Algoritmos.c:42| 
+;*   6              NOP             2
+;*   8              STH     .D2T1   A4,*++B4(12)      ; |Algoritmos.c:37|  ^ 
+;*     ||           STH     .D1T2   B5,*++A3(12)      ; |Algoritmos.c:39| 
+;*     ||           ADD     .S2     B9,B8,B17         ; |Algoritmos.c:48| 
+;*     ||           ADD     .L2     B9,B8,B6          ; |Algoritmos.c:48| 
+;*   9              STH     .D2T2   B5,*+B4(2)        ; |Algoritmos.c:38|  ^ 
+;*     ||           CMPLT   .L1     A9,A5,A1          ; |Algoritmos.c:44| 
+;*     ||           ADD     .S2     B16,B17,B6        ; |Algoritmos.c:48| 
+;*     ||           ADD     .L2     B16,B6,B17        ; |Algoritmos.c:48| 
+;*     ||   [ A2]   BDEC    .S1     $C$C324,A2        ; |Algoritmos.c:35| 
+;*  10              ADD     .S2     B8,B9,B6          ; |Algoritmos.c:45| 
+;*     ||   [!A0]   STB     .D2T1   A8,*+B6(3)        ; |Algoritmos.c:48|  ^ 
+;*     ||           CMPLT   .L1X    B7,A5,A0          ; |Algoritmos.c:44| 
+;*     ||           ADD     .L2     B8,B9,B18         ; |Algoritmos.c:45| 
+;*  11      [!A1]   STB     .D2T1   A9,*+B6[B16]      ; |Algoritmos.c:45|  ^ 
+;*     ||           STH     .D1T2   B5,*+A3(4)        ; |Algoritmos.c:38|  ^ 
+;*     ||           ADD     .L2     B16,B18,B6        ; |Algoritmos.c:45| 
+;*     ||           CMPLT   .L1     A7,A5,A1          ; |Algoritmos.c:47| 
+;*  12              STH     .D2T2   B5,*+B4(10)       ; |Algoritmos.c:39|  ^ 
+;*  13              STH     .D1T2   B5,*+A3(2)        ; |Algoritmos.c:37|  ^ 
+;*     ||   [!A1]   STB     .D2T1   A7,*+B17(9)       ; |Algoritmos.c:48|  ^ 
+;*  14      [!A0]   STB     .D2T2   B7,*+B6(6)        ; |Algoritmos.c:45|  ^ 
+;*     ||           ADD     .L2     12,B9,B9          ; |Algoritmos.c:35| 
+;*  15              ; BRANCHCC OCCURS {$C$C324}       ; |Algoritmos.c:35| 
+;*----------------------------------------------------------------------------*
+$C$L13:    ; PIPED LOOP PROLOG
+;          EXCLUSIVE CPU CYCLES: 1
+	.dwpsn	file "Algoritmos.c",line 35,column 0,is_stmt,isa 0
+
+           MV      .L2     B6,B8
+||         ZERO    .S2     B9                ; |Algoritmos.c:32| 
+||         SUB     .L1     A2,3,A2
+||         MV      .D2X    A4,B4
+||         ZERO    .S1     A4                ; |Algoritmos.c:32| 
+||         LDBU    .D1T1   *+A6(2),A8        ; |Algoritmos.c:42| (P) <1,0> 
+
+;** --------------------------------------------------------------------------*
+$C$L14:    ; PIPED LOOP KERNEL
+$C$DW$L$_ImageThresholdPlusZoom$3$B:
+;          EXCLUSIVE CPU CYCLES: 7
+
+           ADD     .L2     B9,B8,B6          ; |Algoritmos.c:48| <0,8> 
+||         ADD     .S2     B9,B8,B17         ; |Algoritmos.c:48| <0,8> 
+||         STH     .D1T2   B5,*++A3(12)      ; |Algoritmos.c:39| <0,8> 
+||         STH     .D2T1   A4,*++B4(12)      ; |Algoritmos.c:37| <0,8>  ^ 
+
+   [ A2]   BDEC    .S1     $C$L14,A2         ; |Algoritmos.c:35| <0,9> 
+||         ADD     .L2     B16,B6,B17        ; |Algoritmos.c:48| <0,9> 
+||         ADD     .S2     B16,B17,B6        ; |Algoritmos.c:48| <0,9> 
+||         STH     .D2T2   B5,*+B4(2)        ; |Algoritmos.c:38| <0,9>  ^ 
+||         CMPLT   .L1     A9,A5,A1          ; |Algoritmos.c:44| <0,9> 
+||         LDBU    .D1T1   *A6++(8),A9       ; |Algoritmos.c:44| <1,2> 
+
+           ADD     .L2     B8,B9,B18         ; |Algoritmos.c:45| <0,10> 
+||         ADD     .S2     B8,B9,B6          ; |Algoritmos.c:45| <0,10> 
+|| [!A0]   STB     .D2T1   A8,*+B6(3)        ; |Algoritmos.c:48| <0,10>  ^ 
+||         CMPLT   .L1X    B7,A5,A0          ; |Algoritmos.c:44| <0,10> 
+||         LDBU    .D1T2   *-A6(4),B7        ; |Algoritmos.c:44| <1,3> 
+
+           ADD     .L2     B16,B18,B6        ; |Algoritmos.c:45| <0,11> 
+||         CMPLT   .L1     A7,A5,A1          ; |Algoritmos.c:47| <0,11> 
+||         STH     .D1T2   B5,*+A3(4)        ; |Algoritmos.c:38| <0,11>  ^ 
+|| [!A1]   STB     .D2T1   A9,*+B6[B16]      ; |Algoritmos.c:45| <0,11>  ^ 
+
+           ROTL    .M1     A0,0,A0           ; |Algoritmos.c:44| <0,12> Post-sched spill
+||         STH     .D2T2   B5,*+B4(10)       ; |Algoritmos.c:39| <0,12>  ^ 
+||         CMPLT   .L1     A8,A5,A0          ; |Algoritmos.c:47| <1,5> 
+||         LDBU    .D1T1   *-A6(2),A7        ; |Algoritmos.c:42| <1,5> 
+
+           STH     .D1T2   B5,*+A3(2)        ; |Algoritmos.c:37| <0,13>  ^ 
+|| [!A1]   STB     .D2T1   A7,*+B17(9)       ; |Algoritmos.c:48| <0,13>  ^ 
+||         MVD     .M1     A0,A0             ; |Algoritmos.c:47| <1,6> Post-sched spill
+
+	.dwpsn	file "Algoritmos.c",line 50,column 0,is_stmt,isa 0
+
+           ADD     .L2     12,B9,B9          ; |Algoritmos.c:35| <0,14> 
+|| [!A0]   STB     .D2T2   B7,*+B6(6)        ; |Algoritmos.c:45| <0,14>  ^ 
+||         LDBU    .D1T1   *+A6(2),A8        ; |Algoritmos.c:42| <2,0> 
+
+$C$DW$L$_ImageThresholdPlusZoom$3$E:
+;** --------------------------------------------------------------------------*
+$C$L15:    ; PIPED LOOP EPILOG
+;          EXCLUSIVE CPU CYCLES: 7
+
+           ADD     .L2     B9,B8,B6          ; |Algoritmos.c:48| (E) <1,8> 
+||         ADD     .S2     B9,B8,B17         ; |Algoritmos.c:48| (E) <1,8> 
+||         STH     .D1T2   B5,*++A3(12)      ; |Algoritmos.c:39| (E) <1,8> 
+||         STH     .D2T1   A4,*++B4(12)      ; |Algoritmos.c:37| (E) <1,8>  ^ 
+
+           ADD     .L2     B16,B6,B17        ; |Algoritmos.c:48| (E) <1,9> 
+||         ADD     .S2     B16,B17,B6        ; |Algoritmos.c:48| (E) <1,9> 
+||         STH     .D2T2   B5,*+B4(2)        ; |Algoritmos.c:38| (E) <1,9>  ^ 
+||         CMPLT   .L1     A9,A5,A1          ; |Algoritmos.c:44| (E) <1,9> 
+||         LDBU    .D1T1   *A6++(8),A9       ; |Algoritmos.c:44| (E) <2,2> 
+
+           ADD     .L2     B8,B9,B18         ; |Algoritmos.c:45| (E) <1,10> 
+||         ADD     .S2     B8,B9,B6          ; |Algoritmos.c:45| (E) <1,10> 
+|| [!A0]   STB     .D2T1   A8,*+B6(3)        ; |Algoritmos.c:48| (E) <1,10>  ^ 
+||         CMPLT   .L1X    B7,A5,A0          ; |Algoritmos.c:44| (E) <1,10> 
+||         LDBU    .D1T2   *-A6(4),B7        ; |Algoritmos.c:44| (E) <2,3> 
+
+           ADD     .L2     B16,B18,B6        ; |Algoritmos.c:45| (E) <1,11> 
+||         CMPLT   .L1     A7,A5,A1          ; |Algoritmos.c:47| (E) <1,11> 
+||         STH     .D1T2   B5,*+A3(4)        ; |Algoritmos.c:38| (E) <1,11>  ^ 
+|| [!A1]   STB     .D2T1   A9,*+B6[B16]      ; |Algoritmos.c:45| (E) <1,11>  ^ 
+
+           MV      .S1     A16,A6            ; |Algoritmos.c:124| 
+||         ROTL    .M1     A0,0,A0           ; |Algoritmos.c:44| (E) <1,12> Post-sched spill
+||         STH     .D2T2   B5,*+B4(10)       ; |Algoritmos.c:39| (E) <1,12>  ^ 
+||         CMPLT   .L1     A8,A5,A0          ; |Algoritmos.c:47| (E) <2,5> 
+||         LDBU    .D1T1   *-A6(2),A7        ; |Algoritmos.c:42| (E) <2,5> 
+
+           STH     .D1T2   B5,*+A3(2)        ; |Algoritmos.c:37| (E) <1,13>  ^ 
+|| [!A1]   STB     .D2T1   A7,*+B17(9)       ; |Algoritmos.c:48| (E) <1,13>  ^ 
+||         MVD     .M1     A0,A0             ; |Algoritmos.c:47| (E) <2,6> Post-sched spill
+
+           CMPLT   .L1     A9,A5,A1          ; |Algoritmos.c:44| (E) <2,9> 
+||         ADD     .L2     12,B9,B9          ; |Algoritmos.c:35| (E) <1,14> 
+|| [!A0]   STB     .D2T2   B7,*+B6(6)        ; |Algoritmos.c:45| (E) <1,14>  ^ 
+
+;** --------------------------------------------------------------------------*
+;          EXCLUSIVE CPU CYCLES: 18
+
+           STH     .D1T2   B5,*++A3(12)      ; |Algoritmos.c:39| (E) <2,8> 
+||         STH     .D2T1   A4,*++B4(12)      ; |Algoritmos.c:37| (E) <2,8>  ^ 
+||         ADD     .L2     B9,B8,B6          ; |Algoritmos.c:48| (E) <2,8> 
+||         ADD     .S2     B9,B8,B17         ; |Algoritmos.c:48| (E) <2,8> 
+
+           STH     .D2T2   B5,*+B4(2)        ; |Algoritmos.c:38| (E) <2,9>  ^ 
+||         ADD     .L2     B16,B6,B17        ; |Algoritmos.c:48| (E) <2,9> 
+||         ADD     .S2     B16,B17,B6        ; |Algoritmos.c:48| (E) <2,9> 
+
+   [!A0]   STB     .D2T1   A8,*+B6(3)        ; |Algoritmos.c:48| (E) <2,10>  ^ 
+||         ADD     .L2     B8,B9,B6          ; |Algoritmos.c:45| (E) <2,10> 
+
+           STH     .D1T2   B5,*+A3(4)        ; |Algoritmos.c:38| (E) <2,11>  ^ 
+|| [!A1]   STB     .D2T1   A9,*+B6[B16]      ; |Algoritmos.c:45| (E) <2,11>  ^ 
+
+           STH     .D2T2   B5,*+B4(10)       ; |Algoritmos.c:39| (E) <2,12>  ^ 
+||         CMPLT   .L1     A7,A5,A1          ; |Algoritmos.c:47| (E) <2,11> 
+||         ADD     .L2     B8,B9,B18         ; |Algoritmos.c:45| (E) <2,10> 
+
+           STH     .D1T2   B5,*+A3(2)        ; |Algoritmos.c:37| (E) <2,13>  ^ 
+|| [!A1]   STB     .D2T1   A7,*+B17(9)       ; |Algoritmos.c:48| (E) <2,13>  ^ 
+||         ADD     .L2     B16,B18,B6        ; |Algoritmos.c:45| (E) <2,11> 
+||         CMPLT   .L1X    B7,A5,A0          ; |Algoritmos.c:44| (E) <2,10> 
+||         RINT                              ; interrupts on
+
+$C$DW$48	.dwtag  DW_TAG_TI_branch
+	.dwattr $C$DW$48, DW_AT_low_pc(0x00)
+	.dwattr $C$DW$48, DW_AT_name("_NearestNeighbour")
+	.dwattr $C$DW$48, DW_AT_TI_call
+
+           CALLP   .S2     _NearestNeighbour,B3
+|| [!A0]   STB     .D2T2   B7,*+B6(6)        ; |Algoritmos.c:45| (E) <2,14>  ^ 
+||         MV      .L2X    A17,B4            ; |Algoritmos.c:124| 
+||         MV      .L1     A18,A4            ; |Algoritmos.c:124| 
+
+$C$RL5:    ; CALL OCCURS {_NearestNeighbour} {0}  ; |Algoritmos.c:124| 
+	.dwpsn	file "Algoritmos.c",line 125,column 1,is_stmt,isa 0
+$C$DW$49	.dwtag  DW_TAG_TI_branch
+	.dwattr $C$DW$49, DW_AT_low_pc(0x00)
+	.dwattr $C$DW$49, DW_AT_TI_return
+           RETNOP  .S2X    A22,5             ; |Algoritmos.c:125| 
+           ; BRANCH OCCURS {A22}             ; |Algoritmos.c:125| 
+
+$C$DW$50	.dwtag  DW_TAG_TI_loop
+	.dwattr $C$DW$50, DW_AT_name("/home/fernandofernandes/NetBeansProjects/C.03/DSP/CSequencial_DSP.03/Algoritmos.asm:$C$L14:1:1421181247")
+	.dwattr $C$DW$50, DW_AT_TI_begin_file("Algoritmos.c")
+	.dwattr $C$DW$50, DW_AT_TI_begin_line(0x23)
+	.dwattr $C$DW$50, DW_AT_TI_end_line(0x32)
+$C$DW$51	.dwtag  DW_TAG_TI_loop_range
+	.dwattr $C$DW$51, DW_AT_low_pc($C$DW$L$_ImageThresholdPlusZoom$3$B)
+	.dwattr $C$DW$51, DW_AT_high_pc($C$DW$L$_ImageThresholdPlusZoom$3$E)
+	.dwendtag $C$DW$50
+
+	.dwattr $C$DW$42, DW_AT_TI_end_file("Algoritmos.c")
+	.dwattr $C$DW$42, DW_AT_TI_end_line(0x7d)
+	.dwattr $C$DW$42, DW_AT_TI_end_column(0x01)
+	.dwendtag $C$DW$42
+
+	.sect	".text"
+	.clink
+	.global	_Grayscale
+
+$C$DW$52	.dwtag  DW_TAG_subprogram, DW_AT_name("Grayscale")
+	.dwattr $C$DW$52, DW_AT_low_pc(_Grayscale)
+	.dwattr $C$DW$52, DW_AT_high_pc(0x00)
+	.dwattr $C$DW$52, DW_AT_TI_symbol_name("_Grayscale")
+	.dwattr $C$DW$52, DW_AT_external
+	.dwattr $C$DW$52, DW_AT_TI_begin_file("Algoritmos.c")
+	.dwattr $C$DW$52, DW_AT_TI_begin_line(0x03)
+	.dwattr $C$DW$52, DW_AT_TI_begin_column(0x06)
+	.dwattr $C$DW$52, DW_AT_TI_max_frame_size(0x10)
+	.dwattr $C$DW$52, DW_AT_frame_base[DW_OP_breg31 16]
+	.dwattr $C$DW$52, DW_AT_TI_skeletal
+	.dwpsn	file "Algoritmos.c",line 3,column 95,is_stmt,address _Grayscale,isa 0
+$C$DW$53	.dwtag  DW_TAG_formal_parameter, DW_AT_name("subimage")
+	.dwattr $C$DW$53, DW_AT_TI_symbol_name("_subimage")
+	.dwattr $C$DW$53, DW_AT_type(*$C$DW$T$23)
+	.dwattr $C$DW$53, DW_AT_location[DW_OP_reg4]
+$C$DW$54	.dwtag  DW_TAG_formal_parameter, DW_AT_name("dest")
+	.dwattr $C$DW$54, DW_AT_TI_symbol_name("_dest")
+	.dwattr $C$DW$54, DW_AT_type(*$C$DW$T$25)
+	.dwattr $C$DW$54, DW_AT_location[DW_OP_reg20]
+
+;******************************************************************************
+;* FUNCTION NAME: Grayscale                                                   *
 ;*                                                                            *
 ;*   Regs Modified     : A3,A4,A5,A6,A7,A8,B4,B5,B6,SP                        *
 ;*   Regs Used         : A3,A4,A5,A6,A7,A8,B3,B4,B5,B6,SP                     *
 ;*   Local Frame Size  : 0 Args + 12 Auto + 0 Save = 12 byte                  *
 ;******************************************************************************
-_imagem_to_cinza:
+_Grayscale:
 ;** --------------------------------------------------------------------------*
 ;          EXCLUSIVE CPU CYCLES: 3
            MVKL    .S2     0x70800,B5
@@ -1087,7 +1862,7 @@ _imagem_to_cinza:
 ;*
 ;*        SINGLE SCHEDULED ITERATION
 ;*
-;*        $C$C226:
+;*        $C$C360:
 ;*   0              LDW     .D1T1   *A7++,A3          ; |Algoritmos.c:12| 
 ;*   1              NOP             5
 ;*   6              STW     .D2T1   A3,*+SP(4)        ; |Algoritmos.c:12|  ^ 
@@ -1110,11 +1885,11 @@ _imagem_to_cinza:
 ;*  27              NOP             3
 ;*  30              STH     .D1T2   B4,*A5++(6)       ; |Algoritmos.c:25| 
 ;*  31              STH     .D1T1   A3,*A6++(6)       ; |Algoritmos.c:24| 
-;*     ||           SPBR            $C$C226
+;*     ||           SPBR            $C$C360
 ;*  32              NOP             4
-;*  36              ; BRANCHCC OCCURS {$C$C226}       ; |Algoritmos.c:11| 
+;*  36              ; BRANCHCC OCCURS {$C$C360}       ; |Algoritmos.c:11| 
 ;*----------------------------------------------------------------------------*
-$C$L7:    ; PIPED LOOP PROLOG
+$C$L16:    ; PIPED LOOP PROLOG
 ;          EXCLUSIVE CPU CYCLES: 25
 	.dwpsn	file "Algoritmos.c",line 11,column 0,is_stmt,isa 0
 
@@ -1123,8 +1898,8 @@ $C$L7:    ; PIPED LOOP PROLOG
 ||         MVC     .S2     B6,ILC
 
 ;** --------------------------------------------------------------------------*
-$C$L8:    ; PIPED LOOP KERNEL
-$C$DW$L$_imagem_to_cinza$3$B:
+$C$L17:    ; PIPED LOOP KERNEL
+$C$DW$L$_Grayscale$3$B:
 ;          EXCLUSIVE CPU CYCLES: 12
            LDW     .D1T1   *A7++,A3          ; |Algoritmos.c:12| (P) <0,0> 
            NOP             4
@@ -1167,381 +1942,34 @@ $C$DW$L$_imagem_to_cinza$3$B:
            SPKERNEL 1,0
 ||         STH     .D1T1   A3,*A6++(6)       ; |Algoritmos.c:24| <0,31> 
 
-$C$DW$L$_imagem_to_cinza$3$E:
+$C$DW$L$_Grayscale$3$E:
 ;** --------------------------------------------------------------------------*
-$C$L9:    ; PIPED LOOP EPILOG
+$C$L18:    ; PIPED LOOP EPILOG
 ;          EXCLUSIVE CPU CYCLES: 20
            NOP             2
-$C$DW$21	.dwtag  DW_TAG_TI_branch
-	.dwattr $C$DW$21, DW_AT_low_pc(0x00)
-	.dwattr $C$DW$21, DW_AT_TI_return
+$C$DW$55	.dwtag  DW_TAG_TI_branch
+	.dwattr $C$DW$55, DW_AT_low_pc(0x00)
+	.dwattr $C$DW$55, DW_AT_TI_return
            RET     .S2     B3                ; |Algoritmos.c:27| 
            ADDK    .S2     16,SP             ; |Algoritmos.c:27| 
 	.dwpsn	file "Algoritmos.c",line 27,column 1,is_stmt,isa 0
            NOP             4
            ; BRANCH OCCURS {B3}              ; |Algoritmos.c:27| 
 
-$C$DW$22	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$22, DW_AT_name("/home/fernandofernandes/NetBeansProjects/C.03/DSP/CSequencial_DSP.03/Algoritmos.asm:$C$L8:1:1419026474")
-	.dwattr $C$DW$22, DW_AT_TI_begin_file("Algoritmos.c")
-	.dwattr $C$DW$22, DW_AT_TI_begin_line(0x0b)
-	.dwattr $C$DW$22, DW_AT_TI_end_line(0x1a)
-$C$DW$23	.dwtag  DW_TAG_TI_loop_range
-	.dwattr $C$DW$23, DW_AT_low_pc($C$DW$L$_imagem_to_cinza$3$B)
-	.dwattr $C$DW$23, DW_AT_high_pc($C$DW$L$_imagem_to_cinza$3$E)
-	.dwendtag $C$DW$22
+$C$DW$56	.dwtag  DW_TAG_TI_loop
+	.dwattr $C$DW$56, DW_AT_name("/home/fernandofernandes/NetBeansProjects/C.03/DSP/CSequencial_DSP.03/Algoritmos.asm:$C$L17:1:1421181247")
+	.dwattr $C$DW$56, DW_AT_TI_begin_file("Algoritmos.c")
+	.dwattr $C$DW$56, DW_AT_TI_begin_line(0x0b)
+	.dwattr $C$DW$56, DW_AT_TI_end_line(0x1a)
+$C$DW$57	.dwtag  DW_TAG_TI_loop_range
+	.dwattr $C$DW$57, DW_AT_low_pc($C$DW$L$_Grayscale$3$B)
+	.dwattr $C$DW$57, DW_AT_high_pc($C$DW$L$_Grayscale$3$E)
+	.dwendtag $C$DW$56
 
-	.dwattr $C$DW$18, DW_AT_TI_end_file("Algoritmos.c")
-	.dwattr $C$DW$18, DW_AT_TI_end_line(0x1b)
-	.dwattr $C$DW$18, DW_AT_TI_end_column(0x01)
-	.dwendtag $C$DW$18
-
-	.sect	".text"
-	.clink
-	.global	_NearestNeighbour
-
-$C$DW$24	.dwtag  DW_TAG_subprogram, DW_AT_name("NearestNeighbour")
-	.dwattr $C$DW$24, DW_AT_low_pc(_NearestNeighbour)
-	.dwattr $C$DW$24, DW_AT_high_pc(0x00)
-	.dwattr $C$DW$24, DW_AT_TI_symbol_name("_NearestNeighbour")
-	.dwattr $C$DW$24, DW_AT_external
-	.dwattr $C$DW$24, DW_AT_TI_begin_file("Algoritmos.c")
-	.dwattr $C$DW$24, DW_AT_TI_begin_line(0x5a)
-	.dwattr $C$DW$24, DW_AT_TI_begin_column(0x06)
-	.dwattr $C$DW$24, DW_AT_TI_max_frame_size(0x00)
-	.dwattr $C$DW$24, DW_AT_frame_base[DW_OP_breg31 0]
-	.dwattr $C$DW$24, DW_AT_TI_skeletal
-	.dwpsn	file "Algoritmos.c",line 90,column 109,is_stmt,address _NearestNeighbour,isa 0
-$C$DW$25	.dwtag  DW_TAG_formal_parameter, DW_AT_name("src")
-	.dwattr $C$DW$25, DW_AT_TI_symbol_name("_src")
-	.dwattr $C$DW$25, DW_AT_type(*$C$DW$T$25)
-	.dwattr $C$DW$25, DW_AT_location[DW_OP_reg4]
-$C$DW$26	.dwtag  DW_TAG_formal_parameter, DW_AT_name("dst")
-	.dwattr $C$DW$26, DW_AT_TI_symbol_name("_dst")
-	.dwattr $C$DW$26, DW_AT_type(*$C$DW$T$25)
-	.dwattr $C$DW$26, DW_AT_location[DW_OP_reg20]
-$C$DW$27	.dwtag  DW_TAG_formal_parameter, DW_AT_name("scale")
-	.dwattr $C$DW$27, DW_AT_TI_symbol_name("_scale")
-	.dwattr $C$DW$27, DW_AT_type(*$C$DW$T$11)
-	.dwattr $C$DW$27, DW_AT_location[DW_OP_reg6]
-
-;******************************************************************************
-;* FUNCTION NAME: NearestNeighbour                                            *
-;*                                                                            *
-;*   Regs Modified     : A0,A1,A2,A3,A4,A5,A6,A7,A8,A9,B0,B1,B2,B3,B4,B5,B6,  *
-;*                           B7,B8,B9,A16,A17,A18,A19,A20,A21,B30,B31         *
-;*   Regs Used         : A0,A1,A2,A3,A4,A5,A6,A7,A8,A9,B0,B1,B2,B3,B4,B5,B6,  *
-;*                           B7,B8,B9,DP,SP,A16,A17,A18,A19,A20,A21,B30,B31   *
-;*   Local Frame Size  : 0 Args + 0 Auto + 0 Save = 0 byte                    *
-;******************************************************************************
-_NearestNeighbour:
-;** --------------------------------------------------------------------------*
-;          EXCLUSIVE CPU CYCLES: 35
-           MV      .L1X    B4,A9             ; |Algoritmos.c:90| 
-
-           MV      .L1X    B3,A21            ; |Algoritmos.c:90| 
-||         MV      .S1     A4,A8             ; |Algoritmos.c:90| 
-
-$C$DW$28	.dwtag  DW_TAG_TI_branch
-	.dwattr $C$DW$28, DW_AT_low_pc(0x00)
-	.dwattr $C$DW$28, DW_AT_name("__divu")
-	.dwattr $C$DW$28, DW_AT_TI_call
-
-           CALLP   .S2     __divu,B3
-||         MVK     .S1     0x2d0,A4          ; |Algoritmos.c:96| 
-||         MV      .L2X    A6,B4             ; |Algoritmos.c:96| 
-||         MV      .L1     A6,A3             ; |Algoritmos.c:96| 
-||         MV      .D1     A6,A7             ; |Algoritmos.c:90| 
-
-$C$RL0:    ; CALL OCCURS {__divu} {0}        ; |Algoritmos.c:96| 
-$C$DW$29	.dwtag  DW_TAG_TI_branch
-	.dwattr $C$DW$29, DW_AT_low_pc(0x00)
-	.dwattr $C$DW$29, DW_AT_name("__divu")
-	.dwattr $C$DW$29, DW_AT_TI_call
-
-           CALLP   .S2     __divu,B3
-||         MV      .L2X    A3,B4             ; |Algoritmos.c:96| 
-||         MV      .L1     A4,A5             ; |Algoritmos.c:96| 
-||         MVK     .S1     0x500,A4          ; |Algoritmos.c:96| 
-
-$C$RL1:    ; CALL OCCURS {__divu} {0}        ; |Algoritmos.c:96| 
-$C$DW$30	.dwtag  DW_TAG_TI_branch
-	.dwattr $C$DW$30, DW_AT_low_pc(0x00)
-	.dwattr $C$DW$30, DW_AT_name("__divu")
-	.dwattr $C$DW$30, DW_AT_TI_call
-
-           CALLP   .S2     __divu,B3
-||         MV      .L2X    A3,B4             ; |Algoritmos.c:99| 
-||         MV      .L1     A4,A16            ; |Algoritmos.c:96| 
-||         MVK     .S1     0x500,A4          ; |Algoritmos.c:99| 
-
-$C$RL2:    ; CALL OCCURS {__divu} {0}        ; |Algoritmos.c:99| 
-           SHRU    .S1     A5,1,A3           ; |Algoritmos.c:96| 
-           MVK     .S2     360,B4            ; |Algoritmos.c:96| 
-
-           SUB     .L2X    B4,A3,B4          ; |Algoritmos.c:96| 
-||         MVK     .S2     1280,B5           ; |Algoritmos.c:96| 
-
-           MPY     .M2     B4,B5,B4          ; |Algoritmos.c:96| 
-||         MVK     .S2     640,B5            ; |Algoritmos.c:96| 
-||         SHRU    .S1     A16,1,A3          ; |Algoritmos.c:96| 
-
-           MV      .L1     A7,A0
-
-           MV      .L1X    B5,A5             ; |Algoritmos.c:96| 
-||         SUB     .L2X    B5,A3,B5          ; |Algoritmos.c:96| 
-||         SHRU    .S1     A4,1,A3           ; |Algoritmos.c:99| 
-
-           SUB     .L1     A5,A3,A4          ; |Algoritmos.c:99| 
-
-           ADD     .L2     B4,B5,B5          ; |Algoritmos.c:96| 
-||         MVK     .L1     3,A3              ; |Algoritmos.c:96| 
-
-           ADD     .L2X    B4,A4,B4          ; |Algoritmos.c:99| 
-
-           MPYLI   .M1X    A3,B5,A19:A18     ; |Algoritmos.c:96| 
-||         MV      .L2X    A3,B5             ; |Algoritmos.c:96| 
-
-           MPYLI   .M2     B5,B4,B5:B4       ; |Algoritmos.c:99| 
-           MVK     .S2     0x500,B9          ; |Algoritmos.c:99| 
-           ZERO    .L1     A17               ; |Algoritmos.c:101| 
-   [ A0]   ADD     .L1     A18,A8,A3
-	.dwpsn	file "Algoritmos.c",line 101,column 0,is_stmt,isa 0
-
-           MVK     .S1     0xf00,A19
-||         ZERO    .L1     A16               ; |Algoritmos.c:101| 
-||         MVK     .L2     0x1,B7            ; |Algoritmos.c:98| 
-||         ZERO    .S2     B6                ; |Algoritmos.c:102| 
-||         MV      .D2     B4,B8             ; |Algoritmos.c:99| 
-
-;** --------------------------------------------------------------------------*
-;**   BEGIN LOOP $C$L10
-;** --------------------------------------------------------------------------*
-$C$L10:    
-$C$DW$L$_NearestNeighbour$2$B:
-;          EXCLUSIVE CPU CYCLES: 5
-	.dwpsn	file "Algoritmos.c",line 102,column 0,is_stmt,isa 0
-   [!A0]   BNOP    .S1     $C$L15,4          ; |Algoritmos.c:103| 
-$C$DW$L$_NearestNeighbour$2$E:
-;** --------------------------------------------------------------------------*
-;**   BEGIN LOOP $C$L11
-;** --------------------------------------------------------------------------*
-$C$L11:    
-$C$DW$L$_NearestNeighbour$3$B:
-;          EXCLUSIVE CPU CYCLES: 1
-
-   [ A0]   MVK     .L1     3,A4              ; |Algoritmos.c:107| 
-|| [ A0]   LDBU    .D1T1   *+A3(2),A6
-
-           ; BRANCHCC OCCURS {$C$L15}        ; |Algoritmos.c:103| 
-$C$DW$L$_NearestNeighbour$3$E:
-;*----------------------------------------------------------------------------*
-;*   SOFTWARE PIPELINE INFORMATION
-;*
-;*      Loop found in file               : Algoritmos.c
-;*      Loop source line                 : 103
-;*      Loop opening brace source line   : 103
-;*      Loop closing brace source line   : 108
-;*      Known Minimum Trip Count         : 1                    
-;*      Known Max Trip Count Factor      : 1
-;*      Loop Carried Dependency Bound(^) : 0
-;*      Unpartitioned Resource Bound     : 2
-;*      Partitioned Resource Bound(*)    : 2
-;*      Resource Partition:
-;*                                A-side   B-side
-;*      .L units                     0        0     
-;*      .S units                     0        0     
-;*      .D units                     2*       1     
-;*      .M units                     0        0     
-;*      .X cross paths               0        0     
-;*      .T address paths             2*       1     
-;*      Long read paths              0        0     
-;*      Long write paths             0        0     
-;*      Logical  ops (.LS)           0        0     (.L or .S unit)
-;*      Addition ops (.LSD)          0        0     (.L or .S or .D unit)
-;*      Bound(.L .S .LS)             0        0     
-;*      Bound(.L .S .D .LS .LSD)     1        1     
-;*
-;*      Searching for software pipeline schedule at ...
-;*         ii = 2  Schedule found with 2 iterations in parallel
-;*
-;*      Register Usage Table:
-;*          +-----------------------------------------------------------------+
-;*          |AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA|BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB|
-;*          |00000000001111111111222222222233|00000000001111111111222222222233|
-;*          |01234567890123456789012345678901|01234567890123456789012345678901|
-;*          |--------------------------------+--------------------------------|
-;*       0: |   ****                         |    **                          |
-;*       1: |   ****                         |    **                          |
-;*          +-----------------------------------------------------------------+
-;*
-;*      Done
-;*
-;*      Loop will be splooped
-;*      Collapsed epilog stages       : 0
-;*      Collapsed prolog stages       : 0
-;*      Minimum required memory pad   : 0 bytes
-;*
-;*      Minimum safe trip count       : 1
-;*      Min. prof. trip count  (est.) : 2
-;*
-;*      Mem bank conflicts/iter(est.) : { min 0.969, est 0.969, max 0.969 }
-;*      Mem bank perf. penalty (est.) : 32.6%
-;*
-;*      Effective ii                : 3.0
-;*
-;*
-;*      Total cycles (est.)         : 2 + trip_cnt * 2        
-;*----------------------------------------------------------------------------*
-;*       SETUP CODE
-;*
-;*                  MV              A4,A3
-;*                  ADD             5,A3,A3
-;*                  MV              A4,B4
-;*                  ADD             4,B4,B4
-;*                  ADD             3,A4,A4
-;*
-;*        SINGLE SCHEDULED ITERATION
-;*
-;*        $C$C331:
-;*   0              STB     .D1T1   A5,*A4++(3)       ; |Algoritmos.c:104| 
-;*   1              STB     .D2T2   B5,*B4++(3)       ; |Algoritmos.c:105| 
-;*     ||           STB     .D1T1   A6,*A3++(3)       ; |Algoritmos.c:106| 
-;*     ||           SPBR            $C$C331
-;*   2              NOP             2
-;*   4              ; BRANCHCC OCCURS {$C$C331}       ; |Algoritmos.c:103| 
-;*----------------------------------------------------------------------------*
-$C$L12:    ; PIPED LOOP PROLOG
-;          EXCLUSIVE CPU CYCLES: 7
-
-           MVC     .S2X    A7,ILC
-||         MPYLI   .M1     A4,A7,A5:A4       ; |Algoritmos.c:107| 
-||         LDBU    .D1T1   *+A18[A8],A5
-
-           LDBU    .D1T2   *+A3(1),B5
-           NOP             1
-           ADD     .L1     A16,A9,A20
-	.dwpsn	file "Algoritmos.c",line 103,column 0,is_stmt,isa 0
-
-           SPLOOP  2       ;4                ; (P) 
-||         ADD     .L1     A4,A16,A16        ; |Algoritmos.c:107| 
-||         MV      .S1     A20,A4
-
-;** --------------------------------------------------------------------------*
-$C$L13:    ; PIPED LOOP KERNEL
-$C$DW$L$_NearestNeighbour$5$B:
-;          EXCLUSIVE CPU CYCLES: 2
-
-           SPMASK          L1,L2
-||         ADD     .L1     2,A20,A3
-||         ADD     .L2X    1,A20,B4
-||         STB     .D1T1   A5,*A4++(3)       ; |Algoritmos.c:104| (P) <0,0> 
-
-           SPMASK          L2
-||         ADD     .L2X    A7,B6,B6          ; |Algoritmos.c:103| 
-||         STB     .D2T2   B5,*B4++(3)       ; |Algoritmos.c:105| (P) <0,1> 
-||         STB     .D1T1   A6,*A3++(3)       ; |Algoritmos.c:106| (P) <0,1> 
-
-	.dwpsn	file "Algoritmos.c",line 108,column 0,is_stmt,isa 0
-           SPKERNEL 0,0
-$C$DW$L$_NearestNeighbour$5$E:
-;** --------------------------------------------------------------------------*
-$C$L14:    ; PIPED LOOP EPILOG
-;          EXCLUSIVE CPU CYCLES: 1
-           NOP             1
-;** --------------------------------------------------------------------------*
-$C$L15:    
-$C$DW$L$_NearestNeighbour$7$B:
-;          EXCLUSIVE CPU CYCLES: 7
-
-           CMPLT   .L2     B6,B9,B0          ; |Algoritmos.c:102| 
-||         ADD     .L1     3,A18,A18         ; |Algoritmos.c:109| 
-
-   [!B0]   MVK     .L1     0x1,A0            ; nullify predicate
-|| [ B0]   B       .S1     $C$L11            ; |Algoritmos.c:102| 
-
-	.dwpsn	file "Algoritmos.c",line 110,column 0,is_stmt,isa 0
-
-   [!A0]   BNOP    .S1     $C$L15,4          ; |Algoritmos.c:103| 
-|| [ A0]   ADD     .L1     A18,A8,A3
-
-           ; BRANCHCC OCCURS {$C$L11}        ; |Algoritmos.c:102| 
-$C$DW$L$_NearestNeighbour$7$E:
-;** --------------------------------------------------------------------------*
-$C$DW$L$_NearestNeighbour$8$B:
-;          EXCLUSIVE CPU CYCLES: 8
-
-           MPY     .M1     A17,A19,A16       ; |Algoritmos.c:111| 
-||         ADD     .L1     1,A17,A17         ; |Algoritmos.c:101| 
-||         MVK     .S1     720,A3            ; |Algoritmos.c:101| 
-||         MV      .D1X    B8,A18            ; |Algoritmos.c:112| 
-||         CMPEQ   .L2X    B7,A7,B0          ; |Algoritmos.c:113| 
-||         ZERO    .S2     B6                ; |Algoritmos.c:102| 
-
-           CMPLT   .L1     A17,A3,A0         ; |Algoritmos.c:101| 
-|| [ B0]   ADD     .S1X    A19,B8,A18        ; |Algoritmos.c:114| 
-|| [ B0]   ADDK    .S2     3840,B8           ; |Algoritmos.c:115| 
-|| [!B0]   ADD     .L2     1,B7,B7           ; |Algoritmos.c:113| 
-|| [ B0]   MVK     .D2     0x1,B7            ; |Algoritmos.c:116| 
-
-   [ A0]   BNOP    .S1     $C$L10,4          ; |Algoritmos.c:101| 
-||         MV      .L1     A7,A0
-
-	.dwpsn	file "Algoritmos.c",line 118,column 0,is_stmt,isa 0
-   [ A0]   ADD     .L1     A18,A8,A3
-           ; BRANCHCC OCCURS {$C$L10}        ; |Algoritmos.c:101| 
-$C$DW$L$_NearestNeighbour$8$E:
-;** --------------------------------------------------------------------------*
-;          EXCLUSIVE CPU CYCLES: 6
-	.dwpsn	file "Algoritmos.c",line 119,column 1,is_stmt,isa 0
-$C$DW$31	.dwtag  DW_TAG_TI_branch
-	.dwattr $C$DW$31, DW_AT_low_pc(0x00)
-	.dwattr $C$DW$31, DW_AT_TI_return
-           RETNOP  .S2X    A21,5             ; |Algoritmos.c:119| 
-           ; BRANCH OCCURS {A21}             ; |Algoritmos.c:119| 
-
-$C$DW$32	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$32, DW_AT_name("/home/fernandofernandes/NetBeansProjects/C.03/DSP/CSequencial_DSP.03/Algoritmos.asm:$C$L10:1:1419026474")
-	.dwattr $C$DW$32, DW_AT_TI_begin_file("Algoritmos.c")
-	.dwattr $C$DW$32, DW_AT_TI_begin_line(0x65)
-	.dwattr $C$DW$32, DW_AT_TI_end_line(0x76)
-$C$DW$33	.dwtag  DW_TAG_TI_loop_range
-	.dwattr $C$DW$33, DW_AT_low_pc($C$DW$L$_NearestNeighbour$2$B)
-	.dwattr $C$DW$33, DW_AT_high_pc($C$DW$L$_NearestNeighbour$2$E)
-$C$DW$34	.dwtag  DW_TAG_TI_loop_range
-	.dwattr $C$DW$34, DW_AT_low_pc($C$DW$L$_NearestNeighbour$8$B)
-	.dwattr $C$DW$34, DW_AT_high_pc($C$DW$L$_NearestNeighbour$8$E)
-
-$C$DW$35	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$35, DW_AT_name("/home/fernandofernandes/NetBeansProjects/C.03/DSP/CSequencial_DSP.03/Algoritmos.asm:$C$L11:2:1419026474")
-	.dwattr $C$DW$35, DW_AT_TI_begin_file("Algoritmos.c")
-	.dwattr $C$DW$35, DW_AT_TI_begin_line(0x66)
-	.dwattr $C$DW$35, DW_AT_TI_end_line(0x6e)
-$C$DW$36	.dwtag  DW_TAG_TI_loop_range
-	.dwattr $C$DW$36, DW_AT_low_pc($C$DW$L$_NearestNeighbour$3$B)
-	.dwattr $C$DW$36, DW_AT_high_pc($C$DW$L$_NearestNeighbour$3$E)
-$C$DW$37	.dwtag  DW_TAG_TI_loop_range
-	.dwattr $C$DW$37, DW_AT_low_pc($C$DW$L$_NearestNeighbour$7$B)
-	.dwattr $C$DW$37, DW_AT_high_pc($C$DW$L$_NearestNeighbour$7$E)
-
-$C$DW$38	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$38, DW_AT_name("/home/fernandofernandes/NetBeansProjects/C.03/DSP/CSequencial_DSP.03/Algoritmos.asm:$C$L13:3:1419026474")
-	.dwattr $C$DW$38, DW_AT_TI_begin_file("Algoritmos.c")
-	.dwattr $C$DW$38, DW_AT_TI_begin_line(0x67)
-	.dwattr $C$DW$38, DW_AT_TI_end_line(0x6c)
-$C$DW$39	.dwtag  DW_TAG_TI_loop_range
-	.dwattr $C$DW$39, DW_AT_low_pc($C$DW$L$_NearestNeighbour$5$B)
-	.dwattr $C$DW$39, DW_AT_high_pc($C$DW$L$_NearestNeighbour$5$E)
-	.dwendtag $C$DW$38
-
-	.dwendtag $C$DW$35
-
-	.dwendtag $C$DW$32
-
-	.dwattr $C$DW$24, DW_AT_TI_end_file("Algoritmos.c")
-	.dwattr $C$DW$24, DW_AT_TI_end_line(0x77)
-	.dwattr $C$DW$24, DW_AT_TI_end_column(0x01)
-	.dwendtag $C$DW$24
+	.dwattr $C$DW$52, DW_AT_TI_end_file("Algoritmos.c")
+	.dwattr $C$DW$52, DW_AT_TI_end_line(0x1b)
+	.dwattr $C$DW$52, DW_AT_TI_end_column(0x01)
+	.dwendtag $C$DW$52
 
 ;*****************************************************************************
 ;* UNDEFINED EXTERNAL REFERENCES                                             *
@@ -1604,9 +2032,9 @@ $C$DW$T$9	.dwtag  DW_TAG_base_type
 	.dwattr $C$DW$T$9, DW_AT_encoding(DW_ATE_unsigned)
 	.dwattr $C$DW$T$9, DW_AT_name("unsigned short")
 	.dwattr $C$DW$T$9, DW_AT_byte_size(0x02)
-$C$DW$T$31	.dwtag  DW_TAG_pointer_type
-	.dwattr $C$DW$T$31, DW_AT_type(*$C$DW$T$9)
-	.dwattr $C$DW$T$31, DW_AT_address_class(0x20)
+$C$DW$T$37	.dwtag  DW_TAG_pointer_type
+	.dwattr $C$DW$T$37, DW_AT_type(*$C$DW$T$9)
+	.dwattr $C$DW$T$37, DW_AT_address_class(0x20)
 $C$DW$T$10	.dwtag  DW_TAG_base_type
 	.dwattr $C$DW$T$10, DW_AT_encoding(DW_ATE_signed)
 	.dwattr $C$DW$T$10, DW_AT_name("int")
@@ -1615,11 +2043,11 @@ $C$DW$T$11	.dwtag  DW_TAG_base_type
 	.dwattr $C$DW$T$11, DW_AT_encoding(DW_ATE_unsigned)
 	.dwattr $C$DW$T$11, DW_AT_name("unsigned int")
 	.dwattr $C$DW$T$11, DW_AT_byte_size(0x04)
-$C$DW$T$34	.dwtag  DW_TAG_const_type
-	.dwattr $C$DW$T$34, DW_AT_type(*$C$DW$T$11)
-$C$DW$T$35	.dwtag  DW_TAG_pointer_type
-	.dwattr $C$DW$T$35, DW_AT_type(*$C$DW$T$34)
-	.dwattr $C$DW$T$35, DW_AT_address_class(0x20)
+$C$DW$T$40	.dwtag  DW_TAG_const_type
+	.dwattr $C$DW$T$40, DW_AT_type(*$C$DW$T$11)
+$C$DW$T$41	.dwtag  DW_TAG_pointer_type
+	.dwattr $C$DW$T$41, DW_AT_type(*$C$DW$T$40)
+	.dwattr $C$DW$T$41, DW_AT_address_class(0x20)
 $C$DW$T$12	.dwtag  DW_TAG_base_type
 	.dwattr $C$DW$T$12, DW_AT_encoding(DW_ATE_signed)
 	.dwattr $C$DW$T$12, DW_AT_name("long")
