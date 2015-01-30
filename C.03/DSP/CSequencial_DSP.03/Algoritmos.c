@@ -1,3 +1,5 @@
+#include <string.h>
+
 #include "DSPHeaders/algoritmos.h"
 
 void Grayscale(const unsigned char * __restrict__ subimage, unsigned char* __restrict__ dest) {
@@ -118,15 +120,14 @@ void NearestNeighbour(const unsigned char* subimage, unsigned char* dest, unsign
     }
 }
 
-void ImageThresholdPlusZoom(const unsigned char *  subimage,
-        unsigned char*  dest, unsigned char*  aux, const unsigned char cor, unsigned int scale) {
-    ImageThreshold(subimage, aux, cor);
-    NearestNeighbour(aux, dest, scale);
+void ImageThresholdPlusZoom(unsigned char * subimage, unsigned char* dest, const unsigned char cor, unsigned int scale) {
+    ImageThreshold(subimage, dest, cor);
+    memcpy(subimage, dest, SIZE_IMAGE_ALGORITMOS);
+    NearestNeighbour(subimage, dest, scale);
 }
 
-void YUYVtoRGBPlusZoom(const unsigned char *  subimage,
-        unsigned char*  dest, unsigned char* aux, unsigned int scale) {
-    YUYVtoRGB(subimage, aux);
-    NearestNeighbour(aux, dest, scale);
+void YUYVtoRGBPlusZoom(unsigned char * subimage, unsigned char* dest, unsigned int scale) {
+    YUYVtoRGB(subimage, dest);
+    memcpy(subimage, dest, SIZE_IMAGE_ALGORITMOS);
+    NearestNeighbour(subimage, dest, scale);
 }
-
