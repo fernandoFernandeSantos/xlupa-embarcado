@@ -12,10 +12,8 @@ void ImageThreshold(const unsigned char * __restrict__ subimage, unsigned char* 
 void YUYVtoRGB(const unsigned char * __restrict__ subimage, unsigned char* __restrict__ dest);
 void NearestNeighbour(const unsigned char* __restrict__ subimage, unsigned char* __restrict__ dest, unsigned int scale);
 //algorithms that performs zoom and other configuration
-void ImageThresholdPlusZoom(const unsigned char * subimage,
-        unsigned char* dest, unsigned char* aux, const unsigned char cor, unsigned int scale);
-void YUYVtoRGBPlusZoom(const unsigned char * subimage, 
-        unsigned char*  dest, unsigned char*  aux, unsigned int scale)  ;
+void ImageThresholdPlusZoom(unsigned char * subimage, unsigned char* dest, const unsigned char cor, unsigned int scale);
+void YUYVtoRGBPlusZoom(unsigned char * subimage, unsigned char*  dest, unsigned int scale)  ;
 
 
 #endif

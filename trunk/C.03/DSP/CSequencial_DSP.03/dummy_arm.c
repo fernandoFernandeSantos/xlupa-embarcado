@@ -16,7 +16,7 @@
 #include "DSPHeaders/dummy_arm.h"
 #include "DSPHeaders/util.h"
 static inline int leave();
-static unsigned long input_buffer_size = SIZE_IMAGE;
+static unsigned long input_buffer_size = SIZE_IMAGE_ALGORITMOS;
 static unsigned long output_buffer_size = SIZE_IMAGE_ALGORITMOS;
 static bool done;
 //static long double tempo;
@@ -89,7 +89,7 @@ void runTaskIn(unsigned char *ini, unsigned int message, unsigned int zoom) {
     msg.cmd = message;
     msg.arg_1 = input_buffer->size;
     msg.arg_2 = zoom;
-    memcpy(input_buffer->data, ini, input_buffer_size);
+    memcpy(input_buffer->data, ini, SIZE_IMAGE);
     dsp_node_put_message(dsp_handle, node, &msg, -1);
     dsp_node_get_message(dsp_handle, node, &msg, -1);
     //memcpy(dest, output_buffer->data, output_buffer_size);

@@ -22,7 +22,7 @@
 #include <stddef.h>
 #include "DSPHeaders/node.h"
 #include "DSPHeaders/algoritmos.h"
-#include <stdlib.h>
+
 
 unsigned int
 dummy_create(void) {
@@ -42,7 +42,6 @@ dummy_execute(void *env) {
     unsigned char done = 0;
     unsigned int size;
     unsigned int zoom;
-    unsigned char *aux = calloc(SIZE_IMAGE_ALGORITMOS, 1);
 
     while (!done) {
         NODE_getMsg(env, &msg, (unsigned) - 1);
@@ -71,7 +70,7 @@ dummy_execute(void *env) {
                 zoom = (unsigned int) (msg.arg_2);
                 BCACHE_inv(input, size, 1);
 
-                YUYVtoRGBPlusZoom(input, output,aux, zoom);
+                YUYVtoRGBPlusZoom(input, output, zoom);
 
                 BCACHE_wbInv(output, SIZE_IMAGE_ALGORITMOS, 1);
 
@@ -107,7 +106,7 @@ dummy_execute(void *env) {
                 zoom = (unsigned int) (msg.arg_2);
                 BCACHE_inv(input, size, 1);
 
-                ImageThresholdPlusZoom(input, output,aux, 1, zoom);
+                ImageThresholdPlusZoom(input, output, 1, zoom);
                 BCACHE_wbInv(output, SIZE_IMAGE_ALGORITMOS, 1);
                 NODE_putMsg(env, NULL, &msg, 0);
                 break;
@@ -125,7 +124,6 @@ dummy_execute(void *env) {
                 done = 1;
                 break;
         }
-        free(aux);
     }
 
     return 0x8000;
