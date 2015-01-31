@@ -10,6 +10,7 @@ void Grayscale(const unsigned char * __restrict__ subimage, unsigned char* __res
     unsigned short su1 = 0;
     unsigned short su2 = 0;
     unsigned short su3 = 0;
+#pragma MUST_ITERATE(8, ,8)
     for (j = 0; j < SCREEN_SIZE_ALGORITMOS; j += 2, i += 6, k += 4) {
         de = _amem4_const(&subimage[k]);
 
@@ -34,6 +35,7 @@ void ImageThreshold(const unsigned char * __restrict__ subimage, unsigned char* 
     unsigned int i = 0;
     unsigned int k = 0;
     unsigned char temp = 0, temp2 = 0;
+#pragma MUST_ITERATE(8, ,8)
     for (j = 0; j < SCREEN_SIZE_ALGORITMOS; j += 2, i += 6, k += 4) {
         //zera todas para o limiar
         _amem2(&dest[i]) = (unsigned short) 0;
@@ -63,7 +65,7 @@ void YUYVtoRGB(const unsigned char * __restrict__ subimage, unsigned char* __res
     unsigned short su1 = 0;
     unsigned short su2 = 0;
     unsigned short su3 = 0;
-
+#pragma MUST_ITERATE(8, ,8)
     for (j = 0; j < SCREEN_SIZE_ALGORITMOS; j += 2, i += 6, k += 4) {
         de = _amem4_const(&subimage[k]);
         Y1 = ((unsigned char *) &de)[0];
@@ -89,7 +91,8 @@ void YUYVtoRGB(const unsigned char * __restrict__ subimage, unsigned char* __res
     }
 }
 
-void NearestNeighbour(const unsigned char* subimage, unsigned char* dest, unsigned int scale) {
+void NearestNeighbour(const unsigned char* __restrict__ subimage,
+        unsigned char* __restrict__ dest, unsigned int scale) {
     int dst_x = WIDTH_AL / 2 - WIDTH_AL / scale / 2;
     int dst_y = HEIGHT_AL / 2 - HEIGHT_AL / scale / 2;
 
@@ -99,7 +102,7 @@ void NearestNeighbour(const unsigned char* subimage, unsigned char* dest, unsign
     int p_dst = 0;
     int cnt = 0;
     int ant = p_src;
-
+#pragma MUST_ITERATE(8, ,8)
     for (i = 0; i < HEIGHT_AL; i++) {
         for (j = 0; j < WIDTH_AL;) {
             for (k = 0; k < scale; k++, j++) {
@@ -120,14 +123,23 @@ void NearestNeighbour(const unsigned char* subimage, unsigned char* dest, unsign
     }
 }
 
-void ImageThresholdPlusZoom(unsigned char * subimage, unsigned char* dest, const unsigned char cor, unsigned int scale) {
+void memorycpy(const unsigned char * __restrict__ src, unsigned char * __restrict__ dst) {
+    unsigned int i;
+#pragma MUST_ITERATE(8, ,8)
+    for (i = 0; i < SIZE_IMAGE_ALGORITMOS; i++)
+        dst[i] = src[i];
+}
+
+void ImageThresholdPlusZoom(unsigned char * __restrict__ subimage,
+        unsigned char* __restrict__ dest, const unsigned char cor, unsigned int scale) {
     ImageThreshold(subimage, dest, cor);
-    memcpy(subimage, dest, SIZE_IMAGE_ALGORITMOS);
+    memorycpy(subimage, dest);
     NearestNeighbour(subimage, dest, scale);
 }
 
-void YUYVtoRGBPlusZoom(unsigned char * subimage, unsigned char* dest, unsigned int scale) {
+void YUYVtoRGBPlusZoom(unsigned char * __restrict__ subimage,
+        unsigned char* __restrict__ dest, unsigned int scale) {
     YUYVtoRGB(subimage, dest);
-    memcpy(subimage, dest, SIZE_IMAGE_ALGORITMOS);
+    memorycpy(subimage, dest);
     NearestNeighbour(subimage, dest, scale);
 }

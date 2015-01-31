@@ -4,18 +4,6 @@
     <df root="." name="0">
       <df name="DSP">
         <df name="CSequencial_DSP.03">
-          <df name="c64pimglib">
-            <in>IMG_conv_3x3_i8_c8s.h</in>
-            <in>IMG_dilate_bin.h</in>
-            <in>IMG_erode_bin.h</in>
-            <in>IMG_median_3x3_8.h</in>
-            <in>IMG_sobel_3x3_8.h</in>
-            <in>IMG_thr_gt2max_8.h</in>
-            <in>IMG_thr_gt2thr_8.h</in>
-            <in>IMG_thr_le2min_8.h</in>
-            <in>IMG_thr_le2thr_8.h</in>
-            <in>binimg_helper.h</in>
-          </df>
           <df name="DSPHeaders">
             <in>algoritmos.h</in>
             <in>dmm_buffer.h</in>
