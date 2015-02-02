@@ -122,12 +122,21 @@ void NearestNeighbour(const unsigned char* __restrict__ subimage,
         }
     }
 }
-
+//testar algo mais aqui
 void memorycpy(const unsigned char * __restrict__ src, unsigned char * __restrict__ dst) {
     unsigned int i;
-#pragma MUST_ITERATE(8, ,8)
+#pragma MUST_ITERATE(, ,)
+#pragma UNROLL(2)
     for (i = 0; i < SIZE_IMAGE_ALGORITMOS; i++)
         dst[i] = src[i];
+}
+
+void memorycpy2(const unsigned char * __restrict__ src, unsigned char * __restrict__ dst) {
+    unsigned int i;
+#pragma MUST_ITERATE(, ,)
+#pragma UNROLL(2)
+    for (i = 0; i < SIZE_IMAGE_ALGORITMOS; i++)
+        _amem8(&dst[i]) = _amem8_const(&src[i]);
 }
 
 void ImageThresholdPlusZoom(unsigned char * __restrict__ subimage,
@@ -140,6 +149,6 @@ void ImageThresholdPlusZoom(unsigned char * __restrict__ subimage,
 void YUYVtoRGBPlusZoom(unsigned char * __restrict__ subimage,
         unsigned char* __restrict__ dest, unsigned int scale) {
     YUYVtoRGB(subimage, dest);
-    memorycpy(subimage, dest);
+    memorycpy2(subimage, dest);
     NearestNeighbour(subimage, dest, scale);
 }
