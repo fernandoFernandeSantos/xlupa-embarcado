@@ -6,9 +6,9 @@ GTK_FLAGS := `pkg-config --cflags --libs gtk+-2.0`
 LIBS +=     `pkg-config --libs gtk+-2.0` -lrt #-mfloat-abi=softfp -march=armv7-a -mtune=cortex-a8 -ftree-vectorizer-verbose=1 
 V4L_FLAGS := -lv4l2
 LIBS += -lv4l2
-CFLAGS := -g -O3 -Wall -Wextra -Wno-unused-parameter -std=c99 
+CFLAGS := -O3 -Wall -Wextra -Wno-unused-parameter -std=c99 –on2 –o3 #-g 
 LDFLAGS := -Wl,--as-needed -lpthread
-DSP_AUX := -mw -k -o3 -pm -mt #-lrts64plus.lib -limglib2.l64P
+DSP_AUX := -mw -k -o3 -pm -mt
 
 
 DSP_TOOLS := /opt/c6000_7.6.0
