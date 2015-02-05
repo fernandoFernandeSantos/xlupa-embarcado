@@ -7,7 +7,7 @@
 #define SIZE_IMAGE_ALGORITMOS (WIDTH_AL * HEIGHT_AL  * 3)
 #define SCREEN_SIZE_ALGORITMOS (WIDTH_AL * HEIGHT_AL)
 
-void inline Grayscale(const unsigned char * __restrict__ subimage, unsigned char* __restrict__ dest) {
+void Grayscale(const unsigned char * __restrict__ subimage, unsigned char* __restrict__ dest) {
     unsigned int j = 0;
     unsigned int i = 0;
     unsigned int k = 0;
@@ -21,7 +21,7 @@ void inline Grayscale(const unsigned char * __restrict__ subimage, unsigned char
     }
 }
 
-void inline ImageThreshold(const unsigned char * __restrict__ subimage, unsigned char* __restrict__ dest, const unsigned char cor) {
+void ImageThreshold(const unsigned char * __restrict__ subimage, unsigned char* __restrict__ dest, const unsigned char cor) {
     unsigned int j = 0;
     unsigned int i = 0;
     unsigned int k = 0;
@@ -46,7 +46,7 @@ void inline ImageThreshold(const unsigned char * __restrict__ subimage, unsigned
     }
 }
 
-void inline YUYVtoRGB(unsigned char * __restrict__ subimage, unsigned char* __restrict__ dest) {
+void YUYVtoRGB(unsigned char * __restrict__ subimage, unsigned char* __restrict__ dest) {
     unsigned int j;
     unsigned int i = 0;
     unsigned int k = 0;
@@ -68,7 +68,7 @@ void inline YUYVtoRGB(unsigned char * __restrict__ subimage, unsigned char* __re
     }
 }
 
-void inline NearestNeighbour(const unsigned char* __restrict__ src, unsigned char* __restrict__ dst, int scale) {
+void NearestNeighbour(const unsigned char* __restrict__ src, unsigned char* __restrict__ dst, int scale) {
     int dst_x = WIDTH_AL / 2 - WIDTH_AL / scale / 2;
     int dst_y = HEIGHT_AL / 2 - HEIGHT_AL / scale / 2;
 
