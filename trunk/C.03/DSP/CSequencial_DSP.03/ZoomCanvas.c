@@ -16,9 +16,8 @@ static GtkWidget *canvas;
 static GdkPixbuf *pixbuf;
 static cairo_t* cr;
 static int troca = 0;
-static double media = 0;
-static int contador = 0;
-
+static int temp = 0;
+static double results;
 static double t = 0;
 static double acc = 0;
 static int cont = 0;
@@ -46,8 +45,11 @@ void processa_imagem(unsigned char *ini) {
         refresh_profile();
         change_config();
     }
-
-    runTaskIn(ini, get_profile()+1, zoom);
+    //getting just frame processing time
+    register_time();
+    runTaskIn(ini, get_profile() + 1, zoom);
+    t = get_time_mili();
+    
     pixbuf = gdk_pixbuf_new_from_data(output_buffer->data, GDK_COLORSPACE_RGB, 0, 8, width, height, width * 3, NULL, NULL);
     cr = gdk_cairo_create(canvas->window);
     gdk_cairo_set_source_pixbuf(cr, pixbuf, 0, 0);
@@ -58,22 +60,19 @@ void processa_imagem(unsigned char *ini) {
 }
 
 gboolean * time_handler() {
-    static int temp = 0;
-    register_time();
     call_process_image(processa_imagem);
-    t = get_time_mili();
     if (temp++ > 7) {
         acc += t;
         cont++;
-        media += t;
-        printf("Amostragem: %3d | Atual : %10.2lfms | Média: %10.2lfms\n", cont, t, acc / cont);
-        if (!(cont % 100)) {
+        results = acc / cont;
+        printf("Amostragem: %3d | Atual : %10.2lfms | Média: %10.2lfms\n", cont, t, results);
+        if (!(cont % 1000)) {
             troca++;
             refresh_profile();
             change_config();
-            double results = media / 100;
-            media = 0;
-            printf("Trocou perfil, media %lf\n", results);
+            acc = 0;
+            cont = 0;
+            printf("\nTrocou perfil %d, media %lf\n", troca++, results);
             if (troca > 5) {
                 freeDSP();
                 stop_capturing();

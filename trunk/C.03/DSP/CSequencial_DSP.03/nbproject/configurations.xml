@@ -54,6 +54,17 @@
           <cTool>
             <incDir>
               <pElem>/usr/include/gtk-2.0</pElem>
+              <pElem>/usr/lib/x86_64-linux-gnu/gtk-2.0/include</pElem>
+              <pElem>/usr/include/atk-1.0</pElem>
+              <pElem>/usr/include/cairo</pElem>
+              <pElem>/usr/include/gdk-pixbuf-2.0</pElem>
+              <pElem>/usr/include/pango-1.0</pElem>
+              <pElem>/usr/include/gio-unix-2.0</pElem>
+              <pElem>/usr/include/glib-2.0</pElem>
+              <pElem>/usr/lib/x86_64-linux-gnu/glib-2.0/include</pElem>
+              <pElem>/usr/include/pixman-1</pElem>
+              <pElem>/usr/include/freetype2</pElem>
+              <pElem>/usr/include/libpng12</pElem>
             </incDir>
             <preprocessorList>
               <Elem>DSP_API=1</Elem>
@@ -64,35 +75,11 @@
       </makefileType>
       <item path="Algoritmos.c" ex="false" tool="0" flavor2="2">
         <cTool>
-          <incDir>
-            <pElem>/usr/lib/x86_64-linux-gnu/gtk-2.0/include</pElem>
-            <pElem>/usr/include/atk-1.0</pElem>
-            <pElem>/usr/include/cairo</pElem>
-            <pElem>/usr/include/gdk-pixbuf-2.0</pElem>
-            <pElem>/usr/include/pango-1.0</pElem>
-            <pElem>/usr/include/gio-unix-2.0</pElem>
-            <pElem>/usr/include/glib-2.0</pElem>
-            <pElem>/usr/lib/x86_64-linux-gnu/glib-2.0/include</pElem>
-            <pElem>/usr/include/pixman-1</pElem>
-            <pElem>/usr/include/freetype2</pElem>
-            <pElem>/usr/include/libpng12</pElem>
-          </incDir>
         </cTool>
       </item>
       <item path="Main.c" ex="false" tool="0" flavor2="2">
         <cTool>
           <incDir>
-            <pElem>/usr/lib/i386-linux-gnu/gtk-2.0/include</pElem>
-            <pElem>/usr/include/atk-1.0</pElem>
-            <pElem>/usr/include/cairo</pElem>
-            <pElem>/usr/include/gdk-pixbuf-2.0</pElem>
-            <pElem>/usr/include/pango-1.0</pElem>
-            <pElem>/usr/include/gio-unix-2.0</pElem>
-            <pElem>/usr/include/freetype2</pElem>
-            <pElem>/usr/include/glib-2.0</pElem>
-            <pElem>/usr/lib/i386-linux-gnu/glib-2.0/include</pElem>
-            <pElem>/usr/include/pixman-1</pElem>
-            <pElem>/usr/include/libpng12</pElem>
             <pElem>/usr/include/harfbuzz</pElem>
           </incDir>
         </cTool>
@@ -100,17 +87,6 @@
       <item path="ZoomCanvas.c" ex="false" tool="0" flavor2="0">
         <cTool>
           <incDir>
-            <pElem>/usr/lib/i386-linux-gnu/gtk-2.0/include</pElem>
-            <pElem>/usr/include/atk-1.0</pElem>
-            <pElem>/usr/include/cairo</pElem>
-            <pElem>/usr/include/gdk-pixbuf-2.0</pElem>
-            <pElem>/usr/include/pango-1.0</pElem>
-            <pElem>/usr/include/gio-unix-2.0</pElem>
-            <pElem>/usr/include/freetype2</pElem>
-            <pElem>/usr/include/glib-2.0</pElem>
-            <pElem>/usr/lib/i386-linux-gnu/glib-2.0/include</pElem>
-            <pElem>/usr/include/pixman-1</pElem>
-            <pElem>/usr/include/libpng12</pElem>
             <pElem>/usr/include/harfbuzz</pElem>
           </incDir>
         </cTool>
@@ -118,17 +94,6 @@
       <item path="ZoomWindow.c" ex="false" tool="0" flavor2="2">
         <cTool>
           <incDir>
-            <pElem>/usr/lib/i386-linux-gnu/gtk-2.0/include</pElem>
-            <pElem>/usr/include/atk-1.0</pElem>
-            <pElem>/usr/include/cairo</pElem>
-            <pElem>/usr/include/gdk-pixbuf-2.0</pElem>
-            <pElem>/usr/include/pango-1.0</pElem>
-            <pElem>/usr/include/gio-unix-2.0</pElem>
-            <pElem>/usr/include/freetype2</pElem>
-            <pElem>/usr/include/glib-2.0</pElem>
-            <pElem>/usr/lib/i386-linux-gnu/glib-2.0/include</pElem>
-            <pElem>/usr/include/pixman-1</pElem>
-            <pElem>/usr/include/libpng12</pElem>
             <pElem>/usr/include/harfbuzz</pElem>
           </incDir>
         </cTool>
@@ -136,17 +101,6 @@
       <item path="capture.c" ex="false" tool="0" flavor2="2">
         <cTool>
           <incDir>
-            <pElem>/usr/lib/i386-linux-gnu/gtk-2.0/include</pElem>
-            <pElem>/usr/include/atk-1.0</pElem>
-            <pElem>/usr/include/cairo</pElem>
-            <pElem>/usr/include/gdk-pixbuf-2.0</pElem>
-            <pElem>/usr/include/pango-1.0</pElem>
-            <pElem>/usr/include/gio-unix-2.0</pElem>
-            <pElem>/usr/include/freetype2</pElem>
-            <pElem>/usr/include/glib-2.0</pElem>
-            <pElem>/usr/lib/i386-linux-gnu/glib-2.0/include</pElem>
-            <pElem>/usr/include/pixman-1</pElem>
-            <pElem>/usr/include/libpng12</pElem>
             <pElem>/usr/include/harfbuzz</pElem>
           </incDir>
         </cTool>
@@ -154,17 +108,6 @@
       <item path="clique.c" ex="false" tool="0" flavor2="2">
         <cTool>
           <incDir>
-            <pElem>/usr/lib/i386-linux-gnu/gtk-2.0/include</pElem>
-            <pElem>/usr/include/atk-1.0</pElem>
-            <pElem>/usr/include/cairo</pElem>
-            <pElem>/usr/include/gdk-pixbuf-2.0</pElem>
-            <pElem>/usr/include/pango-1.0</pElem>
-            <pElem>/usr/include/gio-unix-2.0</pElem>
-            <pElem>/usr/include/freetype2</pElem>
-            <pElem>/usr/include/glib-2.0</pElem>
-            <pElem>/usr/lib/i386-linux-gnu/glib-2.0/include</pElem>
-            <pElem>/usr/include/pixman-1</pElem>
-            <pElem>/usr/include/libpng12</pElem>
             <pElem>/usr/include/harfbuzz</pElem>
           </incDir>
         </cTool>
@@ -172,17 +115,6 @@
       <item path="dsp_bridge.c" ex="false" tool="0" flavor2="2">
         <cTool>
           <incDir>
-            <pElem>/usr/lib/i386-linux-gnu/gtk-2.0/include</pElem>
-            <pElem>/usr/include/atk-1.0</pElem>
-            <pElem>/usr/include/cairo</pElem>
-            <pElem>/usr/include/gdk-pixbuf-2.0</pElem>
-            <pElem>/usr/include/pango-1.0</pElem>
-            <pElem>/usr/include/gio-unix-2.0</pElem>
-            <pElem>/usr/include/freetype2</pElem>
-            <pElem>/usr/include/glib-2.0</pElem>
-            <pElem>/usr/lib/i386-linux-gnu/glib-2.0/include</pElem>
-            <pElem>/usr/include/pixman-1</pElem>
-            <pElem>/usr/include/libpng12</pElem>
             <pElem>/usr/include/harfbuzz</pElem>
           </incDir>
         </cTool>
@@ -190,17 +122,6 @@
       <item path="dummy_arm.c" ex="false" tool="0" flavor2="2">
         <cTool>
           <incDir>
-            <pElem>/usr/lib/i386-linux-gnu/gtk-2.0/include</pElem>
-            <pElem>/usr/include/atk-1.0</pElem>
-            <pElem>/usr/include/cairo</pElem>
-            <pElem>/usr/include/gdk-pixbuf-2.0</pElem>
-            <pElem>/usr/include/pango-1.0</pElem>
-            <pElem>/usr/include/gio-unix-2.0</pElem>
-            <pElem>/usr/include/freetype2</pElem>
-            <pElem>/usr/include/glib-2.0</pElem>
-            <pElem>/usr/lib/i386-linux-gnu/glib-2.0/include</pElem>
-            <pElem>/usr/include/pixman-1</pElem>
-            <pElem>/usr/include/libpng12</pElem>
             <pElem>/usr/include/harfbuzz</pElem>
           </incDir>
         </cTool>
@@ -208,17 +129,6 @@
       <item path="log.c" ex="false" tool="0" flavor2="2">
         <cTool>
           <incDir>
-            <pElem>/usr/lib/i386-linux-gnu/gtk-2.0/include</pElem>
-            <pElem>/usr/include/atk-1.0</pElem>
-            <pElem>/usr/include/cairo</pElem>
-            <pElem>/usr/include/gdk-pixbuf-2.0</pElem>
-            <pElem>/usr/include/pango-1.0</pElem>
-            <pElem>/usr/include/gio-unix-2.0</pElem>
-            <pElem>/usr/include/freetype2</pElem>
-            <pElem>/usr/include/glib-2.0</pElem>
-            <pElem>/usr/lib/i386-linux-gnu/glib-2.0/include</pElem>
-            <pElem>/usr/include/pixman-1</pElem>
-            <pElem>/usr/include/libpng12</pElem>
             <pElem>/usr/include/harfbuzz</pElem>
           </incDir>
         </cTool>
@@ -226,52 +136,17 @@
       <item path="profile.c" ex="false" tool="0" flavor2="2">
         <cTool>
           <incDir>
-            <pElem>/usr/lib/i386-linux-gnu/gtk-2.0/include</pElem>
-            <pElem>/usr/include/atk-1.0</pElem>
-            <pElem>/usr/include/cairo</pElem>
-            <pElem>/usr/include/gdk-pixbuf-2.0</pElem>
-            <pElem>/usr/include/pango-1.0</pElem>
-            <pElem>/usr/include/gio-unix-2.0</pElem>
-            <pElem>/usr/include/freetype2</pElem>
-            <pElem>/usr/include/glib-2.0</pElem>
-            <pElem>/usr/lib/i386-linux-gnu/glib-2.0/include</pElem>
-            <pElem>/usr/include/pixman-1</pElem>
-            <pElem>/usr/include/libpng12</pElem>
             <pElem>/usr/include/harfbuzz</pElem>
           </incDir>
         </cTool>
       </item>
       <item path="tableCreate.c" ex="false" tool="0" flavor2="2">
         <cTool>
-          <incDir>
-            <pElem>/usr/lib/x86_64-linux-gnu/gtk-2.0/include</pElem>
-            <pElem>/usr/include/atk-1.0</pElem>
-            <pElem>/usr/include/cairo</pElem>
-            <pElem>/usr/include/gdk-pixbuf-2.0</pElem>
-            <pElem>/usr/include/pango-1.0</pElem>
-            <pElem>/usr/include/gio-unix-2.0</pElem>
-            <pElem>/usr/include/glib-2.0</pElem>
-            <pElem>/usr/lib/x86_64-linux-gnu/glib-2.0/include</pElem>
-            <pElem>/usr/include/pixman-1</pElem>
-            <pElem>/usr/include/freetype2</pElem>
-            <pElem>/usr/include/libpng12</pElem>
-          </incDir>
         </cTool>
       </item>
       <item path="util.c" ex="false" tool="0" flavor2="2">
         <cTool>
           <incDir>
-            <pElem>/usr/lib/i386-linux-gnu/gtk-2.0/include</pElem>
-            <pElem>/usr/include/atk-1.0</pElem>
-            <pElem>/usr/include/cairo</pElem>
-            <pElem>/usr/include/gdk-pixbuf-2.0</pElem>
-            <pElem>/usr/include/pango-1.0</pElem>
-            <pElem>/usr/include/gio-unix-2.0</pElem>
-            <pElem>/usr/include/freetype2</pElem>
-            <pElem>/usr/include/glib-2.0</pElem>
-            <pElem>/usr/lib/i386-linux-gnu/glib-2.0/include</pElem>
-            <pElem>/usr/include/pixman-1</pElem>
-            <pElem>/usr/include/libpng12</pElem>
             <pElem>/usr/include/harfbuzz</pElem>
           </incDir>
         </cTool>
