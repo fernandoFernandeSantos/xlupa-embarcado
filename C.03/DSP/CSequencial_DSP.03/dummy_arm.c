@@ -92,7 +92,6 @@ void runTaskIn(unsigned char *ini, unsigned int message, unsigned int zoom) {
     memcpy(input_buffer->data, ini, SIZE_IMAGE);
     dsp_node_put_message(dsp_handle, node, &msg, -1);
     dsp_node_get_message(dsp_handle, node, &msg, -1);
-    //memcpy(dest, output_buffer->data, output_buffer_size);
 }
 
 static bool

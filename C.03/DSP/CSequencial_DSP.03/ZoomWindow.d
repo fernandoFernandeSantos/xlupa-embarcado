@@ -5,7 +5,7 @@ ZoomWindow.o: ZoomWindow.c /usr/include/gtk-2.0/gtk/gtk.h \
  /usr/include/glib-2.0/gio/gioenums.h /usr/include/glib-2.0/glib-object.h \
  /usr/include/glib-2.0/gobject/gbinding.h /usr/include/glib-2.0/glib.h \
  /usr/include/glib-2.0/glib/galloca.h /usr/include/glib-2.0/glib/gtypes.h \
- /usr/lib/i386-linux-gnu/glib-2.0/include/glibconfig.h \
+ /usr/lib/x86_64-linux-gnu/glib-2.0/include/glibconfig.h \
  /usr/include/glib-2.0/glib/gmacros.h \
  /usr/include/glib-2.0/glib/gversionmacros.h \
  /usr/include/glib-2.0/glib/garray.h \
@@ -183,8 +183,6 @@ ZoomWindow.o: ZoomWindow.c /usr/include/gtk-2.0/gtk/gtk.h \
  /usr/include/glib-2.0/gio/gsrvtarget.h \
  /usr/include/glib-2.0/gio/gsimpleproxyresolver.h \
  /usr/include/glib-2.0/gio/gtask.h \
- /usr/include/glib-2.0/gio/gsubprocess.h \
- /usr/include/glib-2.0/gio/gsubprocesslauncher.h \
  /usr/include/glib-2.0/gio/gtcpconnection.h \
  /usr/include/glib-2.0/gio/gtcpwrapperconnection.h \
  /usr/include/glib-2.0/gio/gtestdbus.h \
@@ -216,7 +214,6 @@ ZoomWindow.o: ZoomWindow.c /usr/include/gtk-2.0/gtk/gtk.h \
  /usr/include/glib-2.0/gio/gmenumodel.h /usr/include/glib-2.0/gio/gmenu.h \
  /usr/include/glib-2.0/gio/gmenuexporter.h \
  /usr/include/glib-2.0/gio/gdbusmenumodel.h \
- /usr/include/glib-2.0/gio/gnotification.h \
  /usr/include/gtk-2.0/gdk/gdkscreen.h /usr/include/cairo/cairo.h \
  /usr/include/cairo/cairo-version.h /usr/include/cairo/cairo-features.h \
  /usr/include/cairo/cairo-deprecated.h \
@@ -244,7 +241,7 @@ ZoomWindow.o: ZoomWindow.c /usr/include/gtk-2.0/gtk/gtk.h \
  /usr/include/pango-1.0/pango/pango-tabs.h \
  /usr/include/pango-1.0/pango/pango-renderer.h \
  /usr/include/pango-1.0/pango/pango-utils.h \
- /usr/lib/i386-linux-gnu/gtk-2.0/include/gdkconfig.h \
+ /usr/lib/x86_64-linux-gnu/gtk-2.0/include/gdkconfig.h \
  /usr/include/gtk-2.0/gdk/gdkdisplay.h \
  /usr/include/gtk-2.0/gdk/gdkevents.h /usr/include/gtk-2.0/gdk/gdkcolor.h \
  /usr/include/gtk-2.0/gdk/gdkdnd.h /usr/include/gtk-2.0/gdk/gdkinput.h \
