@@ -1,0 +1,12 @@
+#!/bin/bash
+
+#i2cset -y -f 1 0x4a 0x12 0x20
+for ((a=0; a < $1; a++))
+do 
+	i2cset -y -f 1 0x4a 0x12 0x20
+	i2cget -y -f 1 0x4a 0x3d w # ADCIN3
+	i2cget -y -f 1 0x4a 0x41 w # ADCIN5
+	sleep 0.5
+done
+
+
