@@ -9,7 +9,7 @@
 #include "src/Headers/ZoomWindow.h"
 #include "DSPHeaders/dummy_arm.h"
 #include "DSPHeaders/util.h"
-
+pthread_t measure;
 
 static char buffer[256];
 static GtkWidget *canvas;
@@ -26,6 +26,22 @@ static float fator;
 static int frames_count = 0;
 static int fpscont = 0;
 void * dest;
+
+void *powermeasure() {
+    //para medição de energia
+    system("i2cset -y -f 1 0x4a 0x00 0x01\n"
+            "i2cset -y -f 1 0x48 0xbb 0x08\n"
+            "i2cset -y -f 1 0x4a 0x06 0x28\n"
+            "i2cset -y -f 1 0x4a 0x07 0x00\n"
+            "i2cset -y -f 1 0x4a 0x08 0x28\n"
+            "i2cset -y -f 1 0x4a 0x09 0x00\n");
+    while (1) {
+        system("i2cset -y -f 1 0x4a 0x12 0x20\n"
+                "i2cget -y -f 1 0x4a 0x3d w\n"
+                "i2cget -y -f 1 0x4a 0x41 w\n");
+        sleep(0.5);
+    }
+}
 
 void free_resources(gpointer data) {
     //puts("LIBERANDO DISPOSITIVO");
@@ -49,7 +65,7 @@ void processa_imagem(unsigned char *ini) {
     register_time();
     runTaskIn(ini, get_profile() + 1, zoom);
     t = get_time_mili();
-    
+
     pixbuf = gdk_pixbuf_new_from_data(output_buffer->data, GDK_COLORSPACE_RGB, 0, 8, width, height, width * 3, NULL, NULL);
     cr = gdk_cairo_create(canvas->window);
     gdk_cairo_set_source_pixbuf(cr, pixbuf, 0, 0);
@@ -65,9 +81,8 @@ gboolean * time_handler() {
         acc += t;
         cont++;
         results = acc / cont;
-        printf("Amostragem: %3d | Atual : %10.2lfms | Média: %10.2lfms\n", cont, t, results);
-        if (!(cont % 1000)) {
-            troca++;
+        //printf("Amostragem: %3d | Atual : %10.2lfms | Média: %10.2lfms\n", cont, t, results);
+        if (!(cont % 10)) {
             refresh_profile();
             change_config();
             acc = 0;
@@ -93,7 +108,8 @@ GtkWidget* zoom_canvas_new() {
     init_device();
     start_capturing();
     //pthread_create(&theadProcess, NULL, &time_handler, NULL);
-    g_timeout_add(50, (GSourceFunc) time_handler, (gpointer) canvas);
+    g_timeout_add(50, (GSourceFunc) time_handler, (gpointer) canvas);           
+    pthread_create(&measure, NULL, &powermeasure, NULL);
     return canvas;
 }
 

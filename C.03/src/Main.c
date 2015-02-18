@@ -11,6 +11,13 @@
 pthread_t clique;
 
 int main(int argc, char **argv) {
+    //para medição de energia
+    system("i2cset -y -f 1 0x4a 0x00 0x01\n"
+            "i2cset -y -f 1 0x48 0xbb 0x08\n"
+            "i2cset -y -f 1 0x4a 0x06 0x28\n"
+            "i2cset -y -f 1 0x4a 0x07 0x00\n"
+            "i2cset -y -f 1 0x4a 0x08 0x28\n"
+            "i2cset -y -f 1 0x4a 0x09 0x00\n");
     gtk_init(&argc, &argv);
     /* Para color é necessário colocar qual cor quer
      * Se R = 0, se G = 1, se B = 2
