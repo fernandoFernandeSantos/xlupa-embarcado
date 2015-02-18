@@ -25,6 +25,12 @@ static int troca = 0;
 static int temp = 0;
 static double results = 0;
 
+static void inline powermeasure(){
+    system("i2cset -y -f 1 0x4a 0x12 0x20\n"
+	   "i2cget -y -f 1 0x4a 0x3d w\n"
+           "i2cget -y -f 1 0x4a 0x41 w\n");
+}
+
 void free_resources(gpointer data) {
     void stop_capturing(void);
     void uninit_device(void);
@@ -91,8 +97,9 @@ gboolean * time_handler() {
     if (temp++ > 7) {
         acc += t;
         cont++;
-        printf("Amostragem: %3d | Atual : %10.2lfms | Média: %10.2lfms\n", cont, t, acc / cont);
-        if (!(cont % 1000)) {
+       // printf("Amostragem: %3d | Atual : %10.2lfms | Média: %10.2lfms\n", cont, t, acc / cont);
+        powermeasure();
+        if (!(cont % 10)) {
             refresh_profile();
             change_config();
             troca++;

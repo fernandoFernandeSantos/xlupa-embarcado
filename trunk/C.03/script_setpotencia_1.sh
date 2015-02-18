@@ -1,0 +1,15 @@
+#!/bin/sh
+# 
+# File:   script_setpotencia.sh
+# Author: fernandofernandes
+#
+# Created on 18/02/2015, 15:42:13
+#
+i2cset -y -f 1 0x4a 0x00 0x01  
+i2cset -y -f 1 0x48 0xbb 0x08  
+  
+# set which ADCs to read/average 
+i2cset -y -f 1 0x4a 0x06 0x28  
+i2cset -y -f 1 0x4a 0x07 0x00 
+i2cset -y -f 1 0x4a 0x08 0x28 
+i2cset -y -f 1 0x4a 0x09 0x00 
